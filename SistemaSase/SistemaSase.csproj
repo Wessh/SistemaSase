@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -123,6 +131,90 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dbSase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dbSase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dbSase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblAcessibilidade.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblArredoresUeb.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCatSeg.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblEquipamentosSeg.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblEstFisica.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblEstReparo.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblExtintor.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblFiscalizacao.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblGasCozinha.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblGestor.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblIluminacao.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblIluReparo.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblListaTel.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblLivroRegistro.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOcoInternas.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOpGas.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblPanicoIncendio.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProjViolencia.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRegistro.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSisHidraSaniRep.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSisIncendio.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblTransito.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUeb.cs">
+      <DependentUpon>dbSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -278,6 +370,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\dbSase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>dbSase.Context.cs</LastGenOutput>
+      <DependentUpon>dbSase.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\dbSase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbSase.edmx</DependentUpon>
+      <LastGenOutput>dbSase.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Layout\font-awesome\fontawesome-webfont.eot" />
@@ -291,6 +393,13 @@
     <Content Include="Content\Layout\img\demo\Thumbs.db" />
     <Content Include="Content\Layout\img\icons\32\Thumbs.db" />
     <Content Include="Content\Layout\img\Thumbs.db" />
+    <EntityDeploy Include="Models\dbSase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbSase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\dbSase.edmx.diagram">
+      <DependentUpon>dbSase.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -322,7 +431,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -336,6 +444,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

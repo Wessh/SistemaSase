@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3e9c52c852574dcc8f9bc2f40f8f4649" Name="Diagram1">
+        <EntityTypeShape EntityType="SistemaSaseModel.tblAcessibilidade" Width="1.5" PointX="3.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblArredoresUeb" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblCatSeg" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblEquipamentosSeg" Width="1.5" PointX="1.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblEstFisica" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblEstReparo" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblExtintor" Width="1.5" PointX="1.5" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblFiscalizacao" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblGasCozinha" Width="1.5" PointX="3.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblGestor" Width="1.5" PointX="1.5" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblIluminacao" Width="1.5" PointX="3.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblIluReparo" Width="1.5" PointX="6" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblListaTel" Width="1.5" PointX="3.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblLivroRegistro" Width="1.5" PointX="3.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblOcoInternas" Width="1.5" PointX="3.75" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblOpGas" Width="1.5" PointX="6" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblPanicoIncendio" Width="1.5" PointX="3.75" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblProjViolencia" Width="1.5" PointX="3.75" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblRegistro" Width="1.5" PointX="3.75" PointY="37.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblSisHidraSaniRep" Width="1.5" PointX="3.75" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblSisIncendio" Width="1.5" PointX="3.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblTransito" Width="1.5" PointX="3.75" PointY="46.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaSaseModel.tblUeb" Width="1.5" PointX="3.75" PointY="49.25" IsExpanded="true" />
+        <AssociationConnector Association="SistemaSaseModel.FkAcessibilidade" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkArredoresUeb" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.CatSegEquipamentoSeg" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkCatSeg" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkEstFisica" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FiscalizacaoRegistro" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FiscalizacaoUeb" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkGasCozinha" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkIluminacao" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkListaTel" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkLivroRegistro" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkOcoInternas" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkPanicoIncendio" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkProjViolencia" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkSisHidraSaniRep" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkSisIncendio" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.FkTransito" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.UebGestor" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.UebRegistro" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.EstFisica_EstReparo" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.Gas_OpcaoGas" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.Iluminacao_IluReparo" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaSaseModel.Incendio_Extintor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
