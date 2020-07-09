@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -428,6 +429,11 @@
     <Content Include="Views\Shared\Base_Layout.cshtml" />
     <Content Include="Views\Shared\SidebarMenu.cshtml" />
     <Content Include="Views\Shared\TopHeaderMenu.cshtml" />
+    <Content Include="Views\Registro\Create.cshtml" />
+    <Content Include="Views\Registro\Delete.cshtml" />
+    <Content Include="Views\Registro\Details.cshtml" />
+    <Content Include="Views\Registro\Edit.cshtml" />
+    <Content Include="Views\Registro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
