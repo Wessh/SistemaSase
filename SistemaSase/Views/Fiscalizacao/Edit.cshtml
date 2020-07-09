@@ -1,0 +1,162 @@
+﻿@model SistemaSase.Models.tblFiscalizacao
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>tblFiscalizacao</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkUeb, "FkUeb", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkUeb", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkUeb, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkRegistro, "FkRegistro", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkRegistro", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkRegistro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkLivroRegistro, "FkLivroRegistro", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkLivroRegistro", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkLivroRegistro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkCatSeg, "FkCatSeg", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkCatSeg", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkCatSeg, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkEstFisica, "FkEstFisica", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkEstFisica", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkEstFisica, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkIluminacao, "FkIluminacao", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkIluminacao", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkIluminacao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkSisHidraSaniRep, "FkSisHidraSaniRep", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkSisHidraSaniRep", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkSisHidraSaniRep, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkSisIncendio, "FkSisIncendio", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkSisIncendio", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkSisIncendio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkGasCozinha, "FkGasCozinha", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkGasCozinha", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkGasCozinha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkPanicoIncendio, "FkPanicoIncendio", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkPanicoIncendio", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkPanicoIncendio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkTransito, "FkTransito", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkTransito", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkTransito, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkAcessibilidade, "FkAcessibilidade", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkAcessibilidade", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkAcessibilidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkArredoresUeb, "FkArredoresUeb", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkArredoresUeb", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkArredoresUeb, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkProjViolencia, "FkProjViolencia", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkProjViolencia", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkProjViolencia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkListaTel, "FkListaTel", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkListaTel", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkListaTel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FkOcoInternas, "FkOcoInternas", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FkOcoInternas", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FkOcoInternas, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,98 @@
+﻿@model SistemaSase.Models.tblEquipamentosSeg
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblEquipamentosSeg</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fardamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fardamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CapaChuva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CapaChuva)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Colete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Colete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tonfa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tonfa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lanterna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lanterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cracha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cracha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quepe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quepe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Revolver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Revolver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Radio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Radio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

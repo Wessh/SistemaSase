@@ -1,0 +1,90 @@
+﻿@model SistemaSase.Models.tblIluReparo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblIluReparo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaixaForca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaixaForca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interruptores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interruptores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tomadas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tomadas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArCon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArCon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ventilador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ventilador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Geladeira)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Geladeira)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frezzer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Frezzer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bebedouro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bebedouro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

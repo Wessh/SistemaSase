@@ -1,0 +1,80 @@
+﻿@model SistemaSase.Models.tblListaTel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tblListaTel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Policia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Policia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ronda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ronda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Guarda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guarda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bombeiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bombeiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conselho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conselho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Samu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Samu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaseSemed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaseSemed)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

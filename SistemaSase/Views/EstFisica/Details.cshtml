@@ -1,0 +1,58 @@
+﻿@model SistemaSase.Models.tblEstFisica
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblEstFisica</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estacionamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estacionamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControleVeiculos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControleVeiculos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PortaoEletronico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PortaoEletronico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstaRetrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstaRetrito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParaRaios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParaRaios)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

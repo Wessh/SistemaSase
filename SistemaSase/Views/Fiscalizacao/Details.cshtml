@@ -1,0 +1,146 @@
+﻿@model SistemaSase.Models.tblFiscalizacao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblFiscalizacao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblAcessibilidade.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblAcessibilidade.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblArredoresUeb.Outros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblArredoresUeb.Outros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblCatSeg.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCatSeg.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblEstFisica.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblEstFisica.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblRegistro.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblRegistro.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblUeb.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblUeb.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGasCozinha.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGasCozinha.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblIluminacao.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblIluminacao.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblListaTel.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblListaTel.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblLivroRegistro.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblLivroRegistro.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblOcoInternas.Outros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblOcoInternas.Outros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblPanicoIncendio.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblPanicoIncendio.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProjViolencia.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProjViolencia.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSisHidraSaniRep.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSisHidraSaniRep.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSisIncendio.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSisIncendio.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblTransito.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTransito.Id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

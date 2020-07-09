@@ -1,0 +1,34 @@
+﻿@model SistemaSase.Models.tblSisIncendio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSisIncendio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Certificacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Certificacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extintor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extintor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

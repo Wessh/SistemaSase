@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SistemaSase.Models.tblListaTel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Policia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ronda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Guarda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bombeiro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conselho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Samu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaseSemed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Policia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ronda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Guarda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bombeiro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conselho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Samu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SaseSemed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

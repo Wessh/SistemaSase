@@ -1,0 +1,123 @@
+﻿@model IEnumerable<SistemaSase.Models.tblFiscalizacao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblAcessibilidade.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblArredoresUeb.Outros)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblCatSeg.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblEstFisica.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblRegistro.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblUeb.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblGasCozinha.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblIluminacao.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblListaTel.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblLivroRegistro.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblOcoInternas.Outros)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblPanicoIncendio.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblProjViolencia.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSisHidraSaniRep.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSisIncendio.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblTransito.Id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblAcessibilidade.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblArredoresUeb.Outros)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCatSeg.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblEstFisica.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblRegistro.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblUeb.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblGasCozinha.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblIluminacao.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblListaTel.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblLivroRegistro.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblOcoInternas.Outros)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblPanicoIncendio.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblProjViolencia.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSisHidraSaniRep.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSisIncendio.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTransito.Id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

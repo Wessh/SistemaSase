@@ -1,0 +1,50 @@
+﻿@model SistemaSase.Models.tblArredoresUeb
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblArredoresUeb</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bares)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bares)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CasaFesta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CasaFesta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Drogas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Drogas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Outros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Outros)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

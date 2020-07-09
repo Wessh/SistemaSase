@@ -1,0 +1,74 @@
+﻿@model SistemaSase.Models.tblListaTel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblListaTel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Policia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Policia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ronda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ronda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Guarda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guarda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bombeiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bombeiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conselho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conselho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Samu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Samu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaseSemed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaseSemed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
