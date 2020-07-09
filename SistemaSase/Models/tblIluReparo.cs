@@ -17,7 +17,7 @@ namespace SistemaSase.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblIluReparo()
         {
-            this.tblIluminacao = new HashSet<tblIluminacao>();
+            this.Iluminacao_IluReparo = new HashSet<Iluminacao_IluReparo>();
         }
     
         public int Id { get; set; }
@@ -32,6 +32,6 @@ namespace SistemaSase.Models
         public bool Bebedouro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblIluminacao> tblIluminacao { get; set; }
+        public virtual ICollection<Iluminacao_IluReparo> Iluminacao_IluReparo { get; set; }
     }
 }

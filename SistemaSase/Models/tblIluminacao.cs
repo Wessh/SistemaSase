@@ -17,16 +17,16 @@ namespace SistemaSase.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblIluminacao()
         {
+            this.Iluminacao_IluReparo = new HashSet<Iluminacao_IluReparo>();
             this.tblFiscalizacao = new HashSet<tblFiscalizacao>();
-            this.tblIluReparo = new HashSet<tblIluReparo>();
         }
     
         public int Id { get; set; }
         public string Nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
+        public virtual ICollection<Iluminacao_IluReparo> Iluminacao_IluReparo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblIluReparo> tblIluReparo { get; set; }
+        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
     }
 }

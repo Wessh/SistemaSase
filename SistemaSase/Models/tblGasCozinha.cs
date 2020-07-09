@@ -17,8 +17,8 @@ namespace SistemaSase.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblGasCozinha()
         {
+            this.Gas_OpcaoGas = new HashSet<Gas_OpcaoGas>();
             this.tblFiscalizacao = new HashSet<tblFiscalizacao>();
-            this.tblOpGas = new HashSet<tblOpGas>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace SistemaSase.Models
         public bool Funcionando { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
+        public virtual ICollection<Gas_OpcaoGas> Gas_OpcaoGas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblOpGas> tblOpGas { get; set; }
+        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
     }
 }

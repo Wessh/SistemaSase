@@ -25,6 +25,10 @@ namespace SistemaSase.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<EstFisica_EstReparo> EstFisica_EstReparo { get; set; }
+        public virtual DbSet<Gas_OpcaoGas> Gas_OpcaoGas { get; set; }
+        public virtual DbSet<Iluminacao_IluReparo> Iluminacao_IluReparo { get; set; }
+        public virtual DbSet<Incendio_Extintor> Incendio_Extintor { get; set; }
         public virtual DbSet<tblAcessibilidade> tblAcessibilidade { get; set; }
         public virtual DbSet<tblArredoresUeb> tblArredoresUeb { get; set; }
         public virtual DbSet<tblCatSeg> tblCatSeg { get; set; }

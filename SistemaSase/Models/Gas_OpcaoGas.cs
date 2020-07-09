@@ -12,18 +12,13 @@ namespace SistemaSase.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblOpGas
+    public partial class Gas_OpcaoGas
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblOpGas()
-        {
-            this.Gas_OpcaoGas = new HashSet<Gas_OpcaoGas>();
-        }
-    
         public int Id { get; set; }
-        public bool EstFunc { get; set; }
+        public int IdGas { get; set; }
+        public int IdOpGas { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Gas_OpcaoGas> Gas_OpcaoGas { get; set; }
+        public virtual tblGasCozinha tblGasCozinha { get; set; }
+        public virtual tblOpGas tblOpGas { get; set; }
     }
 }

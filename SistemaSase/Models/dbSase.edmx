@@ -5,43 +5,35 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="SistemaSaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SistemaSase.dbo.EstFisica_EstReparo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EstFisica_EstReparo">
           <Key>
-            <PropertyRef Name="IdEstFisica" />
-            <PropertyRef Name="IdEstReparo" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdEstFisica" Type="int" Nullable="false" />
           <Property Name="IdEstReparo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SistemaSase.dbo.Gas_OpcaoGas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Gas_OpcaoGas">
           <Key>
-            <PropertyRef Name="IdGas" />
-            <PropertyRef Name="IdOpGas" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdGas" Type="int" Nullable="false" />
           <Property Name="IdOpGas" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SistemaSase.dbo.Iluminacao_IluReparo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Iluminacao_IluReparo">
           <Key>
-            <PropertyRef Name="IdIluminacao" />
-            <PropertyRef Name="IdIluReparo" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdIluminacao" Type="int" Nullable="false" />
           <Property Name="IdIluReparo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Incendio_Extintor">
           <Key>
-            <PropertyRef Name="IdIncendio" />
-            <PropertyRef Name="IdExtintor" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdIncendio" Type="int" Nullable="false" />
           <Property Name="IdExtintor" Type="int" Nullable="false" />
         </EntityType>
@@ -603,6 +595,10 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SistemaSaseModelStoreContainer">
+          <EntitySet Name="EstFisica_EstReparo" EntityType="Self.EstFisica_EstReparo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gas_OpcaoGas" EntityType="Self.Gas_OpcaoGas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Iluminacao_IluReparo" EntityType="Self.Iluminacao_IluReparo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Incendio_Extintor" EntityType="Self.Incendio_Extintor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblAcessibilidade" EntityType="Self.tblAcessibilidade" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblArredoresUeb" EntityType="Self.tblArredoresUeb" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCatSeg" EntityType="Self.tblCatSeg" Schema="dbo" store:Type="Tables" />
@@ -626,30 +622,6 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           <EntitySet Name="tblSisIncendio" EntityType="Self.tblSisIncendio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTransito" EntityType="Self.tblTransito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUeb" EntityType="Self.tblUeb" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EstFisica_EstReparo" EntityType="Self.EstFisica_EstReparo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EstFisica_EstReparo].[IdEstFisica] AS [IdEstFisica], 
-    [EstFisica_EstReparo].[IdEstReparo] AS [IdEstReparo]
-    FROM [dbo].[EstFisica_EstReparo] AS [EstFisica_EstReparo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Gas_OpcaoGas" EntityType="Self.Gas_OpcaoGas" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Gas_OpcaoGas].[IdGas] AS [IdGas], 
-    [Gas_OpcaoGas].[IdOpGas] AS [IdOpGas]
-    FROM [dbo].[Gas_OpcaoGas] AS [Gas_OpcaoGas]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Iluminacao_IluReparo" EntityType="Self.Iluminacao_IluReparo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Iluminacao_IluReparo].[IdIluminacao] AS [IdIluminacao], 
-    [Iluminacao_IluReparo].[IdIluReparo] AS [IdIluReparo]
-    FROM [dbo].[Iluminacao_IluReparo] AS [Iluminacao_IluReparo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Incendio_Extintor" EntityType="Self.Incendio_Extintor" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Incendio_Extintor].[IdIncendio] AS [IdIncendio], 
-    [Incendio_Extintor].[IdExtintor] AS [IdExtintor]
-    FROM [dbo].[Incendio_Extintor] AS [Incendio_Extintor]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="CatSegEquipamentoSeg" Association="Self.CatSegEquipamentoSeg">
             <End Role="tblEquipamentosSeg" EntitySet="tblEquipamentosSeg" />
             <End Role="tblCatSeg" EntitySet="tblCatSeg" />
@@ -764,6 +736,46 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SistemaSaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EstFisica_EstReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstFisica" Type="Int32" Nullable="false" />
+          <Property Name="IdEstReparo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblEstFisica" Relationship="Self.REstF_EstR" FromRole="EstFisica_EstReparo" ToRole="tblEstFisica" />
+          <NavigationProperty Name="tblEstReparo" Relationship="Self.REstR_EstF" FromRole="EstFisica_EstReparo" ToRole="tblEstReparo" />
+        </EntityType>
+        <EntityType Name="Gas_OpcaoGas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGas" Type="Int32" Nullable="false" />
+          <Property Name="IdOpGas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblGasCozinha" Relationship="Self.Gas_OpGas" FromRole="Gas_OpcaoGas" ToRole="tblGasCozinha" />
+          <NavigationProperty Name="tblOpGas" Relationship="Self.OpGas_Gas" FromRole="Gas_OpcaoGas" ToRole="tblOpGas" />
+        </EntityType>
+        <EntityType Name="Iluminacao_IluReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdIluminacao" Type="Int32" Nullable="false" />
+          <Property Name="IdIluReparo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblIluminacao" Relationship="Self.Iluminacao_Reparo" FromRole="Iluminacao_IluReparo" ToRole="tblIluminacao" />
+          <NavigationProperty Name="tblIluReparo" Relationship="Self.Reparo_Iluminacao" FromRole="Iluminacao_IluReparo" ToRole="tblIluReparo" />
+        </EntityType>
+        <EntityType Name="Incendio_Extintor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdIncendio" Type="Int32" Nullable="false" />
+          <Property Name="IdExtintor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblExtintor" Relationship="Self.Extin_Incen" FromRole="Incendio_Extintor" ToRole="tblExtintor" />
+          <NavigationProperty Name="tblSisIncendio" Relationship="Self.Incen_Extin" FromRole="Incendio_Extintor" ToRole="tblSisIncendio" />
+        </EntityType>
         <EntityType Name="tblAcessibilidade">
           <Key>
             <PropertyRef Name="Id" />
@@ -822,8 +834,8 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           <Property Name="PortaoEletronico" Type="Boolean" Nullable="false" />
           <Property Name="EstaRetrito" Type="Boolean" Nullable="false" />
           <Property Name="ParaRaios" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EstFisica_EstReparo" Relationship="Self.REstF_EstR" FromRole="tblEstFisica" ToRole="EstFisica_EstReparo" />
           <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FkEstFisica" FromRole="tblEstFisica" ToRole="tblFiscalizacao" />
-          <NavigationProperty Name="tblEstReparo" Relationship="Self.EstFisica_EstReparo" FromRole="tblEstFisica" ToRole="tblEstReparo" />
         </EntityType>
         <EntityType Name="tblEstReparo">
           <Key>
@@ -831,7 +843,7 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblEstFisica" Relationship="Self.EstFisica_EstReparo" FromRole="tblEstReparo" ToRole="tblEstFisica" />
+          <NavigationProperty Name="EstFisica_EstReparo" Relationship="Self.REstR_EstF" FromRole="tblEstReparo" ToRole="EstFisica_EstReparo" />
         </EntityType>
         <EntityType Name="tblExtintor">
           <Key>
@@ -840,7 +852,7 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Validade" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="tblSisIncendio" Relationship="Self.Incendio_Extintor" FromRole="tblExtintor" ToRole="tblSisIncendio" />
+          <NavigationProperty Name="Incendio_Extintor" Relationship="Self.Extin_Incen" FromRole="tblExtintor" ToRole="Incendio_Extintor" />
         </EntityType>
         <EntityType Name="tblFiscalizacao">
           <Key>
@@ -887,8 +899,8 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Funcionando" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Gas_OpcaoGas" Relationship="Self.Gas_OpGas" FromRole="tblGasCozinha" ToRole="Gas_OpcaoGas" />
           <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FkGasCozinha" FromRole="tblGasCozinha" ToRole="tblFiscalizacao" />
-          <NavigationProperty Name="tblOpGas" Relationship="Self.Gas_OpcaoGas" FromRole="tblGasCozinha" ToRole="tblOpGas" />
         </EntityType>
         <EntityType Name="tblGestor">
           <Key>
@@ -905,8 +917,8 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Iluminacao_IluReparo" Relationship="Self.Iluminacao_Reparo" FromRole="tblIluminacao" ToRole="Iluminacao_IluReparo" />
           <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FkIluminacao" FromRole="tblIluminacao" ToRole="tblFiscalizacao" />
-          <NavigationProperty Name="tblIluReparo" Relationship="Self.Iluminacao_IluReparo" FromRole="tblIluminacao" ToRole="tblIluReparo" />
         </EntityType>
         <EntityType Name="tblIluReparo">
           <Key>
@@ -922,7 +934,7 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           <Property Name="Geladeira" Type="Boolean" Nullable="false" />
           <Property Name="Frezzer" Type="Boolean" Nullable="false" />
           <Property Name="Bebedouro" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="tblIluminacao" Relationship="Self.Iluminacao_IluReparo" FromRole="tblIluReparo" ToRole="tblIluminacao" />
+          <NavigationProperty Name="Iluminacao_IluReparo" Relationship="Self.Reparo_Iluminacao" FromRole="tblIluReparo" ToRole="Iluminacao_IluReparo" />
         </EntityType>
         <EntityType Name="tblListaTel">
           <Key>
@@ -964,7 +976,7 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="EstFunc" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="tblGasCozinha" Relationship="Self.Gas_OpcaoGas" FromRole="tblOpGas" ToRole="tblGasCozinha" />
+          <NavigationProperty Name="Gas_OpcaoGas" Relationship="Self.OpGas_Gas" FromRole="tblOpGas" ToRole="Gas_OpcaoGas" />
         </EntityType>
         <EntityType Name="tblPanicoIncendio">
           <Key>
@@ -1013,8 +1025,8 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Certificacao" Type="Boolean" Nullable="false" />
           <Property Name="Extintor" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Incendio_Extintor" Relationship="Self.Incen_Extin" FromRole="tblSisIncendio" ToRole="Incendio_Extintor" />
           <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FkSisIncendio" FromRole="tblSisIncendio" ToRole="tblFiscalizacao" />
-          <NavigationProperty Name="tblExtintor" Relationship="Self.Incendio_Extintor" FromRole="tblSisIncendio" ToRole="tblExtintor" />
         </EntityType>
         <EntityType Name="tblTransito">
           <Key>
@@ -1043,6 +1055,102 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           <NavigationProperty Name="tblGestor" Relationship="Self.UebGestor" FromRole="tblUeb" ToRole="tblGestor" />
           <NavigationProperty Name="tblRegistro" Relationship="Self.UebRegistro" FromRole="tblUeb" ToRole="tblRegistro" />
         </EntityType>
+        <Association Name="REstF_EstR">
+          <End Role="tblEstFisica" Type="Self.tblEstFisica" Multiplicity="1" />
+          <End Role="EstFisica_EstReparo" Type="Self.EstFisica_EstReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstFisica">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstFisica_EstReparo">
+              <PropertyRef Name="IdEstFisica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REstR_EstF">
+          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
+          <End Role="EstFisica_EstReparo" Type="Self.EstFisica_EstReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstFisica_EstReparo">
+              <PropertyRef Name="IdEstReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Gas_OpGas">
+          <End Role="tblGasCozinha" Type="Self.tblGasCozinha" Multiplicity="1" />
+          <End Role="Gas_OpcaoGas" Type="Self.Gas_OpcaoGas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGasCozinha">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gas_OpcaoGas">
+              <PropertyRef Name="IdGas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OpGas_Gas">
+          <End Role="tblOpGas" Type="Self.tblOpGas" Multiplicity="1" />
+          <End Role="Gas_OpcaoGas" Type="Self.Gas_OpcaoGas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOpGas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gas_OpcaoGas">
+              <PropertyRef Name="IdOpGas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Iluminacao_Reparo">
+          <End Role="tblIluminacao" Type="Self.tblIluminacao" Multiplicity="1" />
+          <End Role="Iluminacao_IluReparo" Type="Self.Iluminacao_IluReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblIluminacao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Iluminacao_IluReparo">
+              <PropertyRef Name="IdIluminacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reparo_Iluminacao">
+          <End Role="tblIluReparo" Type="Self.tblIluReparo" Multiplicity="1" />
+          <End Role="Iluminacao_IluReparo" Type="Self.Iluminacao_IluReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblIluReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Iluminacao_IluReparo">
+              <PropertyRef Name="IdIluReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Extin_Incen">
+          <End Role="tblExtintor" Type="Self.tblExtintor" Multiplicity="1" />
+          <End Role="Incendio_Extintor" Type="Self.Incendio_Extintor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblExtintor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Incendio_Extintor">
+              <PropertyRef Name="IdExtintor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Incen_Extin">
+          <End Role="tblSisIncendio" Type="Self.tblSisIncendio" Multiplicity="1" />
+          <End Role="Incendio_Extintor" Type="Self.Incendio_Extintor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSisIncendio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Incendio_Extintor">
+              <PropertyRef Name="IdIncendio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FkAcessibilidade">
           <End Role="tblAcessibilidade" Type="Self.tblAcessibilidade" Multiplicity="1" />
           <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
@@ -1271,23 +1379,11 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EstFisica_EstReparo">
-          <End Role="tblEstFisica" Type="Self.tblEstFisica" Multiplicity="*" />
-          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="*" />
-        </Association>
-        <Association Name="Gas_OpcaoGas">
-          <End Role="tblGasCozinha" Type="Self.tblGasCozinha" Multiplicity="*" />
-          <End Role="tblOpGas" Type="Self.tblOpGas" Multiplicity="*" />
-        </Association>
-        <Association Name="Iluminacao_IluReparo">
-          <End Role="tblIluminacao" Type="Self.tblIluminacao" Multiplicity="*" />
-          <End Role="tblIluReparo" Type="Self.tblIluReparo" Multiplicity="*" />
-        </Association>
-        <Association Name="Incendio_Extintor">
-          <End Role="tblExtintor" Type="Self.tblExtintor" Multiplicity="*" />
-          <End Role="tblSisIncendio" Type="Self.tblSisIncendio" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="SistemaSaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EstFisica_EstReparo" EntityType="Self.EstFisica_EstReparo" />
+          <EntitySet Name="Gas_OpcaoGas" EntityType="Self.Gas_OpcaoGas" />
+          <EntitySet Name="Iluminacao_IluReparo" EntityType="Self.Iluminacao_IluReparo" />
+          <EntitySet Name="Incendio_Extintor" EntityType="Self.Incendio_Extintor" />
           <EntitySet Name="tblAcessibilidade" EntityType="Self.tblAcessibilidade" />
           <EntitySet Name="tblArredoresUeb" EntityType="Self.tblArredoresUeb" />
           <EntitySet Name="tblCatSeg" EntityType="Self.tblCatSeg" />
@@ -1311,6 +1407,38 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
           <EntitySet Name="tblSisIncendio" EntityType="Self.tblSisIncendio" />
           <EntitySet Name="tblTransito" EntityType="Self.tblTransito" />
           <EntitySet Name="tblUeb" EntityType="Self.tblUeb" />
+          <AssociationSet Name="REstF_EstR" Association="Self.REstF_EstR">
+            <End Role="tblEstFisica" EntitySet="tblEstFisica" />
+            <End Role="EstFisica_EstReparo" EntitySet="EstFisica_EstReparo" />
+          </AssociationSet>
+          <AssociationSet Name="REstR_EstF" Association="Self.REstR_EstF">
+            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
+            <End Role="EstFisica_EstReparo" EntitySet="EstFisica_EstReparo" />
+          </AssociationSet>
+          <AssociationSet Name="Gas_OpGas" Association="Self.Gas_OpGas">
+            <End Role="tblGasCozinha" EntitySet="tblGasCozinha" />
+            <End Role="Gas_OpcaoGas" EntitySet="Gas_OpcaoGas" />
+          </AssociationSet>
+          <AssociationSet Name="OpGas_Gas" Association="Self.OpGas_Gas">
+            <End Role="tblOpGas" EntitySet="tblOpGas" />
+            <End Role="Gas_OpcaoGas" EntitySet="Gas_OpcaoGas" />
+          </AssociationSet>
+          <AssociationSet Name="Iluminacao_Reparo" Association="Self.Iluminacao_Reparo">
+            <End Role="tblIluminacao" EntitySet="tblIluminacao" />
+            <End Role="Iluminacao_IluReparo" EntitySet="Iluminacao_IluReparo" />
+          </AssociationSet>
+          <AssociationSet Name="Reparo_Iluminacao" Association="Self.Reparo_Iluminacao">
+            <End Role="tblIluReparo" EntitySet="tblIluReparo" />
+            <End Role="Iluminacao_IluReparo" EntitySet="Iluminacao_IluReparo" />
+          </AssociationSet>
+          <AssociationSet Name="Extin_Incen" Association="Self.Extin_Incen">
+            <End Role="tblExtintor" EntitySet="tblExtintor" />
+            <End Role="Incendio_Extintor" EntitySet="Incendio_Extintor" />
+          </AssociationSet>
+          <AssociationSet Name="Incen_Extin" Association="Self.Incen_Extin">
+            <End Role="tblSisIncendio" EntitySet="tblSisIncendio" />
+            <End Role="Incendio_Extintor" EntitySet="Incendio_Extintor" />
+          </AssociationSet>
           <AssociationSet Name="FkAcessibilidade" Association="Self.FkAcessibilidade">
             <End Role="tblAcessibilidade" EntitySet="tblAcessibilidade" />
             <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
@@ -1387,22 +1515,6 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
             <End Role="tblRegistro" EntitySet="tblRegistro" />
             <End Role="tblUeb" EntitySet="tblUeb" />
           </AssociationSet>
-          <AssociationSet Name="EstFisica_EstReparo" Association="Self.EstFisica_EstReparo">
-            <End Role="tblEstFisica" EntitySet="tblEstFisica" />
-            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
-          </AssociationSet>
-          <AssociationSet Name="Gas_OpcaoGas" Association="Self.Gas_OpcaoGas">
-            <End Role="tblGasCozinha" EntitySet="tblGasCozinha" />
-            <End Role="tblOpGas" EntitySet="tblOpGas" />
-          </AssociationSet>
-          <AssociationSet Name="Iluminacao_IluReparo" Association="Self.Iluminacao_IluReparo">
-            <End Role="tblIluminacao" EntitySet="tblIluminacao" />
-            <End Role="tblIluReparo" EntitySet="tblIluReparo" />
-          </AssociationSet>
-          <AssociationSet Name="Incendio_Extintor" Association="Self.Incendio_Extintor">
-            <End Role="tblExtintor" EntitySet="tblExtintor" />
-            <End Role="tblSisIncendio" EntitySet="tblSisIncendio" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1410,6 +1522,42 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SistemaSaseModelStoreContainer" CdmEntityContainer="SistemaSaseEntities">
+          <EntitySetMapping Name="EstFisica_EstReparo">
+            <EntityTypeMapping TypeName="SistemaSaseModel.EstFisica_EstReparo">
+              <MappingFragment StoreEntitySet="EstFisica_EstReparo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEstFisica" ColumnName="IdEstFisica" />
+                <ScalarProperty Name="IdEstReparo" ColumnName="IdEstReparo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gas_OpcaoGas">
+            <EntityTypeMapping TypeName="SistemaSaseModel.Gas_OpcaoGas">
+              <MappingFragment StoreEntitySet="Gas_OpcaoGas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdGas" ColumnName="IdGas" />
+                <ScalarProperty Name="IdOpGas" ColumnName="IdOpGas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Iluminacao_IluReparo">
+            <EntityTypeMapping TypeName="SistemaSaseModel.Iluminacao_IluReparo">
+              <MappingFragment StoreEntitySet="Iluminacao_IluReparo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdIluminacao" ColumnName="IdIluminacao" />
+                <ScalarProperty Name="IdIluReparo" ColumnName="IdIluReparo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incendio_Extintor">
+            <EntityTypeMapping TypeName="SistemaSaseModel.Incendio_Extintor">
+              <MappingFragment StoreEntitySet="Incendio_Extintor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdIncendio" ColumnName="IdIncendio" />
+                <ScalarProperty Name="IdExtintor" ColumnName="IdExtintor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblAcessibilidade">
             <EntityTypeMapping TypeName="SistemaSaseModel.tblAcessibilidade">
               <MappingFragment StoreEntitySet="tblAcessibilidade">
@@ -1666,38 +1814,6 @@ warning 6002: The table/view 'SistemaSase.dbo.Incendio_Extintor' does not have a
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="EstFisica_EstReparo" TypeName="SistemaSaseModel.EstFisica_EstReparo" StoreEntitySet="EstFisica_EstReparo">
-            <EndProperty Name="tblEstFisica">
-              <ScalarProperty Name="Id" ColumnName="IdEstFisica" />
-            </EndProperty>
-            <EndProperty Name="tblEstReparo">
-              <ScalarProperty Name="Id" ColumnName="IdEstReparo" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Gas_OpcaoGas" TypeName="SistemaSaseModel.Gas_OpcaoGas" StoreEntitySet="Gas_OpcaoGas">
-            <EndProperty Name="tblGasCozinha">
-              <ScalarProperty Name="Id" ColumnName="IdGas" />
-            </EndProperty>
-            <EndProperty Name="tblOpGas">
-              <ScalarProperty Name="Id" ColumnName="IdOpGas" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Iluminacao_IluReparo" TypeName="SistemaSaseModel.Iluminacao_IluReparo" StoreEntitySet="Iluminacao_IluReparo">
-            <EndProperty Name="tblIluminacao">
-              <ScalarProperty Name="Id" ColumnName="IdIluminacao" />
-            </EndProperty>
-            <EndProperty Name="tblIluReparo">
-              <ScalarProperty Name="Id" ColumnName="IdIluReparo" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Incendio_Extintor" TypeName="SistemaSaseModel.Incendio_Extintor" StoreEntitySet="Incendio_Extintor">
-            <EndProperty Name="tblExtintor">
-              <ScalarProperty Name="Id" ColumnName="IdExtintor" />
-            </EndProperty>
-            <EndProperty Name="tblSisIncendio">
-              <ScalarProperty Name="Id" ColumnName="IdIncendio" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

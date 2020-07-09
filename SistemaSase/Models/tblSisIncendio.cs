@@ -17,8 +17,8 @@ namespace SistemaSase.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblSisIncendio()
         {
+            this.Incendio_Extintor = new HashSet<Incendio_Extintor>();
             this.tblFiscalizacao = new HashSet<tblFiscalizacao>();
-            this.tblExtintor = new HashSet<tblExtintor>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace SistemaSase.Models
         public bool Extintor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
+        public virtual ICollection<Incendio_Extintor> Incendio_Extintor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblExtintor> tblExtintor { get; set; }
+        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
     }
 }
