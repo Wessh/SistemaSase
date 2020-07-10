@@ -23,7 +23,7 @@ namespace SistemaSase.Models
         public int Id { get; set; }
         public bool RampaInterna { get; set; }
         public bool RampaExterna { get; set; }
-        public Nullable<bool> BanheiroPdePnc { get; set; }
+        public bool BanheiroPdePnc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }

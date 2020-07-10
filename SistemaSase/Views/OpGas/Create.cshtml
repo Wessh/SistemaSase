@@ -4,47 +4,68 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="icon"> <i class="icon-align-justify"></i> </span>
+                <h5>Registro</h5>
+            </div>
+            <div class="widget-content nopadding">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
+                    <div class="form-horizontal">
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tblOpGas</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="controls">
+                                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.EstFunc, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="controls">
+                                @Html.CheckBoxFor(model => model.EstFunc)
+                                @Html.ValidationMessageFor(model => model.EstFunc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions text-center">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                }
+
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EstFunc, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.EstFunc)
-                    @Html.ValidationMessageFor(model => model.EstFunc, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+        <div>
+            @Html.ActionLink("Voltar", "Index", "", new { @class = "btn btn-mini" })
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
+@section Css{
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/uniform.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/select2.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/matrix-media.css" />
+    <link href="~/Content/Layout/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+}
+@section Scripts{
+    <script src="~/Content/Layout/js/jquery.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/Layout/js/bootstrap.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.uniform.js"></script>
+    <script src="~/Content/Layout/js/select2.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Layout/js/matrix.js"></script>
+    <script src="~/Content/Layout/js/matrix.tables.js"></script>
     @Scripts.Render("~/bundles/jqueryval")
 }

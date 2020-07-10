@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SistemaSaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SistemaSaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Gas_OpcaoGas">
           <Key>
             <PropertyRef Name="Id" />
@@ -33,10 +33,10 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RampaInterna" Type="bit" Nullable="false" />
           <Property Name="RampaExterna" Type="bit" Nullable="false" />
-          <Property Name="BanheiroPdePnc" Type="bit" />
+          <Property Name="BanheiroPdePnc" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblArredoresUeb">
           <Key>
@@ -190,7 +190,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Professores" Type="bit" Nullable="false" />
           <Property Name="Alunos" Type="bit" Nullable="false" />
           <Property Name="Gestores" Type="bit" Nullable="false" />
@@ -200,7 +200,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EstFunc" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblPanicoIncendio">
@@ -713,8 +713,7 @@
             <End Role="tblUeb" EntitySet="tblUeb" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SistemaSaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -755,7 +754,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="RampaInterna" Type="Boolean" Nullable="false" />
           <Property Name="RampaExterna" Type="Boolean" Nullable="false" />
-          <Property Name="BanheiroPdePnc" Type="Boolean" />
+          <Property Name="BanheiroPdePnc" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FkAcessibilidade" FromRole="tblAcessibilidade" ToRole="tblFiscalizacao" />
         </EntityType>
         <EntityType Name="tblArredoresUeb">

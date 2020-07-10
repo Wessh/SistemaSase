@@ -4,48 +4,85 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<!--
 <p>
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Professores)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Alunos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gestores)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Outros)
-        </th>
-        <th></th>
-    </tr>
+</p>-->
+<div class="container-fluid">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Professores)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Alunos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gestores)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Outros)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
+    <div class="row-fluid">
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="icon"><i class="icon-th"></i></span>
+                <h5>Registros</h5>
+            </div>
+            <div class="widget-content nopadding">
+
+                <table class="table table-bordered data-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Professores)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Alunos)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Gestores)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Outros)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr class="gradeA">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Professores)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Alunos)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gestores)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Outros)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Css{
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/uniform.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/select2.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/matrix-media.css" />
+    <link href="~/Content/Layout/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 }
-
-</table>
+@section Scripts{
+    <script src="~/Content/Layout/js/jquery.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/Layout/js/bootstrap.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.uniform.js"></script>
+    <script src="~/Content/Layout/js/select2.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Layout/js/matrix.js"></script>
+    <script src="~/Content/Layout/js/matrix.tables.js"></script>
+}  

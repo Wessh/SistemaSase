@@ -4,95 +4,88 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>tblEquipamentosSeg</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fardamento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fardamento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Apito)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Apito)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CapaChuva)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CapaChuva)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Colete)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Colete)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tonfa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tonfa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Lanterna)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lanterna)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cracha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cracha)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Quepe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Quepe)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Revolver)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Revolver)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Radio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Radio)
-        </dd>
-
-    </dl>
+<div class="span12">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"> <i class="icon-user"></i> </span>
+            <h5>Detalhes</h5>
+        </div>
+        <div class="widget-content">
+            <div class="row-fluid">
+                <div class="span6">
+                    <table class="table table-bordered table-invoice">
+                        <tbody>
+                            <tr>
+                            <tr>
+                                <td class="width30">@Html.DisplayNameFor(model => model.Fardamento):</td>
+                                <td class="width70"><strong>@Html.DisplayFor(model => model.Fardamento)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Apito):</td>
+                                <td><strong>@Html.DisplayFor(model => model.Apito)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.CapaChuva)</td>
+                                <td><strong>@Html.DisplayFor(model => model.CapaChuva)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Colete)</td>
+                                <td><strong>@Html.DisplayFor(model => model.Colete)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Tonfa)</td>
+                                <td><strong>@Html.DisplayFor(model => model.Tonfa)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Lanterna)</td>
+                                <td><strong>@Html.DisplayFor(model => model.Lanterna)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Cracha)</td>
+                                <td><strong>@Html.DisplayFor(model => model.Cracha)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Quepe)</td>
+                                <td><strong>@Html.DisplayFor(model => model.Quepe)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Revolver)</td>
+                                <td><strong>@Html.DisplayFor(model => model.Revolver)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Radio)</td>
+                                <td><strong>@Html.DisplayFor(model => model.Radio)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pull-left">
+                        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn pull-right" })
+                        @Html.ActionLink("Voltar", "Index", "", new { @class = "btn btn-primary btn pull-right" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/uniform.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/select2.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/matrix-media.css" />
+    <link href="~/Content/Layout/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+}
+@section Scripts{
+    <script src="~/Content/Layout/js/jquery.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/Layout/js/bootstrap.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.uniform.js"></script>
+    <script src="~/Content/Layout/js/select2.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Layout/js/matrix.js"></script>
+    <script src="~/Content/Layout/js/matrix.tables.js"></script>
+}

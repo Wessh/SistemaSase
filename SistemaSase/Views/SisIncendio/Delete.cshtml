@@ -1,7 +1,7 @@
-﻿@model SistemaSase.Models.tblProjViolencia
+﻿@model SistemaSase.Models.tblSisIncendio
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
 }
 
 <div class="span12">
@@ -17,18 +17,25 @@
                         <tbody>
                             <tr>
                             <tr>
-                                <td class="width30">@Html.DisplayNameFor(model => model.Escola):</td>
-                                <td class="width70"><strong>@Html.DisplayFor(model => model.Escola)</strong></td>
+                                <td class="width30">@Html.DisplayNameFor(model => model.Certificacao):</td>
+                                <td class="width70"><strong>@Html.DisplayFor(model => model.Certificacao)</strong></td>
                             </tr>
                             <tr>
-                                <td>@Html.DisplayNameFor(model => model.Parceria):</td>
-                                <td><strong>@Html.DisplayFor(model => model.Parceria)</strong></td>
+                                <td>@Html.DisplayNameFor(model => model.Extintor):</td>
+                                <td><strong>@Html.DisplayFor(model => model.Extintor)</strong></td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="pull-left">
-                        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn pull-right" })
-                        @Html.ActionLink("Voltar", "Index", "", new { @class = "btn btn-primary btn pull-right" })
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn pull-right" })
+                            <input type="submit" value="Delete" class="btn btn-danger btn pull-right" />
+                            @Html.ActionLink("Voltar", "Index", "", new { @class = "btn btn-primary btn pull-right" })
+                        }
+
+
                     </div>
                 </div>
             </div>

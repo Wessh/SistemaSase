@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SistemaSase.Models.tblIluminacao>
+﻿@model IEnumerable<SistemaSase.Models.tblSisIncendio>
 
 @{
     ViewBag.Title = "Index";
@@ -22,7 +22,10 @@
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Nome)
+                                @Html.DisplayNameFor(model => model.Certificacao)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Extintor)
                             </th>
                             <th></th>
                         </tr>
@@ -33,7 +36,10 @@
                         {
                             <tr class="gradeA">
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Nome)
+                                    @Html.DisplayFor(modelItem => item.Certificacao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Extintor)
                                 </td>
                                 <td>
                                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

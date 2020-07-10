@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ReIluminacao_IluReparoController.cs" />
     <Compile Include="Controllers\ReIncendio_ExtintorController.cs" />
     <Compile Include="Controllers\SisHidraSaniRepController.cs" />
+    <Compile Include="Controllers\SisIncendioController.cs" />
     <Compile Include="Controllers\TransitoController.cs" />
     <Compile Include="Controllers\UebController.cs" />
     <Compile Include="Global.asax.cs">
@@ -587,6 +588,11 @@
     <Content Include="Views\ReIncendio_Extintor\Details.cshtml" />
     <Content Include="Views\ReIncendio_Extintor\Edit.cshtml" />
     <Content Include="Views\ReIncendio_Extintor\Index.cshtml" />
+    <Content Include="Views\SisIncendio\Create.cshtml" />
+    <Content Include="Views\SisIncendio\Delete.cshtml" />
+    <Content Include="Views\SisIncendio\Details.cshtml" />
+    <Content Include="Views\SisIncendio\Edit.cshtml" />
+    <Content Include="Views\SisIncendio\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
