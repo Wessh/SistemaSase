@@ -1,0 +1,42 @@
+﻿@model SistemaSase.Models.tblAcessibilidade
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblAcessibilidade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RampaInterna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RampaInterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RampaExterna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RampaExterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BanheiroPdePnc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BanheiroPdePnc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

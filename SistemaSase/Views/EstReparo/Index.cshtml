@@ -12,7 +12,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayNameFor(model => model.Parede)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calcada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quadra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Portas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Piso)
         </th>
         <th></th>
     </tr>
@@ -20,7 +38,25 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Nome)
+            @Html.DisplayFor(modelItem => item.Parede)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calcada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quadra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Portas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piso)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

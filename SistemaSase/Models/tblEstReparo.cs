@@ -17,13 +17,19 @@ namespace SistemaSase.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblEstReparo()
         {
-            this.EstFisica_EstReparo = new HashSet<EstFisica_EstReparo>();
+            this.tblFiscalizacao = new HashSet<tblFiscalizacao>();
         }
     
         public int Id { get; set; }
-        public string Nome { get; set; }
+        public bool Parede { get; set; }
+        public bool Teto { get; set; }
+        public bool Calcada { get; set; }
+        public bool Quadra { get; set; }
+        public bool Capina { get; set; }
+        public bool Portas { get; set; }
+        public bool Piso { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EstFisica_EstReparo> EstFisica_EstReparo { get; set; }
+        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
     }
 }

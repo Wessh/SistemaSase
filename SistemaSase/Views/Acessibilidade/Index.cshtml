@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SistemaSase.Models.EstFisica_EstReparo>
+﻿@model IEnumerable<SistemaSase.Models.tblAcessibilidade>
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.tblEstFisica.Id)
+            @Html.DisplayNameFor(model => model.RampaInterna)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblEstReparo.Nome)
+            @Html.DisplayNameFor(model => model.RampaExterna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BanheiroPdePnc)
         </th>
         <th></th>
     </tr>
@@ -23,10 +26,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.tblEstFisica.Id)
+            @Html.DisplayFor(modelItem => item.RampaInterna)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tblEstReparo.Nome)
+            @Html.DisplayFor(modelItem => item.RampaExterna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BanheiroPdePnc)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

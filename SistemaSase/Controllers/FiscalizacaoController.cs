@@ -17,7 +17,7 @@ namespace SistemaSase.Controllers
         // GET: Fiscalizacao
         public ActionResult Index()
         {
-            var tblFiscalizacao = db.tblFiscalizacao.Include(t => t.tblAcessibilidade).Include(t => t.tblArredoresUeb).Include(t => t.tblCatSeg).Include(t => t.tblEstFisica).Include(t => t.tblRegistro).Include(t => t.tblUeb).Include(t => t.tblGasCozinha).Include(t => t.tblIluminacao).Include(t => t.tblListaTel).Include(t => t.tblLivroRegistro).Include(t => t.tblOcoInternas).Include(t => t.tblPanicoIncendio).Include(t => t.tblProjViolencia).Include(t => t.tblSisHidraSaniRep).Include(t => t.tblSisIncendio).Include(t => t.tblTransito);
+            var tblFiscalizacao = db.tblFiscalizacao.Include(t => t.tblAcessibilidade).Include(t => t.tblArredoresUeb).Include(t => t.tblCatSeg).Include(t => t.tblEstFisica).Include(t => t.tblEstReparo).Include(t => t.tblRegistro).Include(t => t.tblUeb).Include(t => t.tblGasCozinha).Include(t => t.tblIluminacao).Include(t => t.tblListaTel).Include(t => t.tblLivroRegistro).Include(t => t.tblOcoInternas).Include(t => t.tblPanicoIncendio).Include(t => t.tblProjViolencia).Include(t => t.tblSisHidraSaniRep).Include(t => t.tblSisIncendio).Include(t => t.tblTransito);
             return View(tblFiscalizacao.ToList());
         }
 
@@ -43,6 +43,7 @@ namespace SistemaSase.Controllers
             ViewBag.FkArredoresUeb = new SelectList(db.tblArredoresUeb, "Id", "Outros");
             ViewBag.FkCatSeg = new SelectList(db.tblCatSeg, "Id", "Nome");
             ViewBag.FkEstFisica = new SelectList(db.tblEstFisica, "Id", "Id");
+            ViewBag.FkEstReparo = new SelectList(db.tblEstReparo, "Id", "Id");
             ViewBag.FkRegistro = new SelectList(db.tblRegistro, "Id", "Nome");
             ViewBag.FkUeb = new SelectList(db.tblUeb, "Id", "Nome");
             ViewBag.FkGasCozinha = new SelectList(db.tblGasCozinha, "Id", "Nome");
@@ -63,7 +64,7 @@ namespace SistemaSase.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FkUeb,FkRegistro,FkLivroRegistro,FkCatSeg,FkEstFisica,FkIluminacao,FkSisHidraSaniRep,FkSisIncendio,FkGasCozinha,FkPanicoIncendio,FkTransito,FkAcessibilidade,FkArredoresUeb,FkProjViolencia,FkListaTel,FkOcoInternas")] tblFiscalizacao tblFiscalizacao)
+        public ActionResult Create([Bind(Include = "Id,FkUeb,FkRegistro,FkLivroRegistro,FkCatSeg,FkEstFisica,FkIluminacao,FkSisHidraSaniRep,FkSisIncendio,FkGasCozinha,FkPanicoIncendio,FkTransito,FkAcessibilidade,FkArredoresUeb,FkProjViolencia,FkListaTel,FkOcoInternas,FkEstReparo")] tblFiscalizacao tblFiscalizacao)
         {
             if (ModelState.IsValid)
             {
@@ -76,6 +77,7 @@ namespace SistemaSase.Controllers
             ViewBag.FkArredoresUeb = new SelectList(db.tblArredoresUeb, "Id", "Outros", tblFiscalizacao.FkArredoresUeb);
             ViewBag.FkCatSeg = new SelectList(db.tblCatSeg, "Id", "Nome", tblFiscalizacao.FkCatSeg);
             ViewBag.FkEstFisica = new SelectList(db.tblEstFisica, "Id", "Id", tblFiscalizacao.FkEstFisica);
+            ViewBag.FkEstReparo = new SelectList(db.tblEstReparo, "Id", "Id", tblFiscalizacao.FkEstReparo);
             ViewBag.FkRegistro = new SelectList(db.tblRegistro, "Id", "Nome", tblFiscalizacao.FkRegistro);
             ViewBag.FkUeb = new SelectList(db.tblUeb, "Id", "Nome", tblFiscalizacao.FkUeb);
             ViewBag.FkGasCozinha = new SelectList(db.tblGasCozinha, "Id", "Nome", tblFiscalizacao.FkGasCozinha);
@@ -107,6 +109,7 @@ namespace SistemaSase.Controllers
             ViewBag.FkArredoresUeb = new SelectList(db.tblArredoresUeb, "Id", "Outros", tblFiscalizacao.FkArredoresUeb);
             ViewBag.FkCatSeg = new SelectList(db.tblCatSeg, "Id", "Nome", tblFiscalizacao.FkCatSeg);
             ViewBag.FkEstFisica = new SelectList(db.tblEstFisica, "Id", "Id", tblFiscalizacao.FkEstFisica);
+            ViewBag.FkEstReparo = new SelectList(db.tblEstReparo, "Id", "Id", tblFiscalizacao.FkEstReparo);
             ViewBag.FkRegistro = new SelectList(db.tblRegistro, "Id", "Nome", tblFiscalizacao.FkRegistro);
             ViewBag.FkUeb = new SelectList(db.tblUeb, "Id", "Nome", tblFiscalizacao.FkUeb);
             ViewBag.FkGasCozinha = new SelectList(db.tblGasCozinha, "Id", "Nome", tblFiscalizacao.FkGasCozinha);
@@ -127,7 +130,7 @@ namespace SistemaSase.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FkUeb,FkRegistro,FkLivroRegistro,FkCatSeg,FkEstFisica,FkIluminacao,FkSisHidraSaniRep,FkSisIncendio,FkGasCozinha,FkPanicoIncendio,FkTransito,FkAcessibilidade,FkArredoresUeb,FkProjViolencia,FkListaTel,FkOcoInternas")] tblFiscalizacao tblFiscalizacao)
+        public ActionResult Edit([Bind(Include = "Id,FkUeb,FkRegistro,FkLivroRegistro,FkCatSeg,FkEstFisica,FkIluminacao,FkSisHidraSaniRep,FkSisIncendio,FkGasCozinha,FkPanicoIncendio,FkTransito,FkAcessibilidade,FkArredoresUeb,FkProjViolencia,FkListaTel,FkOcoInternas,FkEstReparo")] tblFiscalizacao tblFiscalizacao)
         {
             if (ModelState.IsValid)
             {
@@ -139,6 +142,7 @@ namespace SistemaSase.Controllers
             ViewBag.FkArredoresUeb = new SelectList(db.tblArredoresUeb, "Id", "Outros", tblFiscalizacao.FkArredoresUeb);
             ViewBag.FkCatSeg = new SelectList(db.tblCatSeg, "Id", "Nome", tblFiscalizacao.FkCatSeg);
             ViewBag.FkEstFisica = new SelectList(db.tblEstFisica, "Id", "Id", tblFiscalizacao.FkEstFisica);
+            ViewBag.FkEstReparo = new SelectList(db.tblEstReparo, "Id", "Id", tblFiscalizacao.FkEstReparo);
             ViewBag.FkRegistro = new SelectList(db.tblRegistro, "Id", "Nome", tblFiscalizacao.FkRegistro);
             ViewBag.FkUeb = new SelectList(db.tblUeb, "Id", "Nome", tblFiscalizacao.FkUeb);
             ViewBag.FkGasCozinha = new SelectList(db.tblGasCozinha, "Id", "Nome", tblFiscalizacao.FkGasCozinha);

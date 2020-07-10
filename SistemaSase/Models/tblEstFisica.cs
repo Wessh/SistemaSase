@@ -17,7 +17,6 @@ namespace SistemaSase.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblEstFisica()
         {
-            this.EstFisica_EstReparo = new HashSet<EstFisica_EstReparo>();
             this.tblFiscalizacao = new HashSet<tblFiscalizacao>();
         }
     
@@ -28,8 +27,6 @@ namespace SistemaSase.Models
         public bool EstaRetrito { get; set; }
         public bool ParaRaios { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EstFisica_EstReparo> EstFisica_EstReparo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
     }

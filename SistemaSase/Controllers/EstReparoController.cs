@@ -46,7 +46,7 @@ namespace SistemaSase.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome")] tblEstReparo tblEstReparo)
+        public ActionResult Create([Bind(Include = "Id,Parede,Teto,Calcada,Quadra,Capina,Portas,Piso")] tblEstReparo tblEstReparo)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace SistemaSase.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome")] tblEstReparo tblEstReparo)
+        public ActionResult Edit([Bind(Include = "Id,Parede,Teto,Calcada,Quadra,Capina,Portas,Piso")] tblEstReparo tblEstReparo)
         {
             if (ModelState.IsValid)
             {

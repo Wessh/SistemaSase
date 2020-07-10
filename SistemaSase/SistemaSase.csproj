@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AcessibilidadeController.cs" />
     <Compile Include="Controllers\ArredoresUebController.cs" />
     <Compile Include="Controllers\CatSegController.cs" />
     <Compile Include="Controllers\EquipamentosSegController.cs" />
@@ -146,13 +147,11 @@
     <Compile Include="Controllers\OpGasController.cs" />
     <Compile Include="Controllers\PanicoIncendioController.cs" />
     <Compile Include="Controllers\ProjViolenciaController.cs" />
-    <Compile Include="Controllers\ReEstFisica_EstReparoController.cs" />
     <Compile Include="Controllers\ReGas_OpcaoGasController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\ReIluminacao_IluReparoController.cs" />
     <Compile Include="Controllers\ReIncendio_ExtintorController.cs" />
     <Compile Include="Controllers\SisHidraSaniRepController.cs" />
-    <Compile Include="Controllers\SisIncendioController.cs" />
     <Compile Include="Controllers\TransitoController.cs" />
     <Compile Include="Controllers\UebController.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,9 +171,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dbSase.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EstFisica_EstReparo.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Gas_OpcaoGas.cs">
       <DependentUpon>dbSase.tt</DependentUpon>
@@ -466,36 +462,21 @@
     <Content Include="Views\Shared\Base_Layout.cshtml" />
     <Content Include="Views\Shared\SidebarMenu.cshtml" />
     <Content Include="Views\Shared\TopHeaderMenu.cshtml" />
-    <Content Include="Views\Registro\Create.cshtml" />
-    <Content Include="Views\Registro\Delete.cshtml" />
-    <Content Include="Views\Registro\Details.cshtml" />
-    <Content Include="Views\Registro\Edit.cshtml" />
-    <Content Include="Views\Registro\Index.cshtml" />
-    <Content Include="Views\Ueb\Create.cshtml" />
-    <Content Include="Views\Ueb\Delete.cshtml" />
-    <Content Include="Views\Ueb\Details.cshtml" />
-    <Content Include="Views\Ueb\Edit.cshtml" />
-    <Content Include="Views\Ueb\Index.cshtml" />
-    <Content Include="Views\Gestor\Create.cshtml" />
-    <Content Include="Views\Gestor\Delete.cshtml" />
-    <Content Include="Views\Gestor\Details.cshtml" />
-    <Content Include="Views\Gestor\Edit.cshtml" />
-    <Content Include="Views\Gestor\Index.cshtml" />
-    <Content Include="Views\LivroRegistro\Create.cshtml" />
-    <Content Include="Views\LivroRegistro\Delete.cshtml" />
-    <Content Include="Views\LivroRegistro\Details.cshtml" />
-    <Content Include="Views\LivroRegistro\Edit.cshtml" />
-    <Content Include="Views\LivroRegistro\Index.cshtml" />
-    <Content Include="Views\CatSeg\Create.cshtml" />
-    <Content Include="Views\CatSeg\Delete.cshtml" />
-    <Content Include="Views\CatSeg\Details.cshtml" />
-    <Content Include="Views\CatSeg\Edit.cshtml" />
-    <Content Include="Views\CatSeg\Index.cshtml" />
+    <Content Include="Views\Acessibilidade\Create.cshtml" />
+    <Content Include="Views\Acessibilidade\Delete.cshtml" />
+    <Content Include="Views\Acessibilidade\Details.cshtml" />
+    <Content Include="Views\Acessibilidade\Edit.cshtml" />
+    <Content Include="Views\Acessibilidade\Index.cshtml" />
     <Content Include="Views\ArredoresUeb\Create.cshtml" />
     <Content Include="Views\ArredoresUeb\Delete.cshtml" />
     <Content Include="Views\ArredoresUeb\Details.cshtml" />
     <Content Include="Views\ArredoresUeb\Edit.cshtml" />
     <Content Include="Views\ArredoresUeb\Index.cshtml" />
+    <Content Include="Views\CatSeg\Create.cshtml" />
+    <Content Include="Views\CatSeg\Delete.cshtml" />
+    <Content Include="Views\CatSeg\Details.cshtml" />
+    <Content Include="Views\CatSeg\Edit.cshtml" />
+    <Content Include="Views\CatSeg\Index.cshtml" />
     <Content Include="Views\EquipamentosSeg\Create.cshtml" />
     <Content Include="Views\EquipamentosSeg\Delete.cshtml" />
     <Content Include="Views\EquipamentosSeg\Details.cshtml" />
@@ -526,6 +507,11 @@
     <Content Include="Views\GasCozinha\Details.cshtml" />
     <Content Include="Views\GasCozinha\Edit.cshtml" />
     <Content Include="Views\GasCozinha\Index.cshtml" />
+    <Content Include="Views\Gestor\Create.cshtml" />
+    <Content Include="Views\Gestor\Delete.cshtml" />
+    <Content Include="Views\Gestor\Details.cshtml" />
+    <Content Include="Views\Gestor\Edit.cshtml" />
+    <Content Include="Views\Gestor\Index.cshtml" />
     <Content Include="Views\Iluminacao\Create.cshtml" />
     <Content Include="Views\Iluminacao\Delete.cshtml" />
     <Content Include="Views\Iluminacao\Details.cshtml" />
@@ -541,6 +527,11 @@
     <Content Include="Views\ListaTel\Details.cshtml" />
     <Content Include="Views\ListaTel\Edit.cshtml" />
     <Content Include="Views\ListaTel\Index.cshtml" />
+    <Content Include="Views\LivroRegistro\Create.cshtml" />
+    <Content Include="Views\LivroRegistro\Delete.cshtml" />
+    <Content Include="Views\LivroRegistro\Details.cshtml" />
+    <Content Include="Views\LivroRegistro\Edit.cshtml" />
+    <Content Include="Views\LivroRegistro\Index.cshtml" />
     <Content Include="Views\OcoInterna\Create.cshtml" />
     <Content Include="Views\OcoInterna\Delete.cshtml" />
     <Content Include="Views\OcoInterna\Details.cshtml" />
@@ -561,26 +552,26 @@
     <Content Include="Views\ProjViolencia\Details.cshtml" />
     <Content Include="Views\ProjViolencia\Edit.cshtml" />
     <Content Include="Views\ProjViolencia\Index.cshtml" />
+    <Content Include="Views\Registro\Create.cshtml" />
+    <Content Include="Views\Registro\Delete.cshtml" />
+    <Content Include="Views\Registro\Details.cshtml" />
+    <Content Include="Views\Registro\Edit.cshtml" />
+    <Content Include="Views\Registro\Index.cshtml" />
     <Content Include="Views\SisHidraSaniRep\Create.cshtml" />
     <Content Include="Views\SisHidraSaniRep\Delete.cshtml" />
     <Content Include="Views\SisHidraSaniRep\Details.cshtml" />
     <Content Include="Views\SisHidraSaniRep\Edit.cshtml" />
     <Content Include="Views\SisHidraSaniRep\Index.cshtml" />
-    <Content Include="Views\SisIncendio\Create.cshtml" />
-    <Content Include="Views\SisIncendio\Delete.cshtml" />
-    <Content Include="Views\SisIncendio\Details.cshtml" />
-    <Content Include="Views\SisIncendio\Edit.cshtml" />
-    <Content Include="Views\SisIncendio\Index.cshtml" />
     <Content Include="Views\Transito\Create.cshtml" />
     <Content Include="Views\Transito\Delete.cshtml" />
     <Content Include="Views\Transito\Details.cshtml" />
     <Content Include="Views\Transito\Edit.cshtml" />
     <Content Include="Views\Transito\Index.cshtml" />
-    <Content Include="Views\ReEstFisica_EstReparo\Create.cshtml" />
-    <Content Include="Views\ReEstFisica_EstReparo\Delete.cshtml" />
-    <Content Include="Views\ReEstFisica_EstReparo\Details.cshtml" />
-    <Content Include="Views\ReEstFisica_EstReparo\Edit.cshtml" />
-    <Content Include="Views\ReEstFisica_EstReparo\Index.cshtml" />
+    <Content Include="Views\Ueb\Create.cshtml" />
+    <Content Include="Views\Ueb\Delete.cshtml" />
+    <Content Include="Views\Ueb\Details.cshtml" />
+    <Content Include="Views\Ueb\Edit.cshtml" />
+    <Content Include="Views\Ueb\Index.cshtml" />
     <Content Include="Views\ReGas_OpcaoGas\Create.cshtml" />
     <Content Include="Views\ReGas_OpcaoGas\Delete.cshtml" />
     <Content Include="Views\ReGas_OpcaoGas\Details.cshtml" />

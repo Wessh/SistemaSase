@@ -1,4 +1,4 @@
-﻿@model SistemaSase.Models.tblSisIncendio
+﻿@model SistemaSase.Models.tblAcessibilidade
 
 @{
     ViewBag.Title = "Delete";
@@ -8,23 +8,31 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>tblSisIncendio</h4>
+    <h4>tblAcessibilidade</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Certificacao)
+            @Html.DisplayNameFor(model => model.RampaInterna)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Certificacao)
+            @Html.DisplayFor(model => model.RampaInterna)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Extintor)
+            @Html.DisplayNameFor(model => model.RampaExterna)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Extintor)
+            @Html.DisplayFor(model => model.RampaExterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BanheiroPdePnc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BanheiroPdePnc)
         </dd>
 
     </dl>

@@ -31,11 +31,13 @@ namespace SistemaSase.Models
         public int FkProjViolencia { get; set; }
         public int FkListaTel { get; set; }
         public int FkOcoInternas { get; set; }
+        public int FkEstReparo { get; set; }
     
         public virtual tblAcessibilidade tblAcessibilidade { get; set; }
         public virtual tblArredoresUeb tblArredoresUeb { get; set; }
         public virtual tblCatSeg tblCatSeg { get; set; }
         public virtual tblEstFisica tblEstFisica { get; set; }
+        public virtual tblEstReparo tblEstReparo { get; set; }
         public virtual tblRegistro tblRegistro { get; set; }
         public virtual tblUeb tblUeb { get; set; }
         public virtual tblGasCozinha tblGasCozinha { get; set; }

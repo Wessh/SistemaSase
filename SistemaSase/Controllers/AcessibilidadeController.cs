@@ -10,107 +10,107 @@ using SistemaSase.Models;
 
 namespace SistemaSase.Controllers
 {
-    public class SisIncendioController : Controller
+    public class AcessibilidadeController : Controller
     {
         private SistemaSaseEntities db = new SistemaSaseEntities();
 
-        // GET: SisIncendio
+        // GET: Acessibilidade
         public ActionResult Index()
         {
-            return View(db.tblSisIncendio.ToList());
+            return View(db.tblAcessibilidade.ToList());
         }
 
-        // GET: SisIncendio/Details/5
+        // GET: Acessibilidade/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblSisIncendio tblSisIncendio = db.tblSisIncendio.Find(id);
-            if (tblSisIncendio == null)
+            tblAcessibilidade tblAcessibilidade = db.tblAcessibilidade.Find(id);
+            if (tblAcessibilidade == null)
             {
                 return HttpNotFound();
             }
-            return View(tblSisIncendio);
+            return View(tblAcessibilidade);
         }
 
-        // GET: SisIncendio/Create
+        // GET: Acessibilidade/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SisIncendio/Create
+        // POST: Acessibilidade/Create
         // Para se proteger de mais ataques, habilite as propriedades específicas às quais você quer se associar. Para 
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Certificacao,Extintor")] tblSisIncendio tblSisIncendio)
+        public ActionResult Create([Bind(Include = "Id,RampaInterna,RampaExterna,BanheiroPdePnc")] tblAcessibilidade tblAcessibilidade)
         {
             if (ModelState.IsValid)
             {
-                db.tblSisIncendio.Add(tblSisIncendio);
+                db.tblAcessibilidade.Add(tblAcessibilidade);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tblSisIncendio);
+            return View(tblAcessibilidade);
         }
 
-        // GET: SisIncendio/Edit/5
+        // GET: Acessibilidade/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblSisIncendio tblSisIncendio = db.tblSisIncendio.Find(id);
-            if (tblSisIncendio == null)
+            tblAcessibilidade tblAcessibilidade = db.tblAcessibilidade.Find(id);
+            if (tblAcessibilidade == null)
             {
                 return HttpNotFound();
             }
-            return View(tblSisIncendio);
+            return View(tblAcessibilidade);
         }
 
-        // POST: SisIncendio/Edit/5
+        // POST: Acessibilidade/Edit/5
         // Para se proteger de mais ataques, habilite as propriedades específicas às quais você quer se associar. Para 
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Certificacao,Extintor")] tblSisIncendio tblSisIncendio)
+        public ActionResult Edit([Bind(Include = "Id,RampaInterna,RampaExterna,BanheiroPdePnc")] tblAcessibilidade tblAcessibilidade)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblSisIncendio).State = EntityState.Modified;
+                db.Entry(tblAcessibilidade).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tblSisIncendio);
+            return View(tblAcessibilidade);
         }
 
-        // GET: SisIncendio/Delete/5
+        // GET: Acessibilidade/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblSisIncendio tblSisIncendio = db.tblSisIncendio.Find(id);
-            if (tblSisIncendio == null)
+            tblAcessibilidade tblAcessibilidade = db.tblAcessibilidade.Find(id);
+            if (tblAcessibilidade == null)
             {
                 return HttpNotFound();
             }
-            return View(tblSisIncendio);
+            return View(tblAcessibilidade);
         }
 
-        // POST: SisIncendio/Delete/5
+        // POST: Acessibilidade/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblSisIncendio tblSisIncendio = db.tblSisIncendio.Find(id);
-            db.tblSisIncendio.Remove(tblSisIncendio);
+            tblAcessibilidade tblAcessibilidade = db.tblAcessibilidade.Find(id);
+            db.tblAcessibilidade.Remove(tblAcessibilidade);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

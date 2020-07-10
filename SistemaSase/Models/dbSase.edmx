@@ -5,14 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="SistemaSaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="EstFisica_EstReparo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdEstFisica" Type="int" Nullable="false" />
-          <Property Name="IdEstReparo" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Gas_OpcaoGas">
           <Key>
             <PropertyRef Name="Id" />
@@ -95,8 +87,14 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Nome" Type="varchar" MaxLength="255" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Parede" Type="bit" Nullable="false" />
+          <Property Name="Teto" Type="bit" Nullable="false" />
+          <Property Name="Calcada" Type="bit" Nullable="false" />
+          <Property Name="Quadra" Type="bit" Nullable="false" />
+          <Property Name="Capina" Type="bit" Nullable="false" />
+          <Property Name="Portas" Type="bit" Nullable="false" />
+          <Property Name="Piso" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblExtintor">
           <Key>
@@ -127,6 +125,7 @@
           <Property Name="FkProjViolencia" Type="int" Nullable="false" />
           <Property Name="FkListaTel" Type="int" Nullable="false" />
           <Property Name="FkOcoInternas" Type="int" Nullable="false" />
+          <Property Name="FkEstReparo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblGasCozinha">
           <Key>
@@ -366,6 +365,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FkEstReparo">
+          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkEstReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FkGasCozinha">
           <End Role="tblGasCozinha" Type="Self.tblGasCozinha" Multiplicity="1" />
           <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
@@ -546,30 +557,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="REstF_EstR">
-          <End Role="tblEstFisica" Type="Self.tblEstFisica" Multiplicity="1" />
-          <End Role="EstFisica_EstReparo" Type="Self.EstFisica_EstReparo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblEstFisica">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EstFisica_EstReparo">
-              <PropertyRef Name="IdEstFisica" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="REstR_EstF">
-          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
-          <End Role="EstFisica_EstReparo" Type="Self.EstFisica_EstReparo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblEstReparo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EstFisica_EstReparo">
-              <PropertyRef Name="IdEstReparo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="UebGestor">
           <End Role="tblGestor" Type="Self.tblGestor" Multiplicity="1" />
           <End Role="tblUeb" Type="Self.tblUeb" Multiplicity="*" />
@@ -595,7 +582,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SistemaSaseModelStoreContainer">
-          <EntitySet Name="EstFisica_EstReparo" EntityType="Self.EstFisica_EstReparo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gas_OpcaoGas" EntityType="Self.Gas_OpcaoGas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Iluminacao_IluReparo" EntityType="Self.Iluminacao_IluReparo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Incendio_Extintor" EntityType="Self.Incendio_Extintor" Schema="dbo" store:Type="Tables" />
@@ -652,6 +638,10 @@
           </AssociationSet>
           <AssociationSet Name="FkEstFisica" Association="Self.FkEstFisica">
             <End Role="tblEstFisica" EntitySet="tblEstFisica" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FkEstReparo" Association="Self.FkEstReparo">
+            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
             <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
           </AssociationSet>
           <AssociationSet Name="FkGasCozinha" Association="Self.FkGasCozinha">
@@ -714,14 +704,6 @@
             <End Role="tblIluReparo" EntitySet="tblIluReparo" />
             <End Role="Iluminacao_IluReparo" EntitySet="Iluminacao_IluReparo" />
           </AssociationSet>
-          <AssociationSet Name="REstF_EstR" Association="Self.REstF_EstR">
-            <End Role="tblEstFisica" EntitySet="tblEstFisica" />
-            <End Role="EstFisica_EstReparo" EntitySet="EstFisica_EstReparo" />
-          </AssociationSet>
-          <AssociationSet Name="REstR_EstF" Association="Self.REstR_EstF">
-            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
-            <End Role="EstFisica_EstReparo" EntitySet="EstFisica_EstReparo" />
-          </AssociationSet>
           <AssociationSet Name="UebGestor" Association="Self.UebGestor">
             <End Role="tblGestor" EntitySet="tblGestor" />
             <End Role="tblUeb" EntitySet="tblUeb" />
@@ -736,16 +718,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SistemaSaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="EstFisica_EstReparo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdEstFisica" Type="Int32" Nullable="false" />
-          <Property Name="IdEstReparo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblEstFisica" Relationship="Self.REstF_EstR" FromRole="EstFisica_EstReparo" ToRole="tblEstFisica" />
-          <NavigationProperty Name="tblEstReparo" Relationship="Self.REstR_EstF" FromRole="EstFisica_EstReparo" ToRole="tblEstReparo" />
-        </EntityType>
         <EntityType Name="Gas_OpcaoGas">
           <Key>
             <PropertyRef Name="Id" />
@@ -834,16 +806,21 @@
           <Property Name="PortaoEletronico" Type="Boolean" Nullable="false" />
           <Property Name="EstaRetrito" Type="Boolean" Nullable="false" />
           <Property Name="ParaRaios" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EstFisica_EstReparo" Relationship="Self.REstF_EstR" FromRole="tblEstFisica" ToRole="EstFisica_EstReparo" />
           <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FkEstFisica" FromRole="tblEstFisica" ToRole="tblFiscalizacao" />
         </EntityType>
         <EntityType Name="tblEstReparo">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EstFisica_EstReparo" Relationship="Self.REstR_EstF" FromRole="tblEstReparo" ToRole="EstFisica_EstReparo" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Parede" Type="Boolean" Nullable="false" />
+          <Property Name="Teto" Type="Boolean" Nullable="false" />
+          <Property Name="Calcada" Type="Boolean" Nullable="false" />
+          <Property Name="Quadra" Type="Boolean" Nullable="false" />
+          <Property Name="Capina" Type="Boolean" Nullable="false" />
+          <Property Name="Portas" Type="Boolean" Nullable="false" />
+          <Property Name="Piso" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FkEstReparo" FromRole="tblEstReparo" ToRole="tblFiscalizacao" />
         </EntityType>
         <EntityType Name="tblExtintor">
           <Key>
@@ -875,10 +852,12 @@
           <Property Name="FkProjViolencia" Type="Int32" Nullable="false" />
           <Property Name="FkListaTel" Type="Int32" Nullable="false" />
           <Property Name="FkOcoInternas" Type="Int32" Nullable="false" />
+          <Property Name="FkEstReparo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblAcessibilidade" Relationship="Self.FkAcessibilidade" FromRole="tblFiscalizacao" ToRole="tblAcessibilidade" />
           <NavigationProperty Name="tblArredoresUeb" Relationship="Self.FkArredoresUeb" FromRole="tblFiscalizacao" ToRole="tblArredoresUeb" />
           <NavigationProperty Name="tblCatSeg" Relationship="Self.FkCatSeg" FromRole="tblFiscalizacao" ToRole="tblCatSeg" />
           <NavigationProperty Name="tblEstFisica" Relationship="Self.FkEstFisica" FromRole="tblFiscalizacao" ToRole="tblEstFisica" />
+          <NavigationProperty Name="tblEstReparo" Relationship="Self.FkEstReparo" FromRole="tblFiscalizacao" ToRole="tblEstReparo" />
           <NavigationProperty Name="tblRegistro" Relationship="Self.FiscalizacaoRegistro" FromRole="tblFiscalizacao" ToRole="tblRegistro" />
           <NavigationProperty Name="tblUeb" Relationship="Self.FiscalizacaoUeb" FromRole="tblFiscalizacao" ToRole="tblUeb" />
           <NavigationProperty Name="tblGasCozinha" Relationship="Self.FkGasCozinha" FromRole="tblFiscalizacao" ToRole="tblGasCozinha" />
@@ -1055,30 +1034,6 @@
           <NavigationProperty Name="tblGestor" Relationship="Self.UebGestor" FromRole="tblUeb" ToRole="tblGestor" />
           <NavigationProperty Name="tblRegistro" Relationship="Self.UebRegistro" FromRole="tblUeb" ToRole="tblRegistro" />
         </EntityType>
-        <Association Name="REstF_EstR">
-          <End Role="tblEstFisica" Type="Self.tblEstFisica" Multiplicity="1" />
-          <End Role="EstFisica_EstReparo" Type="Self.EstFisica_EstReparo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblEstFisica">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EstFisica_EstReparo">
-              <PropertyRef Name="IdEstFisica" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="REstR_EstF">
-          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
-          <End Role="EstFisica_EstReparo" Type="Self.EstFisica_EstReparo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblEstReparo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EstFisica_EstReparo">
-              <PropertyRef Name="IdEstReparo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Gas_OpGas">
           <End Role="tblGasCozinha" Type="Self.tblGasCozinha" Multiplicity="1" />
           <End Role="Gas_OpcaoGas" Type="Self.Gas_OpcaoGas" Multiplicity="*" />
@@ -1208,6 +1163,18 @@
             </Principal>
             <Dependent Role="tblFiscalizacao">
               <PropertyRef Name="FkEstFisica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkEstReparo">
+          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkEstReparo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1380,7 +1347,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SistemaSaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="EstFisica_EstReparo" EntityType="Self.EstFisica_EstReparo" />
           <EntitySet Name="Gas_OpcaoGas" EntityType="Self.Gas_OpcaoGas" />
           <EntitySet Name="Iluminacao_IluReparo" EntityType="Self.Iluminacao_IluReparo" />
           <EntitySet Name="Incendio_Extintor" EntityType="Self.Incendio_Extintor" />
@@ -1407,14 +1373,6 @@
           <EntitySet Name="tblSisIncendio" EntityType="Self.tblSisIncendio" />
           <EntitySet Name="tblTransito" EntityType="Self.tblTransito" />
           <EntitySet Name="tblUeb" EntityType="Self.tblUeb" />
-          <AssociationSet Name="REstF_EstR" Association="Self.REstF_EstR">
-            <End Role="tblEstFisica" EntitySet="tblEstFisica" />
-            <End Role="EstFisica_EstReparo" EntitySet="EstFisica_EstReparo" />
-          </AssociationSet>
-          <AssociationSet Name="REstR_EstF" Association="Self.REstR_EstF">
-            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
-            <End Role="EstFisica_EstReparo" EntitySet="EstFisica_EstReparo" />
-          </AssociationSet>
           <AssociationSet Name="Gas_OpGas" Association="Self.Gas_OpGas">
             <End Role="tblGasCozinha" EntitySet="tblGasCozinha" />
             <End Role="Gas_OpcaoGas" EntitySet="Gas_OpcaoGas" />
@@ -1457,6 +1415,10 @@
           </AssociationSet>
           <AssociationSet Name="FkEstFisica" Association="Self.FkEstFisica">
             <End Role="tblEstFisica" EntitySet="tblEstFisica" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FkEstReparo" Association="Self.FkEstReparo">
+            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
             <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
           </AssociationSet>
           <AssociationSet Name="FiscalizacaoRegistro" Association="Self.FiscalizacaoRegistro">
@@ -1522,15 +1484,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SistemaSaseModelStoreContainer" CdmEntityContainer="SistemaSaseEntities">
-          <EntitySetMapping Name="EstFisica_EstReparo">
-            <EntityTypeMapping TypeName="SistemaSaseModel.EstFisica_EstReparo">
-              <MappingFragment StoreEntitySet="EstFisica_EstReparo">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdEstFisica" ColumnName="IdEstFisica" />
-                <ScalarProperty Name="IdEstReparo" ColumnName="IdEstReparo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Gas_OpcaoGas">
             <EntityTypeMapping TypeName="SistemaSaseModel.Gas_OpcaoGas">
               <MappingFragment StoreEntitySet="Gas_OpcaoGas">
@@ -1621,7 +1574,13 @@
             <EntityTypeMapping TypeName="SistemaSaseModel.tblEstReparo">
               <MappingFragment StoreEntitySet="tblEstReparo">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Parede" ColumnName="Parede" />
+                <ScalarProperty Name="Teto" ColumnName="Teto" />
+                <ScalarProperty Name="Calcada" ColumnName="Calcada" />
+                <ScalarProperty Name="Quadra" ColumnName="Quadra" />
+                <ScalarProperty Name="Capina" ColumnName="Capina" />
+                <ScalarProperty Name="Portas" ColumnName="Portas" />
+                <ScalarProperty Name="Piso" ColumnName="Piso" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1654,6 +1613,7 @@
                 <ScalarProperty Name="FkProjViolencia" ColumnName="FkProjViolencia" />
                 <ScalarProperty Name="FkListaTel" ColumnName="FkListaTel" />
                 <ScalarProperty Name="FkOcoInternas" ColumnName="FkOcoInternas" />
+                <ScalarProperty Name="FkEstReparo" ColumnName="FkEstReparo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
