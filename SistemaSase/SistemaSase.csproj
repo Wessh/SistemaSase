@@ -277,6 +277,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Util\Hash.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -618,10 +620,10 @@
     <Content Include="Views\SisIncendio\Details.cshtml" />
     <Content Include="Views\SisIncendio\Edit.cshtml" />
     <Content Include="Views\SisIncendio\Index.cshtml" />
+    <Content Include="Views\Autenticacao\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Autenticacao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

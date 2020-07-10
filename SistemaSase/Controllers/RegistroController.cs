@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SistemaSase.Models;
+using SistemaSase.Util;
 
 namespace SistemaSase.Controllers
 {
@@ -50,6 +51,7 @@ namespace SistemaSase.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblRegistro.Senha = Hash.GerarHash(tblRegistro.Senha);
                 db.tblRegistro.Add(tblRegistro);
                 db.SaveChanges();
                 return RedirectToAction("Index");
