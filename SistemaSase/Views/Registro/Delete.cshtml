@@ -26,16 +26,12 @@
                                 <td>@Html.DisplayNameFor(model => model.Matricula):</td>
                                 <td><strong>@Html.DisplayFor(model => model.Matricula)</strong></td>
                             </tr>
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.Senha)</td>
-                                <td><strong>@Html.DisplayFor(model => model.Senha)</strong></td>
-                            </tr>
                         </tbody>
                     </table>
                     <div class="pull-left">
                         @using (Html.BeginForm())
                         {
-                            @Html.AntiForgeryToken()
+                            //@Html.AntiForgeryToken()
                             @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn pull-right" })
                             <input type="submit" value="Delete" class="btn btn-danger btn pull-right" />
                             @Html.ActionLink("Voltar", "Index", "", new { @class = "btn btn-primary btn pull-right" })

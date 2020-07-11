@@ -55,40 +55,40 @@
 
                         @foreach (var item in Model)
                         {
-                            <tr class="gradeA">
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Fiacao)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CaixaForca)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Interruptores)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Tomadas)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ArCon)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Ventilador)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Geladeira)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Frezzer)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Bebedouro)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                </td>
-                            </tr>
+                        <tr class="gradeA">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fiacao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CaixaForca)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Interruptores)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tomadas)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ArCon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ventilador)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Geladeira)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Frezzer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Bebedouro)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-mini pull-left" })
+                                @Html.ActionLink("Delete", "Delete", "", new { id = item.Id }, new { @class = "btn btn-danger btn-mini pull-left" })
+                                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-mini pull-left" })
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>

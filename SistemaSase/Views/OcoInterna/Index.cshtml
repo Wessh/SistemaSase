@@ -40,25 +40,25 @@
 
                         @foreach (var item in Model)
                         {
-                            <tr class="gradeA">
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Professores)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Alunos)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Gestores)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Outros)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                                </td>
-                            </tr>
+                        <tr class="gradeA">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Professores)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Alunos)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gestores)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Outros)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-mini pull-left" })
+                                @Html.ActionLink("Delete", "Delete", "", new { id = item.Id }, new { @class = "btn btn-danger btn-mini pull-left" })
+                                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-mini pull-left" })
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>

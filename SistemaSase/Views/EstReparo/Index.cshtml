@@ -49,34 +49,34 @@
 
                         @foreach (var item in Model)
                         {
-                            <tr class="gradeA">
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Parede)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Teto)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Calcada)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Quadra)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Capina)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Portas)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Piso)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                </td>
-                            </tr>
+                        <tr class="gradeA">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Parede)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Teto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Calcada)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quadra)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Capina)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Portas)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Piso)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-mini pull-left" })
+                                @Html.ActionLink("Delete", "Delete", "", new { id = item.Id }, new { @class = "btn btn-danger btn-mini pull-left" })
+                                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-mini pull-left" })
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
