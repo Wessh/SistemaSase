@@ -64,7 +64,7 @@ namespace SistemaSase.Controllers
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FkUeb,FkRegistro,FkLivroRegistro,FkCatSeg,FkEstFisica,FkIluminacao,FkSisHidraSaniRep,FkSisIncendio,FkGasCozinha,FkPanicoIncendio,FkTransito,FkAcessibilidade,FkArredoresUeb,FkProjViolencia,FkListaTel,FkOcoInternas,FkEstReparo")] tblFiscalizacao tblFiscalizacao)
+        public ActionResult Create([Bind(Include = "Id,FkUeb,FkRegistro,FkLivroRegistro,FkCatSeg,FkEstFisica,FkIluminacao,FkSisHidraSaniRep,FkSisIncendio,FkGasCozinha,FkPanicoIncendio,FkTransito,FkAcessibilidade,FkArredoresUeb,FkProjViolencia,FkListaTel,FkOcoInternas,FkEstReparo")] tblFiscalizacao tblFiscalizacao, tblAcessibilidade tblAcessibilidade)
         {
             if (ModelState.IsValid)
             {

@@ -32,6 +32,8 @@ namespace SistemaSase.Models
         public int FkListaTel { get; set; }
         public int FkOcoInternas { get; set; }
         public int FkEstReparo { get; set; }
+        public int FkTipoSeg { get; set; }
+        public int FkQntPosto { get; set; }
     
         public virtual tblAcessibilidade tblAcessibilidade { get; set; }
         public virtual tblArredoresUeb tblArredoresUeb { get; set; }
@@ -47,8 +49,10 @@ namespace SistemaSase.Models
         public virtual tblOcoInternas tblOcoInternas { get; set; }
         public virtual tblPanicoIncendio tblPanicoIncendio { get; set; }
         public virtual tblProjViolencia tblProjViolencia { get; set; }
+        public virtual tblQntPosto tblQntPosto { get; set; }
         public virtual tblSisHidraSaniRep tblSisHidraSaniRep { get; set; }
         public virtual tblSisIncendio tblSisIncendio { get; set; }
+        public virtual tblTipoSeg tblTipoSeg { get; set; }
         public virtual tblTransito tblTransito { get; set; }
     }
 }
