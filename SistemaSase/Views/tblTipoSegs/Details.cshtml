@@ -1,0 +1,66 @@
+﻿@model SistemaSase.Models.tblTipoSeg
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblTipoSeg</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vigilante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vigilante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Porteiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Porteiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VigiFeirista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VigiFeirista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PortFeirista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PortFeirista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VigSemedPort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VigSemedPort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VigSemed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VigSemed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

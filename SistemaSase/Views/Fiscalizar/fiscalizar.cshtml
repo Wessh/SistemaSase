@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "fiscalizar";
+}
+
+<div class="span6">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"> <i class="icon-align-justify"></i> </span>
+            <h5>1. Segurança</h5>
+        </div>
+        <div class="widget-content nopadding">
+            <form action="#" method="get" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">Select input</label>
+                    <div class="controls">
+                        <select>
+                            <option>First option</option>
+                            <option>Second option</option>
+                            <option>Third option</option>
+                            <option>Fourth option</option>
+                            <option>Fifth option</option>
+                            <option>Sixth option</option>
+                            <option>Seventh option</option>
+                            <option>Eighth option</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Multiple Select input</label>
+                    <div class="controls">
+                        <select multiple>
+                            <option>First option</option>
+                            <option selected>Second option</option>
+                            <option>Third option</option>
+                            <option>Fourth option</option>
+                            <option>Fifth option</option>
+                            <option>Sixth option</option>
+                            <option>Seventh option</option>
+                            <option>Eighth option</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Radio inputs</label>
+                    <div class="controls">
+                        <label>
+                            <input type="radio" name="radios" />
+                            First One
+                        </label>
+                        <label>
+                            <input type="radio" name="radios" />
+                            Second One
+                        </label>
+                        <label>
+                            <input type="radio" name="radios" />
+                            Third One
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Checkboxes</label>
+                    <div class="controls">
+                        <label>
+                            <input type="checkbox" name="radios" />
+                            First One
+                        </label>
+                        <label>
+                            <input type="checkbox" name="radios" />
+                            Second One
+                        </label>
+                        <label>
+                            <input type="checkbox" name="radios" />
+                            Third One
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="checkboxes" class="control-label">Data Toggle checkbox</label>
+                    <div class="controls">
+                        <div data-toggle="buttons-checkbox" class="btn-group">
+                            <button class="btn btn-primary" type="button">Left</button>
+                            <button class="btn btn-primary" type="button">Middle</button>
+                            <button class="btn btn-primary" type="button">Right</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="checkboxes" class="control-label">Data Radio button</label>
+                    <div class="controls">
+                        <div data-toggle="buttons-radio" class="btn-group">
+                            <button class="btn btn-primary" type="button">Left</button>
+                            <button class="btn btn-primary" type="button">Middle</button>
+                            <button class="btn btn-primary" type="button">Right</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">File upload input</label>
+                    <div class="controls">
+                        <input type="file" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Disabled Input</label>
+                    <div class="controls">
+                        <input type="text" placeholder="You can't type anything…" disabled="" class="span11">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="span6">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"> <i class="icon-align-justify"></i> </span>
+            <h5>Personal-info</h5>
+        </div>
+        <div class="widget-content nopadding">
+            <form action="#" method="get" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">First Name :</label>
+                    <div class="controls">
+                        <input type="text" class="span11" placeholder="First name" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Last Name :</label>
+                    <div class="controls">
+                        <input type="text" class="span11" placeholder="Last name" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Password input</label>
+                    <div class="controls">
+                        <input type="password" class="span11" placeholder="Enter Password" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Company info :</label>
+                    <div class="controls">
+                        <input type="text" class="span11" placeholder="Company name" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Description field:</label>
+                    <div class="controls">
+                        <input type="text" class="span11" />
+                        <span class="help-block">Description field</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Message</label>
+                    <div class="controls">
+                        <textarea class="span11"></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/colorpicker.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/datepicker.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/uniform.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/select2.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Content/Layout/css/bootstrap-wysihtml5.css" />
+    <link href="~/Content/Layout/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+}
+
+@section Scripts{
+    <script src="~/Content/Layout/js/jquery.min.js"></script>
+    <script src="~/Content/Layout/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/Layout/js/bootstrap.min.js"></script>
+    <script src="~/Content/Layout/js/bootstrap-colorpicker.js"></script>
+    <script src="~/Content/Layout/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/Layout/js/jquery.toggle.buttons.js"></script>
+    <script src="~/Content/Layout/js/masked.js"></script>
+    <script src="~/Content/Layout/js/jquery.uniform.js"></script>
+    <script src="~/Content/Layout/js/select2.min.js"></script>
+    <script src="~/Content/Layout/js/matrix.js"></script>
+    <script src="~/Content/Layout/js/matrix.form_common.js"></script>
+    <script src="~/Content/Layout/js/wysihtml5-0.3.0.js"></script>
+    <script src="~/Content/Layout/js/jquery.peity.min.js"></script>
+    <script src="~/Content/Layout/js/bootstrap-wysihtml5.js"></script>
+    <script>
+        $('.textarea_editor').wysihtml5();
+    </script>
+}

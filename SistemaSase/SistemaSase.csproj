@@ -160,6 +160,7 @@
     <Compile Include="Controllers\EstReparoController.cs" />
     <Compile Include="Controllers\ExtintorController.cs" />
     <Compile Include="Controllers\FiscalizacaoController.cs" />
+    <Compile Include="Controllers\FiscalizarController.cs" />
     <Compile Include="Controllers\GasCozinhaController.cs" />
     <Compile Include="Controllers\GestorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -177,11 +178,14 @@
     <Compile Include="Controllers\ReIncendio_ExtintorController.cs" />
     <Compile Include="Controllers\SisHidraSaniRepController.cs" />
     <Compile Include="Controllers\SisIncendioController.cs" />
+    <Compile Include="Controllers\PostoController.cs" />
+    <Compile Include="Controllers\tblTipoSegsController.cs" />
     <Compile Include="Controllers\TransitoController.cs" />
     <Compile Include="Controllers\UebController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoriaSeguranca.cs" />
     <Compile Include="Models\dbSase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -628,6 +632,17 @@
     <Content Include="Views\SisIncendio\Index.cshtml" />
     <Content Include="Views\Autenticacao\Login.cshtml" />
     <Content Include="Views\Fiscalizacao\Create - Cópia .cshtml" />
+    <Content Include="Views\Fiscalizar\fiscalizar.cshtml" />
+    <Content Include="Views\tblQntPosto\Create.cshtml" />
+    <Content Include="Views\tblQntPosto\Delete.cshtml" />
+    <Content Include="Views\tblQntPosto\Details.cshtml" />
+    <Content Include="Views\tblQntPosto\Edit.cshtml" />
+    <Content Include="Views\tblQntPosto\Index.cshtml" />
+    <Content Include="Views\tblTipoSegs\Create.cshtml" />
+    <Content Include="Views\tblTipoSegs\Delete.cshtml" />
+    <Content Include="Views\tblTipoSegs\Details.cshtml" />
+    <Content Include="Views\tblTipoSegs\Edit.cshtml" />
+    <Content Include="Views\tblTipoSegs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
