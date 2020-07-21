@@ -1,4 +1,5 @@
-﻿using SistemaSase.Models;
+﻿using Microsoft.Ajax.Utilities;
+using SistemaSase.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace SistemaSase.Controllers
 
         [HttpPost]
         public ActionResult fiscalizar(
-            bool RampaInterna, bool RampaExterna, bool BanheiroPdePnc,  //Tabela acessibilidade
+                        bool RampaInterna, bool RampaExterna, bool BanheiroPdePnc,  //Tabela acessibilidade
             bool Bares, bool CasaFesta, bool Drogas, string Outros,     //Tabela Arredores da Ueb
             String NomeCat, int FkEquipamentos,        //Tabela CatSeg
             bool Fardamento, bool Apito, bool CapaChuva, bool Colete, bool Tonfa, bool Lanterna, bool Cracha, bool Quepe, bool Revolver, bool Radio,  //EquipamentosSeg
@@ -44,7 +45,7 @@ namespace SistemaSase.Controllers
             bool Banheiros, bool Fossa, bool Cisterna, bool CaixaAgua,       //SisHidraSaniRep
             bool Certificacao, bool Extintor,      //SisIncendio
             bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
-            string NomeUeb, string EnderecoUeb, string NucleoUeb, int FKGestor, string Contato, string Contato2, DateTime DataHora, int FkRegistro,       //UEB
+            string NomeUeb, string EnderecoUeb, string NucleoUeb, int FKGestor, string ContatoUebF, string ContatoUebS, DateTime DataHora, int FkRegistro,       //UEB
             bool Vigilante, bool Porteiro, bool VigiFeirista, bool PortFeirista, bool VigSemedPort, bool VigSemed,        //TipoSeg
             int PostVigilante, int PostPorteiro, int PostVigia,     //QntPosto
             /* - Relacionamentos - */
