@@ -27,7 +27,7 @@ namespace SistemaSase.Controllers
         public ActionResult fiscalizar(
                         bool RampaInterna, bool RampaExterna, bool BanheiroPdePnc,  //Tabela acessibilidade
             bool Bares, bool CasaFesta, bool Drogas, string Outros,     //Tabela Arredores da Ueb
-            String NomeCat, int FkEquipamentos,        //Tabela CatSeg
+            string CatVig, string CatPor, int FkEquipamentos,        //Tabela CatSeg
             bool Fardamento, bool Apito, bool CapaChuva, bool Colete, bool Tonfa, bool Lanterna, bool Cracha, bool Quepe, bool Revolver, bool Radio,  //EquipamentosSeg
             bool Estacionamento, bool ControleVeiculos, bool PortaoEletronico, bool EstaRetrito, bool ParaRaios,     //EstFisica
             bool Parede, bool Teto, bool Calcada, bool Quadra, bool Capina, bool Portas, bool Piso,      //EstReparo
@@ -46,7 +46,7 @@ namespace SistemaSase.Controllers
             bool Certificacao, bool Extintor,      //SisIncendio
             bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
             string NomeUeb, string EnderecoUeb, string NucleoUeb, int FKGestor, string ContatoUebF, string ContatoUebS, DateTime DataHora, int FkRegistro,       //UEB
-            bool Vigilante, bool Porteiro, bool VigiFeirista, bool PortFeirista, bool VigSemedPort, bool VigSemed,        //TipoSeg
+            bool Vigilante, bool Porteiro, bool VigiFerista, bool PortFerista, bool VigSemedPort, bool VigSemed,        //TipoSeg
             int PostVigilante, int PostPorteiro, int PostVigia,     //QntPosto
             /* - Relacionamentos - */
             int IdGas, int IdOpGas,     //ReGas_Op
