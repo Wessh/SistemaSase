@@ -240,7 +240,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row-fluid">
                 <div class="span6">
                     <div class="widget-box">
@@ -263,7 +263,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="span6">
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
@@ -275,10 +275,10 @@
                                     <label class="control-label">Categoria :</label>
                                     <div class="controls">
                                         <label>
-                                            <input type="checkbox" name="CatVig" />
+                                            <input type="checkbox" onclick="CatVig()" id="CatVig" name="CatVig" />
                                             Vigilante</label>
                                         <label>
-                                            <input type="checkbox" name="CatPor" />
+                                            <input type="checkbox" onclick="CatPor()" id="CatPor" name="CatPor" />
                                             Porteiro</label>
                                     </div>
                                 </div>
@@ -287,17 +287,17 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row-fluid">
                 <div class="span6">
-                    <div class="widget-box">
+                    <div class="widget-box hidden" id="EqpVig">
                         <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                             <h5>2. Equipamentos Vigilante</h5>
                         </div>
                         <div class="widget-content nopadding">
                             <div class="form-horizontal">
                                 <div class="control-group">
-                                    <label class="control-label">Categoria :</label>
+                                    <label class="control-label">Equipamentos :</label>
                                     <div class="controls">
                                         <label>
                                             <input type="checkbox" name="#" />
@@ -305,6 +305,73 @@
                                         <label>
                                             <input type="checkbox" name="#" />
                                             Apito</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Capa de chuva</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Colete</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Tonfa</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Crachá</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Quepe</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Revólver calibre .38</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Rádio de transmissão</label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span6">
+                    <div class="widget-box hidden" id="EqpPor">
+                        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                            <h5>2. Equipamentos Porteiro</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">Equipamentos :</label>
+                                    <div class="controls">
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Fardamento Padronizado</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Apito</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Capa de chuva</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Colete</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Tonfa</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Crachá</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Quepe</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Revólver calibre .38</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Rádio de transmissão</label>
+
                                     </div>
                                 </div>
                             </div>
@@ -312,7 +379,180 @@
                     </div>
                 </div>
             </div>
-            
+
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                            <h5>3. Estrutura física da escola</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <br />
+                                        <br />
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Existe estacionamento</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Há controle de acesso dos veículos</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Portão Eletronico</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Estacionamento Restrito</label>
+                                        <br />
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                            <h5>3.1 Onde há necessidades de reparo</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Parede</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Teto</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Calçada</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Quadra</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Capina</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Portas</label>
+                                        <label>
+                                            <input type="checkbox" name="#" />
+                                            Piso</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                            <h5>4. Iluminação - Onde há necessidade de reparo</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label>
+                                            <input type="checkbox" id="InternaIlu" onclick="IluInt()" name="#" />
+                                            Interna</label>
+                                        <label>
+                                            <input type="checkbox" id="ExternaIlu" onclick="IluExt()" name="#" />
+                                            Externa</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden" id="IluInt">
+                            <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                                <h5>Iluminação interna</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <div class="form-horizontal">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Fiação</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Caixa de força</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Interruptores</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Tomadas</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Ar condicionado</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Ventilador</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Geladeira</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Frezzer</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Bebedouro</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden" id="IluExt">
+                            <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                                <h5>Iluminação externa</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <div class="form-horizontal">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Fiação</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Caixa de força</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Interruptores</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Tomadas</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Ar condicionado</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Ventilador</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Geladeira</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Frezzer</label>
+                                            <label>
+                                                <input type="checkbox" name="#" />
+                                                Bebedouro</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!--Footer-part-->
@@ -334,6 +574,7 @@
     <script src="js/wysihtml5-0.3.0.js"></script>
     <script src="js/jquery.peity.min.js"></script>
     <script src="js/bootstrap-wysihtml5.js"></script>
+    <script src="js/fiscalizar.js"></script>
     <script>
         $('.textarea_editor').wysihtml5();
     </script>
