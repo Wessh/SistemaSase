@@ -25,7 +25,7 @@ namespace SistemaSase.Controllers
 
         [HttpPost]
         public ActionResult fiscalizar(
-                        bool RampaInterna, bool RampaExterna, bool BanheiroPdePnc,  //Tabela acessibilidade
+            bool RampaInterna, bool RampaExterna, bool BanheiroPdePnc,  //Tabela acessibilidade
             bool Bares, bool CasaFesta, bool Drogas, string Outros,     //Tabela Arredores da Ueb
             string CatVig, string CatPor, int FkEquipamentos,        //Tabela CatSeg
             bool Fardamento, bool Apito, bool CapaChuva, bool Colete, bool Tonfa, bool Lanterna, bool Cracha, bool Quepe, bool Revolver, bool Radio,  //EquipamentosSeg
@@ -55,6 +55,47 @@ namespace SistemaSase.Controllers
             )
         {
             //Importar as tabelas
+            tblAcessibilidade tblacessibilidade = new tblAcessibilidade();
+            tblArredoresUeb tblarredoresUeb = new tblArredoresUeb();
+            tblCatSeg tblcatSeg = new tblCatSeg();
+            tblEquipamentosSeg tblequipamentosSeg = new tblEquipamentosSeg();
+            tblEstFisica tblestFisica = new tblEstFisica();
+            tblEstReparo tblestReparo = new tblEstReparo();
+            tblExtintor tblextintor = new tblExtintor();
+            tblGasCozinha tblGasCozinha = new tblGasCozinha();
+            tblGestor tblGestor = new tblGestor();
+            tblIluminacao tblIluminacao = new tblIluminacao();
+            tblIluReparo tblIluReparo = new tblIluReparo();
+            tblListaTel tblListaTel = new tblListaTel();
+            tblLivroRegistro tblLivroRegistro = new tblLivroRegistro();
+            tblOcoInternas tblOcoInternas = new tblOcoInternas();
+            tblOpGas tblOpGas = new tblOpGas();
+            tblPanicoIncendio tblPanicoIncendio = new tblPanicoIncendio();
+            tblProjViolencia tblProjViolencia = new tblProjViolencia();
+            tblQntPosto tblQntPosto = new tblQntPosto();
+            tblRegistro tblRegistro = new tblRegistro();
+            tblSisHidraSaniRep tblSisHidraSaniRep = new tblSisHidraSaniRep();
+            tblSisIncendio tblSisIncendio = new tblSisIncendio();
+            tblTipoSeg tblTipoSeg = new tblTipoSeg();
+            tblTipoSegsController tblTipoSegsController = new tblTipoSegsController();
+            tblTransito tblTransito = new tblTransito();
+            tblUeb tblUeb = new tblUeb();
+            /* - Relacionamentos - */
+            Iluminacao_IluReparo Reiluminacao_IluReparo = new Iluminacao_IluReparo();
+            Gas_OpcaoGas Regas_OpcaoGas = new Gas_OpcaoGas();
+            Incendio_Extintor Reincendio_Extintor = new Incendio_Extintor();
+
+            /* - - */
+
+            //UEB
+            tblUeb.Nome = NomeUeb;
+            tblUeb.Endereco = EnderecoUeb;
+            tblUeb.Nucleo = NucleoUeb;
+            tblGestor.Nome = NomeGestor;
+            tblUeb.Contato = ContatoUebF;
+            tblUeb.Contato2 = ContatoUebS;
+
+
             return View();
         }
     }
