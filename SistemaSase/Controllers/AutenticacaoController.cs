@@ -52,6 +52,7 @@ namespace SistemaSase.Controllers
             var identity = new ClaimsIdentity(new[]
             {
                 new Claim(ClaimTypes.Name, usuario.Nome),
+                new Claim("ID", usuario.Id.ToString()),
                 new Claim("Matricula", usuario.Matricula)
             }, "ApplicationCookie");
 

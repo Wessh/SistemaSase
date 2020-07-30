@@ -38,7 +38,7 @@
                             <div class="control-group">
                                 <label class="control-label">Gestor Geral :</label>
                                 <div class="controls">
-                                    <input type="text" class="span11" placeholder="Nome do gestor geral" />
+                                    <input type="text" name="NomeGestor" class="span11" placeholder="Nome do gestor geral" />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -70,27 +70,28 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" name="Vigilante" />
+                                        @Html.CheckBox("Vigilante")
+                                        <!--<input type="checkbox" name="Vigilante" />-->
                                         Vigilante
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="VigiFerista" />
+                                        @Html.CheckBox("VigiFerista")
                                         Vigilante Ferista
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="Porteiro" />
+                                        @Html.CheckBox("Porteiro")
                                         Porteiro
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="PortFerista" />
+                                        @Html.CheckBox("PortFerista")
                                         Porteiro Ferista
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="VigSemed" />
+                                        @Html.CheckBox("VigSemed")
                                         Vigia/Semed
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="VigSemedPort" />
+                                        @Html.CheckBox("VigSemedPort")
                                         Vigia/Semed Porteiro
                                     </label>
                                 </div>
@@ -146,10 +147,12 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
+                                        @Html.CheckBox("LivroOcorrecia")
                                         <input type="checkbox" name="LivroOcorrecia" />
                                         Existe livro de ocorrencia?
                                     </label>
                                     <label>
+                                        @Html.CheckBox("RegistroDiarios")
                                         <input type="checkbox" name="RegistroDiarios" />
                                         Há registros diários?
                                     </label>
@@ -171,11 +174,11 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" onclick="CatVig()" id="CatVig" name="CatVig" />
+                                        @Html.CheckBox("CatVig", new { onclick = "fCatVig()", id = "CatVig" })
                                         Vigilante
                                     </label>
                                     <label>
-                                        <input type="checkbox" onclick="CatPor()" id="CatPor" name="CatPor" />
+                                        @Html.CheckBox("CatVig", new { onclick = "fCatPor()", id = "CatPor" })
                                         Porteiro
                                     </label>
                                 </div>
@@ -554,15 +557,15 @@
                                     </label>
                                     <div class="hidden" id="DivExtintores">
                                         <label>
-                                            <input type="checkbox" id="PQS" onclick="PQS()" name="#" />
+                                            <input type="checkbox" id="PQS" onclick="fPQS()" name="#" />
                                             PQS <input class="hidden" id="DatePQS" type="date" name="#" />
                                         </label>
                                         <label>
-                                            <input type="checkbox" id="CO2" onclick="CO2()" name="#" />
+                                            <input type="checkbox" id="CO2" onclick="fCO2()" name="#" />
                                             CO² <input class="hidden" id="DateCO2" type="date" name="#" />
                                         </label>
                                         <label>
-                                            <input type="checkbox" id="CheckAgua" onclick="AgF()" name="#" />
+                                            <input type="checkbox" id="CheckAgua" onclick="fAgF()" name="#" />
                                             Água <input class="hidden" id="DateAgua" type="date" name="#" />
                                         </label>
                                     </div>
@@ -583,7 +586,7 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" id="GInd" onclick="GInd()" name="#" />
+                                        <input type="checkbox" id="GInd" onclick="fGInd()" name="#" />
                                         Industrial
                                         <div class="hidden" id="IndFun">
                                             <ul /><input type="checkbox" name="#" />
@@ -591,7 +594,7 @@
                                         </div>
                                     </label>
                                     <label>
-                                        <input type="checkbox" id="GDom" onclick="GDom()" name="#" />
+                                        <input type="checkbox" id="GDom" onclick="fGDom()" name="#" />
                                         Doméstico
                                         <div class="hidden" id="DomFun">
                                             <ul /><input type="checkbox" name="#" />
@@ -831,10 +834,10 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-sm btn-default" type="submit">Enviar</button>
+        
     </div>
 }
-
+<button class="btn btn-sm btn-default" type="submit">Enviar</button>
 @section Css{
     <link rel="stylesheet" href="~/Content/Layout/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/Layout/css/bootstrap-responsive.min.css" />
@@ -852,6 +855,7 @@
 @section Scripts{
     <script src="~/Content/Layout/js/jquery.min.js"></script>
     <script src="~/Content/Layout/js/jquery.ui.custom.js"></script>
+    <script src="~/Scripts/fiscalizar.js"></script>
     <script src="~/Content/Layout/js/bootstrap.min.js"></script>
     <script src="~/Content/Layout/js/bootstrap-colorpicker.js"></script>
     <script src="~/Content/Layout/js/bootstrap-datepicker.js"></script>
@@ -864,6 +868,7 @@
     <script src="~/Content/Layout/js/wysihtml5-0.3.0.js"></script>
     <script src="~/Content/Layout/js/jquery.peity.min.js"></script>
     <script src="~/Content/Layout/js/bootstrap-wysihtml5.js"></script>
+
     <script>
         $('.textarea_editor').wysihtml5();
     </script>
