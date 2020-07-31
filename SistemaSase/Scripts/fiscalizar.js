@@ -1,6 +1,6 @@
 ﻿
 //Categoria Vigilante
-function CatVig() {
+function fCatVig() {
     var checkBox = document.getElementById("CatVig");
     if (checkBox.checked == true) {
         $("#EqpVig").slideDown().fadeTo(100, 100).removeClass('hidden');
@@ -12,7 +12,7 @@ function CatVig() {
     }
 };
 //Categoria Porteiro
-function CatPor() {
+function fCatPor() {
     var checkBox = document.getElementById("CatPor");
     if (checkBox.checked == true) {
         $("#EqpPor").slideDown().fadeTo(100, 100).removeClass('hidden');

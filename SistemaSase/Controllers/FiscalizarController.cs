@@ -37,20 +37,20 @@ namespace SistemaSase.Controllers
             //string NomeExt, DateTime Validade,       //Extintor
             //string NomeGas, bool Funcionando,        //GasCozinha
             string NomeGestor, string Documento,     //Gestor
-            //string Nome,        //Iluminacao
-            //bool Fiacao, bool CaixaForca, bool Interruptores, bool Tomadas, bool ArCon, bool Ventilador, bool Geladeira, bool Frezzer, bool Bebedouro,        //IluReparo
-            //bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,     //ListaTel
-            //bool LivroOcorrecia, bool RegistroDiarios,      //LivroRegistro
-            //bool Professores, bool Alunos, bool Gestores, string OutrosCoInternas,       //OcoInternas
-            //bool EstFunc,       //OpGas
-            //bool Treinamento, bool Sinalizacao,        //PanicoIncendio
-            //bool Escola, bool Parceria,        //ProjViolencia
-            //bool Banheiros, bool Fossa, bool Cisterna, bool CaixaAgua,       //SisHidraSaniRep
-            //bool Certificacao, bool Extintor,      //SisIncendio
-            //bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
+                                                     //string Nome,        //Iluminacao
+                                                     //bool Fiacao, bool CaixaForca, bool Interruptores, bool Tomadas, bool ArCon, bool Ventilador, bool Geladeira, bool Frezzer, bool Bebedouro,        //IluReparo
+                                                     //bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,     //ListaTel
+                                                     //bool LivroOcorrecia, bool RegistroDiarios,      //LivroRegistro
+                                                     //bool Professores, bool Alunos, bool Gestores, string OutrosCoInternas,       //OcoInternas
+                                                     //bool EstFunc,       //OpGas
+                                                     //bool Treinamento, bool Sinalizacao,        //PanicoIncendio
+                                                     //bool Escola, bool Parceria,        //ProjViolencia
+                                                     //bool Banheiros, bool Fossa, bool Cisterna, bool CaixaAgua,       //SisHidraSaniRep
+                                                     //bool Certificacao, bool Extintor,      //SisIncendio
+                                                     //bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
             string NomeUeb, string EnderecoUeb, string NucleoUeb, string ContatoUebF, string ContatoUebS,       //UEB
-            bool Vigilante//, bool Porteiro, bool VigiFerista, bool PortFerista, bool VigSemedPort, bool VigSemed,        //TipoSeg
-           // int PostVigilante, int PostPorteiro, int PostVigia,     //QntPosto
+            bool Vigilante, bool Porteiro, bool VigiFerista, bool PortFerista, bool VigSemedPort, bool VigSemed//,        //TipoSeg
+                                                                                                               // int PostVigilante, int PostPorteiro, int PostVigia,     //QntPosto
             )
         {
             //Id do usuario logado
@@ -105,11 +105,12 @@ namespace SistemaSase.Controllers
             db.SaveChanges();*/
 
             /**Segurança**/
-
-            if(Vigilante)
-                tblTipoSeg.Vigilante = false;
-
-
+            tblTipoSeg.Vigilante = Vigilante;
+            tblTipoSeg.Porteiro = Porteiro;
+            tblTipoSeg.VigiFeirista = VigiFerista;
+            tblTipoSeg.PortFeirista = PortFerista;
+            tblTipoSeg.VigSemedPort = VigSemedPort;
+            tblTipoSeg.VigSemed = VigSemed;
 
             return View();
         }
