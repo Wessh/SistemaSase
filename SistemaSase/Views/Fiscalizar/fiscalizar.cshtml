@@ -110,22 +110,22 @@
                             <div class="control-group">
                                 <label class="control-label">Postos - Vigilante :</label>
                                 <div class="controls">
-                                    <input type="number" name="PostVigilante" class="span11" placeholder="0" />
+                                    <input type="number" name="PostVigilante" id="PostVigilante" class="span11" placeholder="0"/>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Postos - Porteiro :</label>
                                 <div class="controls">
-                                    <input type="number" name="PostPorteiro" class="span11" placeholder="0" />
+                                    <input type="number" name="PostPorteiro" id="PostPorteiro" class="span11" placeholder="0"/>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Postos - Vigia</label>
                                 <div class="controls">
-                                    <input type="number" name="PostVigia" class="span11" placeholder="0" />
+                                    <input type="number" name="PostVigia" id="PostVigia" class="span11" placeholder="0"/>
                                 </div>
                             </div>
-                            <span class="help-block text-center">Utilizar 0 caso não possua postos</span>
+                            <span class="help-block text-center">Caso não possua postos deixar o campo vazio</span>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
                                         Vigilante
                                     </label>
                                     <label>
-                                        @Html.CheckBox("CatVig", new { onclick = "fCatPor()", id = "CatPor" })
+                                        @Html.CheckBox("CatPor", new { onclick = "fCatPor()", id = "CatPor" })
                                         Porteiro
                                     </label>
                                 </div>
@@ -184,41 +184,45 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label>
+                                            @Html.CheckBox("Fardamento")
                                             Fardamento Padronizado
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Apito")
                                             Apito
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("CapaChuva")
                                             Capa de chuva
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Colete")
                                             Colete
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Tonfa")
                                             Tonfa
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Lanterna")
+                                            Lanterna
+                                        </label>
+                                        <label>
+                                            @Html.CheckBox("Cracha")
                                             Crachá
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Quepe")
                                             Quepe
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Revolver")
                                             Revólver calibre .38
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Radio")
                                             Rádio de transmissão
                                         </label>
-
                                     </div>
                                 </div>
                             </div>
@@ -235,42 +239,45 @@
                                     <label class="control-label">Equipamentos :</label>
                                     <div class="controls">
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("FardamentoP")
                                             Fardamento Padronizado
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("ApitoP")
                                             Apito
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("CapaChuvaP")
                                             Capa de chuva
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("ColeteP")
                                             Colete
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("TonfaP")
                                             Tonfa
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("LanternaP")
+                                            Lanterna
+                                        </label>
+                                        <label>
+                                            @Html.CheckBox("CrachaP")
                                             Crachá
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("QuepeP")
                                             Quepe
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("RevolverP")
                                             Revólver calibre .38
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("RadioP")
                                             Rádio de transmissão
                                         </label>
-
                                     </div>
                                 </div>
                             </div>
@@ -780,7 +787,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-sm btn-default" type="submit">Enviar</button>
+        <button class="btn btn-sm btn-default" onclick="bntEnviar()" type="submit">Enviar</button>
     </div>
 }
 

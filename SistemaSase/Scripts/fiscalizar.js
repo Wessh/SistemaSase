@@ -132,3 +132,21 @@ function fGDom() {
             });
     }
 };
+
+//Botão de envio
+function bntEnviar() {
+    //Verificar QNT Postos
+    var pV = document.getElementById("PostVigilante");
+    if (pV.value.length < 1) {
+        $("#PostVigilante").val(0);
+    }
+    var pV = document.getElementById("PostPorteiro");
+    if (pV.value.length < 1) {
+        $("#PostPorteiro").val(0);
+    }
+    var pV = document.getElementById("PostVigia");
+    if (pV.value.length < 1) {
+        $("#PostVigia").val(0);
+    }
+
+}

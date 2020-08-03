@@ -30,17 +30,18 @@ namespace SistemaSase.Controllers
         public ActionResult fiscalizar(
             //bool RampaInterna, bool RampaExterna, bool BanheiroPdePnc,  //Tabela acessibilidade
             //bool Bares, bool CasaFesta, bool Drogas, string Outros,     //Tabela Arredores da Ueb
-            //string CatVig, string CatPor, int FkEquipamentos,        //Tabela CatSeg
-            //bool Fardamento, bool Apito, bool CapaChuva, bool Colete, bool Tonfa, bool Lanterna, bool Cracha, bool Quepe, bool Revolver, bool Radio,  //EquipamentosSeg
-            //bool Estacionamento, bool ControleVeiculos, bool PortaoEletronico, bool EstaRetrito, bool ParaRaios,     //EstFisica
-            //bool Parede, bool Teto, bool Calcada, bool Quadra, bool Capina, bool Portas, bool Piso,      //EstReparo
-            //string NomeExt, DateTime Validade,       //Extintor
-            //string NomeGas, bool Funcionando,        //GasCozinha
+            bool CatVig, bool CatPor,        //Tabela CatSeg
+            bool Fardamento, bool Apito, bool CapaChuva, bool Colete, bool Tonfa, bool Lanterna, bool Cracha, bool Quepe, bool Revolver, bool Radio,  //EquipamentosSeg
+            bool FardamentoP, bool ApitoP, bool CapaChuvaP, bool ColeteP, bool TonfaP, bool LanternaP, bool CrachaP, bool QuepeP, bool RevolverP, bool RadioP,  //EquipamentosSeg
+                                                                                                                                                      //bool Estacionamento, bool ControleVeiculos, bool PortaoEletronico, bool EstaRetrito, bool ParaRaios,     //EstFisica
+                                                                                                                                                      //bool Parede, bool Teto, bool Calcada, bool Quadra, bool Capina, bool Portas, bool Piso,      //EstReparo
+                                                                                                                                                      //string NomeExt, DateTime Validade,       //Extintor
+                                                                                                                                                      //string NomeGas, bool Funcionando,        //GasCozinha
             string NomeGestor, string Documento,     //Gestor
                                                      //string Nome,        //Iluminacao
                                                      //bool Fiacao, bool CaixaForca, bool Interruptores, bool Tomadas, bool ArCon, bool Ventilador, bool Geladeira, bool Frezzer, bool Bebedouro,        //IluReparo
                                                      //bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,     //ListaTel
-                                                     //bool LivroOcorrecia, bool RegistroDiarios,      //LivroRegistro
+            bool LivroOcorrecia, bool RegistroDiarios,      //LivroRegistro
                                                      //bool Professores, bool Alunos, bool Gestores, string OutrosCoInternas,       //OcoInternas
                                                      //bool EstFunc,       //OpGas
                                                      //bool Treinamento, bool Sinalizacao,        //PanicoIncendio
@@ -49,8 +50,8 @@ namespace SistemaSase.Controllers
                                                      //bool Certificacao, bool Extintor,      //SisIncendio
                                                      //bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
             string NomeUeb, string EnderecoUeb, string NucleoUeb, string ContatoUebF, string ContatoUebS,       //UEB
-            bool Vigilante, bool Porteiro, bool VigiFerista, bool PortFerista, bool VigSemedPort, bool VigSemed//,        //TipoSeg
-                                                                                                               // int PostVigilante, int PostPorteiro, int PostVigia,     //QntPosto
+            bool Vigilante, bool Porteiro, bool VigiFerista, bool PortFerista, bool VigSemedPort, bool VigSemed,        //TipoSeg
+            int PostVigilante, int PostPorteiro, int PostVigia     //QntPosto
             )
         {
             //Id do usuario logado
@@ -104,13 +105,65 @@ namespace SistemaSase.Controllers
             db.tblUeb.Add(tblUeb);
             db.SaveChanges();*/
 
-            /**Segurança**/
+            /**Segurança*
             tblTipoSeg.Vigilante = Vigilante;
             tblTipoSeg.Porteiro = Porteiro;
             tblTipoSeg.VigiFeirista = VigiFerista;
             tblTipoSeg.PortFeirista = PortFerista;
             tblTipoSeg.VigSemedPort = VigSemedPort;
             tblTipoSeg.VigSemed = VigSemed;
+            //Salvar
+            db.tblTipoSeg.Add(tblTipoSeg);
+            db.SaveChanges();*/
+
+            /** QNT Postos na UEB *
+            tblQntPosto.PostVigilante = PostVigilante;
+            tblQntPosto.PostPorteiro = PostPorteiro;
+            tblQntPosto.PostVigia = PostVigia;
+            db.tblQntPosto.Add(tblQntPosto);
+            db.SaveChanges();*/
+
+            /** Livro de registro *
+            tblLivroRegistro.LivroOcorrecia = LivroOcorrecia;
+            tblLivroRegistro.RegistroDiarios = RegistroDiarios;
+            db.tblLivroRegistro.Add(tblLivroRegistro);
+            db.SaveChanges();*/
+
+            /** Categoria Equipamentos **/
+            if (CatVig)
+            {
+                tblequipamentosSeg.Fardamento = Fardamento;
+                tblequipamentosSeg.Apito = Apito;
+                tblequipamentosSeg.CapaChuva = CapaChuva;
+                tblequipamentosSeg.Colete = Colete;
+                tblequipamentosSeg.Tonfa = Tonfa;
+                tblequipamentosSeg.Lanterna = Lanterna;
+                tblequipamentosSeg.Cracha = Cracha;
+                tblequipamentosSeg.Quepe = Quepe;
+                tblequipamentosSeg.Revolver = Revolver;
+                tblequipamentosSeg.Radio = Radio;
+                tblcatSeg.Nome = "Vigilante";
+                tblcatSeg.FkEquipamentos = tblequipamentosSeg.Id;
+                db.tblEquipamentosSeg.Add(tblequipamentosSeg);
+                db.tblCatSeg.Add(tblcatSeg);
+                db.SaveChanges();
+
+            }
+            if (CatPor)
+            {
+                tblequipamentosSeg.Fardamento = FardamentoP;
+                tblequipamentosSeg.Apito = ApitoP;
+                tblequipamentosSeg.CapaChuva = CapaChuvaP;
+                tblequipamentosSeg.Colete = ColeteP;
+                tblequipamentosSeg.Tonfa = TonfaP;
+                tblequipamentosSeg.Lanterna = LanternaP;
+                tblequipamentosSeg.Cracha = CrachaP;
+                tblequipamentosSeg.Quepe = QuepeP;
+                tblequipamentosSeg.Revolver = RevolverP;
+                tblequipamentosSeg.Radio = RadioP;
+                tblcatSeg.Nome = "Porteiro";
+                tblcatSeg.FkEquipamentos = tblequipamentosSeg.Id;
+            }
 
             return View();
         }
