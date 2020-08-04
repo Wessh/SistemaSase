@@ -33,21 +33,21 @@ namespace SistemaSase.Controllers
             bool CatVig, bool CatPor,        //Tabela CatSeg
             bool Fardamento, bool Apito, bool CapaChuva, bool Colete, bool Tonfa, bool Lanterna, bool Cracha, bool Quepe, bool Revolver, bool Radio,  //EquipamentosSeg
             bool FardamentoP, bool ApitoP, bool CapaChuvaP, bool ColeteP, bool TonfaP, bool LanternaP, bool CrachaP, bool QuepeP, bool RevolverP, bool RadioP,  //EquipamentosSeg
-                                                                                                                                                      //bool Estacionamento, bool ControleVeiculos, bool PortaoEletronico, bool EstaRetrito, bool ParaRaios,     //EstFisica
-                                                                                                                                                      //bool Parede, bool Teto, bool Calcada, bool Quadra, bool Capina, bool Portas, bool Piso,      //EstReparo
-                                                                                                                                                      //string NomeExt, DateTime Validade,       //Extintor
-                                                                                                                                                      //string NomeGas, bool Funcionando,        //GasCozinha
+            bool Estacionamento, bool ControleVeiculos, bool PortaoEletronico, bool EstaRetrito, bool ParaRaios,     //EstFisica
+            bool Parede, bool Teto, bool Calcada, bool Quadra, bool Capina, bool Portas, bool Piso,      //EstReparo
+            bool Certificacao, bool Extintor, bool PQS, bool CO2, bool Agua, DateTime ValPqs, DateTime ValCo2, DateTime ValAgua,      //SisIncendio
+                                                                                                                                       //string NomeGas, bool Funcionando,        //GasCozinha
             string NomeGestor, string Documento,     //Gestor
-                                                     //string Nome,        //Iluminacao
-                                                     //bool Fiacao, bool CaixaForca, bool Interruptores, bool Tomadas, bool ArCon, bool Ventilador, bool Geladeira, bool Frezzer, bool Bebedouro,        //IluReparo
-                                                     //bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,     //ListaTel
+            bool IntLu, bool ExtLu,        //Iluminacao
+            bool Fiacao, bool CaixaForca, bool Interruptores, bool Tomadas, bool ArCon, bool Ventilador, bool Geladeira, bool Frezzer, bool Bebedouro,        //IluReparo
+            bool FiacaoE, bool CaixaForcaE, bool InterruptoresE, bool TomadasE, bool ArConE, bool VentiladorE, bool GeladeiraE, bool FrezzerE, bool BebedouroE,        //IluReparoExterna
+                                                                                                                                                              //bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,     //ListaTel
             bool LivroOcorrecia, bool RegistroDiarios,      //LivroRegistro
                                                      //bool Professores, bool Alunos, bool Gestores, string OutrosCoInternas,       //OcoInternas
                                                      //bool EstFunc,       //OpGas
                                                      //bool Treinamento, bool Sinalizacao,        //PanicoIncendio
                                                      //bool Escola, bool Parceria,        //ProjViolencia
-                                                     //bool Banheiros, bool Fossa, bool Cisterna, bool CaixaAgua,       //SisHidraSaniRep
-                                                     //bool Certificacao, bool Extintor,      //SisIncendio
+            bool Banheiros, bool Fossa, bool Cisterna, bool CaixaAgua,       //SisHidraSaniRep
                                                      //bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
             string NomeUeb, string EnderecoUeb, string NucleoUeb, string ContatoUebF, string ContatoUebS,       //UEB
             bool Vigilante, bool Porteiro, bool VigiFerista, bool PortFerista, bool VigSemedPort, bool VigSemed,        //TipoSeg
@@ -58,6 +58,11 @@ namespace SistemaSase.Controllers
             //var identity = User.Identity as ClaimsIdentity;
             //var matUser = identity.Claims.FirstOrDefault(c => c.Type == "Matricula").Value;
             //var idUser = db.tblRegistro.FirstOrDefault(u => u.Matricula == matUser).Id;
+            int portid = 0;
+            int vigid = 0;
+            int iluextid = 0;
+            int iluintid = 0;
+
             //Importar as tabelas
             tblAcessibilidade tblacessibilidade = new tblAcessibilidade();
             tblArredoresUeb tblarredoresUeb = new tblArredoresUeb();
@@ -129,7 +134,10 @@ namespace SistemaSase.Controllers
             db.tblLivroRegistro.Add(tblLivroRegistro);
             db.SaveChanges();*/
 
-            /** Categoria Equipamentos **/
+            /*
+             * Categoria Equipamentos *
+             * Colocar o id da fiscalização na tabela CatSeg... Ou seja... adicionar o ele após salvar a tblFiscalização
+             
             if (CatVig)
             {
                 tblequipamentosSeg.Fardamento = Fardamento;
@@ -147,7 +155,7 @@ namespace SistemaSase.Controllers
                 db.tblEquipamentosSeg.Add(tblequipamentosSeg);
                 db.tblCatSeg.Add(tblcatSeg);
                 db.SaveChanges();
-
+                vigid = tblcatSeg.Id;
             }
             if (CatPor)
             {
@@ -163,7 +171,95 @@ namespace SistemaSase.Controllers
                 tblequipamentosSeg.Radio = RadioP;
                 tblcatSeg.Nome = "Porteiro";
                 tblcatSeg.FkEquipamentos = tblequipamentosSeg.Id;
+                db.tblEquipamentosSeg.Add(tblequipamentosSeg);
+                db.tblCatSeg.Add(tblcatSeg);
+                db.SaveChanges();
+                portid = tblcatSeg.Id;
+            }*/
+
+            /** Cadastro tabela Estrutura fisica *
+            tblestFisica.Estacionamento = Estacionamento;
+            tblestFisica.ControleVeiculos = ControleVeiculos;
+            tblestFisica.PortaoEletronico = PortaoEletronico;
+            tblestFisica.EstaRetrito = EstaRetrito;
+            tblestFisica.ParaRaios = ParaRaios;
+            db.tblEstFisica.Add(tblestFisica);
+            db.SaveChanges();*/
+
+            /** Cadastro Reparo Estrutura fisica *
+            tblestReparo.Parede = Parede;
+            tblestReparo.Teto = Teto;
+            tblestReparo.Calcada = Calcada;
+            tblestReparo.Quadra = Quadra;
+            tblestReparo.Capina = Capina;
+            tblestReparo.Portas = Portas;
+            tblestReparo.Piso = Piso;
+            db.tblEstReparo.Add(tblestReparo);
+            db.SaveChanges();*/
+
+            /** Iluminação *
+            if (IntLu)
+            {
+                tblIluReparo.Fiacao = Fiacao;
+                tblIluReparo.CaixaForca = CaixaForca;
+                tblIluReparo.Interruptores = Interruptores;
+                tblIluReparo.Tomadas = Tomadas;
+                tblIluReparo.ArCon = ArCon;
+                tblIluReparo.Ventilador = Ventilador;
+                tblIluReparo.Geladeira = Geladeira;
+                tblIluReparo.Frezzer = Frezzer;
+                tblIluReparo.Bebedouro = Bebedouro;
+                tblIluminacao.Nome = "interna";
+                db.tblIluminacao.Add(tblIluminacao);
+                db.tblIluReparo.Add(tblIluReparo);
+                db.SaveChanges();
+                iluintid = tblIluReparo.Id;
             }
+            if (ExtLu)
+            {
+                tblIluReparo.Fiacao = FiacaoE;
+                tblIluReparo.CaixaForca = CaixaForcaE;
+                tblIluReparo.Interruptores = InterruptoresE;
+                tblIluReparo.Tomadas = TomadasE;
+                tblIluReparo.ArCon = ArConE;
+                tblIluReparo.Ventilador = VentiladorE;
+                tblIluReparo.Geladeira = GeladeiraE;
+                tblIluReparo.Frezzer = FrezzerE;
+                tblIluReparo.Bebedouro = BebedouroE;
+                tblIluminacao.Nome = "externa";
+                db.tblIluminacao.Add(tblIluminacao);
+                db.tblIluReparo.Add(tblIluReparo);
+                db.SaveChanges();
+                iluextid = tblIluReparo.Id;
+            }
+            */
+            /** Sistema hidraulico sanitario *
+            tblSisHidraSaniRep.Banheiros = Banheiros;
+            tblSisHidraSaniRep.Fossa = Fossa;
+            tblSisHidraSaniRep.Cisterna = Cisterna;
+            tblSisHidraSaniRep.CaixaAgua = CaixaAgua;
+            db.tblSisHidraSaniRep.Add(tblSisHidraSaniRep);
+            db.SaveChanges();*/
+
+            /** Sistema de combate a incendio **/
+            tblSisIncendio.Certificacao = Certificacao;
+            tblSisIncendio.Extintor = Extintor;
+            if (PQS)
+            {
+                tblextintor.Nome = "PQS";
+                tblextintor.Validade = ValPqs;
+            }
+            if (CO2)
+            {
+                tblextintor.Nome = "CO2";
+                tblextintor.Validade = ValCo2;
+            }
+            if (Agua)
+            {
+                tblextintor.Nome = "Agua";
+                tblextintor.Validade = ValAgua;
+            }
+            
 
             return View();
         }

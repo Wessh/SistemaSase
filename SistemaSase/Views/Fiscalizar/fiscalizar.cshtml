@@ -295,23 +295,23 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Estacionamento")
                                         Existe estacionamento
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("ControleVeiculos")
                                         Há controle de acesso dos veículos
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("PortaoEletronico")
                                         Portão Eletronico
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("EstaRetrito")
                                         Estacionamento Restrito
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("ParaRaios")
                                         ParaRaios
                                     </label>
                                 </div>
@@ -329,31 +329,31 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Parede")
                                         Parede
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Teto")
                                         Teto
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Calcada")
                                         Calçada
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Quadra")
                                         Quadra
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Capina")
                                         Capina
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Portas")
                                         Portas
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Piso")
                                         Piso
                                     </label>
                                 </div>
@@ -372,11 +372,11 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" id="InternaIlu" onclick="IluInt()" name="#" />
+                                        @Html.CheckBox("IntLu", new { onclick = "IluInt()", id = "InternaIlu" })
                                         Interna
                                     </label>
                                     <label>
-                                        <input type="checkbox" id="ExternaIlu" onclick="IluExt()" name="#" />
+                                        @Html.CheckBox("ExtLu", new { onclick = "IluExt()", id = "ExternaIlu" })
                                         Externa
                                     </label>
                                 </div>
@@ -393,39 +393,39 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Fiacao")
                                             Fiação
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("CaixaForca")
                                             Caixa de força
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Interruptores")
                                             Interruptores
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Tomadas")
                                             Tomadas
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("ArCon")
                                             Ar condicionado
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Ventilador")
                                             Ventilador
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Geladeira")
                                             Geladeira
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Frezzer")
                                             Frezzer
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("Bebedouro")
                                             Bebedouro
                                         </label>
                                     </div>
@@ -443,39 +443,39 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("FiacaoE")
                                             Fiação
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("CaixaForcaE")
                                             Caixa de força
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("InterruptoresE")
                                             Interruptores
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("TomadasE")
                                             Tomadas
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("ArConE")
                                             Ar condicionado
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("VentiladorE")
                                             Ventilador
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("GeladeiraE")
                                             Geladeira
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("FrezzerE")
                                             Frezzer
                                         </label>
                                         <label>
-                                            <input type="checkbox" name="#" />
+                                            @Html.CheckBox("BebedouroE")
                                             Bebedouro
                                         </label>
                                     </div>
@@ -494,19 +494,19 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Banheiros")
                                         Banheiros
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Fossa")
                                         Fossa séptica
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Cisterna")
                                         Cisternas
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("CaixaAgua")
                                         Caixa d'água
                                     </label>
                                 </div>
@@ -529,25 +529,25 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Certificacao")
                                         Certificação CBM
                                     </label>
                                     <label>
-                                        <input type="checkbox" id="ExtSel" onclick="Ext()" name="#" />
+                                        @Html.CheckBox("Extintor", new { onclick = "Ext()", id = "ExtSel" })
                                         Existe extintores
                                     </label>
                                     <div class="hidden" id="DivExtintores">
                                         <label>
-                                            <input type="checkbox" id="PQS" onclick="fPQS()" name="#" />
-                                            PQS <input class="hidden" id="DatePQS" type="date" name="#" />
+                                            @Html.CheckBox("PQS", new { onclick = "fPQS()", id = "PQS" })
+                                            PQS <input class="hidden" id="DatePQS" type="date" name="ValPqs"/>
                                         </label>
                                         <label>
-                                            <input type="checkbox" id="CO2" onclick="fCO2()" name="#" />
-                                            CO² <input class="hidden" id="DateCO2" type="date" name="#" />
+                                            @Html.CheckBox("CO2", new { onclick = "fCO2()", id = "CO2" })
+                                            CO² <input class="hidden" id="DateCO2" type="date" name="ValCo2"/>
                                         </label>
                                         <label>
-                                            <input type="checkbox" id="CheckAgua" onclick="fAgF()" name="#" />
-                                            Água <input class="hidden" id="DateAgua" type="date" name="#" />
+                                            @Html.CheckBox("Agua", new { onclick = "fAgF()", id = "CheckAgua" })
+                                            Água <input class="hidden" id="DateAgua" type="date" name="ValAgua"/>
                                         </label>
                                     </div>
                                 </div>

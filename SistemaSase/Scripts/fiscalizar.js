@@ -70,10 +70,12 @@ function fPQS() {
     var checkBox = document.getElementById("PQS");
     if (checkBox.checked == true) {
         $("#DatePQS").slideDown().fadeTo(100, 100).removeClass('hidden');
+        document.getElementById("ValPqs").value = "";
     } else {
         $("#DatePQS").slideUp().fadeTo(100, 100,
             function () {
                 $("#DatePQS").addClass('hidden');
+                document.getElementById("ValPqs").value = "2000-01-01";
             });
     }
 };
@@ -82,10 +84,12 @@ function fCO2() {
     var checkBox = document.getElementById("CO2");
     if (checkBox.checked == true) {
         $("#DateCO2").slideDown().fadeTo(100, 100).removeClass('hidden');
+        $("#ValCo2").value = "";
     } else {
         $("#DateCO2").slideUp().fadeTo(100, 100,
             function () {
                 $("#DateCO2").addClass('hidden');
+                $("#ValCo2").value = "2000-01-01";
             });
     }
 };
@@ -94,10 +98,13 @@ function fAgF() {
     var checkBox = document.getElementById("CheckAgua");
     if (checkBox.checked == true) {
         $("#DateAgua").slideDown().fadeTo(100, 100).removeClass('hidden');
+        $("#ValAgua").val("2000-01-01");
+        
     } else {
         $("#DateAgua").slideUp().fadeTo(100, 100,
             function () {
                 $("#DateAgua").addClass('hidden');
+                $("#ValAgua").value = "2000-01-01";
             });
     }
 };
@@ -148,5 +155,5 @@ function bntEnviar() {
     if (pV.value.length < 1) {
         $("#PostVigia").val(0);
     }
-
+    
 }
