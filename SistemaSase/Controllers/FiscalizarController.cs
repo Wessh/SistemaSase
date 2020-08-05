@@ -20,8 +20,6 @@ namespace SistemaSase.Controllers
 
         public ActionResult fiscalizar()
         {
-            CatSeg ct = new CatSeg();
-            ViewBag.catseg = ct;
             return View();
         }
 
@@ -36,19 +34,19 @@ namespace SistemaSase.Controllers
             bool Estacionamento, bool ControleVeiculos, bool PortaoEletronico, bool EstaRetrito, bool ParaRaios,     //EstFisica
             bool Parede, bool Teto, bool Calcada, bool Quadra, bool Capina, bool Portas, bool Piso,      //EstReparo
             bool Certificacao, bool Extintor, bool PQS, bool CO2, bool Agua, DateTime ValPqs, DateTime ValCo2, DateTime ValAgua,      //SisIncendio
-                                                                                                                                       //string NomeGas, bool Funcionando,        //GasCozinha
+            bool cozinha, bool industrial, bool FuncionandoI, bool FuncionandoD,       //GasCozinha
             string NomeGestor, string Documento,     //Gestor
             bool IntLu, bool ExtLu,        //Iluminacao
             bool Fiacao, bool CaixaForca, bool Interruptores, bool Tomadas, bool ArCon, bool Ventilador, bool Geladeira, bool Frezzer, bool Bebedouro,        //IluReparo
             bool FiacaoE, bool CaixaForcaE, bool InterruptoresE, bool TomadasE, bool ArConE, bool VentiladorE, bool GeladeiraE, bool FrezzerE, bool BebedouroE,        //IluReparoExterna
-                                                                                                                                                              //bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,     //ListaTel
+                                                                                                                                                                       //bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,     //ListaTel
             bool LivroOcorrecia, bool RegistroDiarios,      //LivroRegistro
-                                                     //bool Professores, bool Alunos, bool Gestores, string OutrosCoInternas,       //OcoInternas
-                                                     //bool EstFunc,       //OpGas
-                                                     //bool Treinamento, bool Sinalizacao,        //PanicoIncendio
-                                                     //bool Escola, bool Parceria,        //ProjViolencia
+                                                            //bool Professores, bool Alunos, bool Gestores, string OutrosCoInternas,       //OcoInternas
+                                                            //bool EstFunc,       //OpGas
+                                                            //bool Treinamento, bool Sinalizacao,        //PanicoIncendio
+                                                            //bool Escola, bool Parceria,        //ProjViolencia
             bool Banheiros, bool Fossa, bool Cisterna, bool CaixaAgua,       //SisHidraSaniRep
-                                                     //bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
+                                                                             //bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
             string NomeUeb, string EnderecoUeb, string NucleoUeb, string ContatoUebF, string ContatoUebS,       //UEB
             bool Vigilante, bool Porteiro, bool VigiFerista, bool PortFerista, bool VigSemedPort, bool VigSemed,        //TipoSeg
             int PostVigilante, int PostPorteiro, int PostVigia     //QntPosto
@@ -71,7 +69,7 @@ namespace SistemaSase.Controllers
             tblEstFisica tblestFisica = new tblEstFisica();
             tblEstReparo tblestReparo = new tblEstReparo();
             tblExtintor tblextintor = new tblExtintor();
-            tblGasCozinha tblGasCozinha = new tblGasCozinha();
+            tblGasUeb tblGasUeb = new tblGasUeb();
             tblGestor tblGestor = new tblGestor();
             tblIluminacao tblIluminacao = new tblIluminacao();
             tblIluReparo tblIluReparo = new tblIluReparo();
@@ -241,25 +239,48 @@ namespace SistemaSase.Controllers
             db.tblSisHidraSaniRep.Add(tblSisHidraSaniRep);
             db.SaveChanges();*/
 
-            /** Sistema de combate a incendio **/
+            /** Sistema de combate a incendio *
             tblSisIncendio.Certificacao = Certificacao;
             tblSisIncendio.Extintor = Extintor;
-            if (PQS)
+            db.tblSisIncendio.Add(tblSisIncendio);
+            db.SaveChanges();
+
+            if (Extintor)
             {
-                tblextintor.Nome = "PQS";
-                tblextintor.Validade = ValPqs;
-            }
-            if (CO2)
+                if (PQS)
+                {
+                    tblextintor.Nome = "PQS";
+                    tblextintor.Validade = ValPqs;
+                    db.tblExtintor.Add(tblextintor);
+                    db.SaveChanges();
+                }
+                if (CO2)
+                {
+                    tblextintor.Nome = "CO2";
+                    tblextintor.Validade = ValCo2;
+                    db.tblExtintor.Add(tblextintor);
+                    db.SaveChanges();
+                }
+                if (Agua)
+                {
+                    tblextintor.Nome = "Agua";
+                    tblextintor.Validade = ValAgua;
+                    db.tblExtintor.Add(tblextintor);
+                    db.SaveChanges();
+                }
+            }*/
+
+            /** Tipo Gás **/
+            if (cozinha)
             {
-                tblextintor.Nome = "CO2";
-                tblextintor.Validade = ValCo2;
+                tblGasCozinha.Nome = "Doméstico";
+                tblGasCozinha.Funcionando = FuncionandoD;
             }
-            if (Agua)
+            if (industrial)
             {
-                tblextintor.Nome = "Agua";
-                tblextintor.Validade = ValAgua;
+                tblGasCozinha.Nome = "Industrial";
+                tblGasCozinha.Funcionando = FuncionandoI;
             }
-            
 
             return View();
         }

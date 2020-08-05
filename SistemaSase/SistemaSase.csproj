@@ -151,139 +151,124 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AcessibilidadeController.cs" />
-    <Compile Include="Controllers\ArredoresUebController.cs" />
     <Compile Include="Controllers\AutenticacaoController.cs" />
-    <Compile Include="Controllers\CatSegController.cs" />
-    <Compile Include="Controllers\EquipamentosSegController.cs" />
-    <Compile Include="Controllers\EstFisicaController.cs" />
-    <Compile Include="Controllers\EstReparoController.cs" />
-    <Compile Include="Controllers\ExtintorController.cs" />
-    <Compile Include="Controllers\FiscalizacaoController.cs" />
     <Compile Include="Controllers\FiscalizarController.cs" />
-    <Compile Include="Controllers\GasCozinhaController.cs" />
-    <Compile Include="Controllers\GestorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IluminacaoController.cs" />
-    <Compile Include="Controllers\IluReparoController.cs" />
-    <Compile Include="Controllers\ListaTelController.cs" />
-    <Compile Include="Controllers\LivroRegistroController.cs" />
-    <Compile Include="Controllers\OcoInternaController.cs" />
-    <Compile Include="Controllers\OpGasController.cs" />
-    <Compile Include="Controllers\PanicoIncendioController.cs" />
-    <Compile Include="Controllers\ProjViolenciaController.cs" />
-    <Compile Include="Controllers\ReGas_OpcaoGasController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
-    <Compile Include="Controllers\ReIluminacao_IluReparoController.cs" />
-    <Compile Include="Controllers\ReIncendio_ExtintorController.cs" />
-    <Compile Include="Controllers\SisHidraSaniRepController.cs" />
-    <Compile Include="Controllers\SisIncendioController.cs" />
-    <Compile Include="Controllers\PostoController.cs" />
-    <Compile Include="Controllers\tblTipoSegsController.cs" />
-    <Compile Include="Controllers\TransitoController.cs" />
-    <Compile Include="Controllers\UebController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CategoriaSeguranca.cs" />
-    <Compile Include="Models\dbSase.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbSase.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\dbSase.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>dbSase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dbSase.Designer.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbSase.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\dbSaseBackup.Designer.cs">
+      <DependentUpon>dbSaseBackup.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\EstFisica_EstReparo.cs">
+      <DependentUpon>SistemaSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FiscCaEq.cs">
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Gas_OpcaoGas.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Iluminacao_IluReparo.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Incendio_Extintor.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SistemaSase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaSase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SistemaSase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SistemaSase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaSase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\tblAcessibilidade.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblArredoresUeb.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblCatSeg.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblEquipamentosSeg.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblEstFisica.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblEstReparo.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblExtintor.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblFiscalizacao.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tblGasCozinha.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+    <Compile Include="Models\tblGasUeb.cs">
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblGestor.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblIluminacao.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblIluReparo.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblListaTel.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblLivroRegistro.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOcoInternas.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOpGas.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblPanicoIncendio.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblProjViolencia.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblQntPosto.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblRegistro.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSisHidraSaniRep.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSisIncendio.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTipoSeg.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTransito.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUeb.cs">
-      <DependentUpon>dbSase.tt</DependentUpon>
+      <DependentUpon>SistemaSase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -442,15 +427,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\dbSase.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbSase.edmx</DependentUpon>
-      <LastGenOutput>dbSase.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\dbSase.tt">
+      <DependentUpon>dbSaseBackup.edmx</DependentUpon>
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbSase.edmx</DependentUpon>
       <LastGenOutput>dbSase.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SistemaSase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SistemaSase.edmx</DependentUpon>
+      <LastGenOutput>SistemaSase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SistemaSase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SistemaSase.edmx</DependentUpon>
+      <LastGenOutput>SistemaSase.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -465,12 +455,16 @@
     <Content Include="Content\Layout\img\demo\Thumbs.db" />
     <Content Include="Content\Layout\img\icons\32\Thumbs.db" />
     <Content Include="Content\Layout\img\Thumbs.db" />
-    <EntityDeploy Include="Models\dbSase.edmx">
+    <EntityDeploy Include="Models\dbSaseBackup.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbSase.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbSaseBackup.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\dbSase.edmx.diagram">
-      <DependentUpon>dbSase.edmx</DependentUpon>
+    <EntityDeploy Include="Models\SistemaSase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SistemaSase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SistemaSase.edmx.diagram">
+      <DependentUpon>SistemaSase.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\fiscalizar.js" />
@@ -501,149 +495,13 @@
     <Content Include="Views\Shared\Base_Layout.cshtml" />
     <Content Include="Views\Shared\SidebarMenu.cshtml" />
     <Content Include="Views\Shared\TopHeaderMenu.cshtml" />
-    <Content Include="Views\Acessibilidade\Create.cshtml" />
-    <Content Include="Views\Acessibilidade\Delete.cshtml" />
-    <Content Include="Views\Acessibilidade\Details.cshtml" />
-    <Content Include="Views\Acessibilidade\Edit.cshtml" />
-    <Content Include="Views\Acessibilidade\Index.cshtml" />
-    <Content Include="Views\ArredoresUeb\Create.cshtml" />
-    <Content Include="Views\ArredoresUeb\Delete.cshtml" />
-    <Content Include="Views\ArredoresUeb\Details.cshtml" />
-    <Content Include="Views\ArredoresUeb\Edit.cshtml" />
-    <Content Include="Views\ArredoresUeb\Index.cshtml" />
-    <Content Include="Views\CatSeg\Create.cshtml" />
-    <Content Include="Views\CatSeg\Delete.cshtml" />
-    <Content Include="Views\CatSeg\Details.cshtml" />
-    <Content Include="Views\CatSeg\Edit.cshtml" />
-    <Content Include="Views\CatSeg\Index.cshtml" />
-    <Content Include="Views\EquipamentosSeg\Create.cshtml" />
-    <Content Include="Views\EquipamentosSeg\Delete.cshtml" />
-    <Content Include="Views\EquipamentosSeg\Details.cshtml" />
-    <Content Include="Views\EquipamentosSeg\Edit.cshtml" />
-    <Content Include="Views\EquipamentosSeg\Index.cshtml" />
-    <Content Include="Views\EstFisica\Create.cshtml" />
-    <Content Include="Views\EstFisica\Delete.cshtml" />
-    <Content Include="Views\EstFisica\Details.cshtml" />
-    <Content Include="Views\EstFisica\Edit.cshtml" />
-    <Content Include="Views\EstFisica\Index.cshtml" />
-    <Content Include="Views\EstReparo\Create.cshtml" />
-    <Content Include="Views\EstReparo\Delete.cshtml" />
-    <Content Include="Views\EstReparo\Details.cshtml" />
-    <Content Include="Views\EstReparo\Edit.cshtml" />
-    <Content Include="Views\EstReparo\Index.cshtml" />
-    <Content Include="Views\Extintor\Create.cshtml" />
-    <Content Include="Views\Extintor\Delete.cshtml" />
-    <Content Include="Views\Extintor\Details.cshtml" />
-    <Content Include="Views\Extintor\Edit.cshtml" />
-    <Content Include="Views\Extintor\Index.cshtml" />
-    <Content Include="Views\Fiscalizacao\Create.cshtml" />
-    <Content Include="Views\Fiscalizacao\Delete.cshtml" />
-    <Content Include="Views\Fiscalizacao\Details.cshtml" />
-    <Content Include="Views\Fiscalizacao\Edit.cshtml" />
-    <Content Include="Views\Fiscalizacao\Index.cshtml" />
-    <Content Include="Views\GasCozinha\Create.cshtml" />
-    <Content Include="Views\GasCozinha\Delete.cshtml" />
-    <Content Include="Views\GasCozinha\Details.cshtml" />
-    <Content Include="Views\GasCozinha\Edit.cshtml" />
-    <Content Include="Views\GasCozinha\Index.cshtml" />
-    <Content Include="Views\Gestor\Create.cshtml" />
-    <Content Include="Views\Gestor\Delete.cshtml" />
-    <Content Include="Views\Gestor\Details.cshtml" />
-    <Content Include="Views\Gestor\Edit.cshtml" />
-    <Content Include="Views\Gestor\Index.cshtml" />
-    <Content Include="Views\Iluminacao\Create.cshtml" />
-    <Content Include="Views\Iluminacao\Delete.cshtml" />
-    <Content Include="Views\Iluminacao\Details.cshtml" />
-    <Content Include="Views\Iluminacao\Edit.cshtml" />
-    <Content Include="Views\Iluminacao\Index.cshtml" />
-    <Content Include="Views\IluReparo\Create.cshtml" />
-    <Content Include="Views\IluReparo\Delete.cshtml" />
-    <Content Include="Views\IluReparo\Details.cshtml" />
-    <Content Include="Views\IluReparo\Edit.cshtml" />
-    <Content Include="Views\IluReparo\Index.cshtml" />
-    <Content Include="Views\ListaTel\Create.cshtml" />
-    <Content Include="Views\ListaTel\Delete.cshtml" />
-    <Content Include="Views\ListaTel\Details.cshtml" />
-    <Content Include="Views\ListaTel\Edit.cshtml" />
-    <Content Include="Views\ListaTel\Index.cshtml" />
-    <Content Include="Views\LivroRegistro\Create.cshtml" />
-    <Content Include="Views\LivroRegistro\Delete.cshtml" />
-    <Content Include="Views\LivroRegistro\Details.cshtml" />
-    <Content Include="Views\LivroRegistro\Edit.cshtml" />
-    <Content Include="Views\LivroRegistro\Index.cshtml" />
-    <Content Include="Views\OcoInterna\Create.cshtml" />
-    <Content Include="Views\OcoInterna\Delete.cshtml" />
-    <Content Include="Views\OcoInterna\Details.cshtml" />
-    <Content Include="Views\OcoInterna\Edit.cshtml" />
-    <Content Include="Views\OcoInterna\Index.cshtml" />
-    <Content Include="Views\OpGas\Create.cshtml" />
-    <Content Include="Views\OpGas\Delete.cshtml" />
-    <Content Include="Views\OpGas\Details.cshtml" />
-    <Content Include="Views\OpGas\Edit.cshtml" />
-    <Content Include="Views\OpGas\Index.cshtml" />
-    <Content Include="Views\PanicoIncendio\Create.cshtml" />
-    <Content Include="Views\PanicoIncendio\Delete.cshtml" />
-    <Content Include="Views\PanicoIncendio\Details.cshtml" />
-    <Content Include="Views\PanicoIncendio\Edit.cshtml" />
-    <Content Include="Views\PanicoIncendio\Index.cshtml" />
-    <Content Include="Views\ProjViolencia\Create.cshtml" />
-    <Content Include="Views\ProjViolencia\Delete.cshtml" />
-    <Content Include="Views\ProjViolencia\Details.cshtml" />
-    <Content Include="Views\ProjViolencia\Edit.cshtml" />
-    <Content Include="Views\ProjViolencia\Index.cshtml" />
     <Content Include="Views\Registro\Create.cshtml" />
     <Content Include="Views\Registro\Delete.cshtml" />
     <Content Include="Views\Registro\Details.cshtml" />
     <Content Include="Views\Registro\Edit.cshtml" />
     <Content Include="Views\Registro\Index.cshtml" />
-    <Content Include="Views\SisHidraSaniRep\Create.cshtml" />
-    <Content Include="Views\SisHidraSaniRep\Delete.cshtml" />
-    <Content Include="Views\SisHidraSaniRep\Details.cshtml" />
-    <Content Include="Views\SisHidraSaniRep\Edit.cshtml" />
-    <Content Include="Views\SisHidraSaniRep\Index.cshtml" />
-    <Content Include="Views\Transito\Create.cshtml" />
-    <Content Include="Views\Transito\Delete.cshtml" />
-    <Content Include="Views\Transito\Details.cshtml" />
-    <Content Include="Views\Transito\Edit.cshtml" />
-    <Content Include="Views\Transito\Index.cshtml" />
-    <Content Include="Views\Ueb\Create.cshtml" />
-    <Content Include="Views\Ueb\Delete.cshtml" />
-    <Content Include="Views\Ueb\Details.cshtml" />
-    <Content Include="Views\Ueb\Edit.cshtml" />
-    <Content Include="Views\Ueb\Index.cshtml" />
-    <Content Include="Views\ReGas_OpcaoGas\Create.cshtml" />
-    <Content Include="Views\ReGas_OpcaoGas\Delete.cshtml" />
-    <Content Include="Views\ReGas_OpcaoGas\Details.cshtml" />
-    <Content Include="Views\ReGas_OpcaoGas\Edit.cshtml" />
-    <Content Include="Views\ReGas_OpcaoGas\Index.cshtml" />
-    <Content Include="Views\ReIluminacao_IluReparo\Create.cshtml" />
-    <Content Include="Views\ReIluminacao_IluReparo\Delete.cshtml" />
-    <Content Include="Views\ReIluminacao_IluReparo\Details.cshtml" />
-    <Content Include="Views\ReIluminacao_IluReparo\Edit.cshtml" />
-    <Content Include="Views\ReIluminacao_IluReparo\Index.cshtml" />
-    <Content Include="Views\ReIncendio_Extintor\Create.cshtml" />
-    <Content Include="Views\ReIncendio_Extintor\Delete.cshtml" />
-    <Content Include="Views\ReIncendio_Extintor\Details.cshtml" />
-    <Content Include="Views\ReIncendio_Extintor\Edit.cshtml" />
-    <Content Include="Views\ReIncendio_Extintor\Index.cshtml" />
-    <Content Include="Views\SisIncendio\Create.cshtml" />
-    <Content Include="Views\SisIncendio\Delete.cshtml" />
-    <Content Include="Views\SisIncendio\Details.cshtml" />
-    <Content Include="Views\SisIncendio\Edit.cshtml" />
-    <Content Include="Views\SisIncendio\Index.cshtml" />
     <Content Include="Views\Autenticacao\Login.cshtml" />
-    <Content Include="Views\Fiscalizacao\Create - Cópia .cshtml" />
     <Content Include="Views\Fiscalizar\fiscalizar.cshtml" />
-    <Content Include="Views\tblQntPosto\Create.cshtml" />
-    <Content Include="Views\tblQntPosto\Delete.cshtml" />
-    <Content Include="Views\tblQntPosto\Details.cshtml" />
-    <Content Include="Views\tblQntPosto\Edit.cshtml" />
-    <Content Include="Views\tblQntPosto\Index.cshtml" />
-    <Content Include="Views\tblTipoSegs\Create.cshtml" />
-    <Content Include="Views\tblTipoSegs\Delete.cshtml" />
-    <Content Include="Views\tblTipoSegs\Details.cshtml" />
-    <Content Include="Views\tblTipoSegs\Edit.cshtml" />
-    <Content Include="Views\tblTipoSegs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

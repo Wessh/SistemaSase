@@ -539,15 +539,15 @@
                                     <div class="hidden" id="DivExtintores">
                                         <label>
                                             @Html.CheckBox("PQS", new { onclick = "fPQS()", id = "PQS" })
-                                            PQS <input class="hidden" id="DatePQS" type="date" name="ValPqs"/>
+                                            PQS <input class="hidden" id="DatePQS" type="date" name="ValPqs" value=""/>
                                         </label>
                                         <label>
                                             @Html.CheckBox("CO2", new { onclick = "fCO2()", id = "CO2" })
-                                            CO² <input class="hidden" id="DateCO2" type="date" name="ValCo2"/>
+                                            CO² <input class="hidden" id="DateCO2" type="date" name="ValCo2" value=""/>
                                         </label>
                                         <label>
                                             @Html.CheckBox("Agua", new { onclick = "fAgF()", id = "CheckAgua" })
-                                            Água <input class="hidden" id="DateAgua" type="date" name="ValAgua"/>
+                                            Água <input class="hidden" id="DateAgua" type="date" name="ValAgua" value=""/>
                                         </label>
                                     </div>
                                 </div>
@@ -565,18 +565,18 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" id="GInd" onclick="fGInd()" name="#" />
+                                        @Html.CheckBox("industrial", new { id = "GInd", onclick = "fGInd()" })
                                         Industrial
                                         <div class="hidden" id="IndFun">
-                                            <ul /><input type="checkbox" name="#" />
+                                            <ul />@Html.CheckBox("funcionalI")
                                             Funcional
                                         </div>
                                     </label>
                                     <label>
-                                        <input type="checkbox" id="GDom" onclick="fGDom()" name="#" />
+                                        @Html.CheckBox("domestico", new { id = "GDom", onclick = "fGDom()" })
                                         Doméstico
                                         <div class="hidden" id="DomFun">
-                                            <ul /><input type="checkbox" name="#" />
+                                            <ul />@Html.CheckBox("funcionalD")
                                             Funcional
                                         </div>
                                     </label>

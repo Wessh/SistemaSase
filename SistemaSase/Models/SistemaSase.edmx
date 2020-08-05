@@ -1,0 +1,2043 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SistemaSaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EstFisica-EstReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstFisica" Type="int" Nullable="false" />
+          <Property Name="IdEstReparo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FiscCaEq">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FkFiscalizacao" Type="int" Nullable="false" />
+          <Property Name="FkCatSeg" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gas-OpcaoGas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGas" Type="int" Nullable="false" />
+          <Property Name="IdOpGas" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Iluminacao-IluReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdIluminacao" Type="int" Nullable="false" />
+          <Property Name="IdIluReparo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Incendio-Extintor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdIncendio" Type="int" Nullable="false" />
+          <Property Name="IdExtintor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAcessibilidade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="RampaInterna" Type="bit" Nullable="false" />
+          <Property Name="RampaExterna" Type="bit" Nullable="false" />
+          <Property Name="BanheiroPdePnc" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblArredoresUeb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bares" Type="bit" Nullable="false" />
+          <Property Name="CasaFesta" Type="bit" Nullable="false" />
+          <Property Name="Drogas" Type="bit" Nullable="false" />
+          <Property Name="Outros" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="tblEquipamentosSeg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Fardamento" Type="bit" Nullable="false" />
+          <Property Name="Apito" Type="bit" Nullable="false" />
+          <Property Name="CapaChuva" Type="bit" Nullable="false" />
+          <Property Name="Colete" Type="bit" Nullable="false" />
+          <Property Name="Tonfa" Type="bit" Nullable="false" />
+          <Property Name="Lanterna" Type="bit" Nullable="false" />
+          <Property Name="Cracha" Type="bit" Nullable="false" />
+          <Property Name="Quepe" Type="bit" Nullable="false" />
+          <Property Name="Revolver" Type="bit" Nullable="false" />
+          <Property Name="Radio" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblEstFisica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estacionamento" Type="bit" Nullable="false" />
+          <Property Name="ControleVeiculos" Type="bit" Nullable="false" />
+          <Property Name="PortaoEletronico" Type="bit" Nullable="false" />
+          <Property Name="EstaRetrito" Type="bit" Nullable="false" />
+          <Property Name="ParaRaios" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblEstReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Parede" Type="bit" Nullable="false" />
+          <Property Name="Teto" Type="bit" Nullable="false" />
+          <Property Name="Calcada" Type="bit" Nullable="false" />
+          <Property Name="Quadra" Type="bit" Nullable="false" />
+          <Property Name="Capina" Type="bit" Nullable="false" />
+          <Property Name="Portas" Type="bit" Nullable="false" />
+          <Property Name="Piso" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblExtintor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Validade" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFiscalizacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FkUeb" Type="int" Nullable="false" />
+          <Property Name="FkRegistro" Type="int" Nullable="false" />
+          <Property Name="FkRelCaEq" Type="int" Nullable="false" />
+          <Property Name="FkSistemaIncendio" Type="int" Nullable="false" />
+          <Property Name="FkLivroRegistro" Type="int" Nullable="false" />
+          <Property Name="FkGasUeb" Type="int" Nullable="false" />
+          <Property Name="FkEstruturaFisica" Type="int" Nullable="false" />
+          <Property Name="FkEstruturaReparo" Type="int" Nullable="false" />
+          <Property Name="FkIluminacaoReparo" Type="int" Nullable="false" />
+          <Property Name="FkSisHidraSaniReparo" Type="int" Nullable="false" />
+          <Property Name="FkPanicoIncendio" Type="int" Nullable="false" />
+          <Property Name="FkTransito" Type="int" Nullable="false" />
+          <Property Name="FkAcessibilidade" Type="int" Nullable="false" />
+          <Property Name="FkArredoresUeb" Type="int" Nullable="false" />
+          <Property Name="FkProjetoViolencia" Type="int" Nullable="false" />
+          <Property Name="FkListaTelefone" Type="int" Nullable="false" />
+          <Property Name="FkOcorrenciaInterna" Type="int" Nullable="false" />
+          <Property Name="FkQntPosto" Type="int" Nullable="false" />
+          <Property Name="FkTipoSeg" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblGasUeb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Funcionando" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblGestor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Documento" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tblIluminacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblIluReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Fiacao" Type="bit" Nullable="false" />
+          <Property Name="CaixaForca" Type="bit" Nullable="false" />
+          <Property Name="Interruptores" Type="bit" Nullable="false" />
+          <Property Name="Tomadas" Type="bit" Nullable="false" />
+          <Property Name="ArCon" Type="bit" Nullable="false" />
+          <Property Name="Ventilador" Type="bit" Nullable="false" />
+          <Property Name="Geladeira" Type="bit" Nullable="false" />
+          <Property Name="Frezzer" Type="bit" Nullable="false" />
+          <Property Name="Bebedouro" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblListaTel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Policia" Type="bit" Nullable="false" />
+          <Property Name="Ronda" Type="bit" Nullable="false" />
+          <Property Name="Guarda" Type="bit" Nullable="false" />
+          <Property Name="Bombeiro" Type="bit" Nullable="false" />
+          <Property Name="Conselho" Type="bit" Nullable="false" />
+          <Property Name="Samu" Type="bit" Nullable="false" />
+          <Property Name="SaseSemed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLivroRegistro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LivroOcorrecia" Type="bit" Nullable="false" />
+          <Property Name="RegistroDiarios" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblOcoInternas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Professores" Type="bit" Nullable="false" />
+          <Property Name="Alunos" Type="bit" Nullable="false" />
+          <Property Name="Gestores" Type="bit" Nullable="false" />
+          <Property Name="Outros" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tblOpGas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="EstFunc" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPanicoIncendio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Treinamento" Type="bit" Nullable="false" />
+          <Property Name="Sinalizacao" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProjViolencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Escola" Type="bit" Nullable="false" />
+          <Property Name="Parceria" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblQntPosto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostVigilante" Type="int" Nullable="false" />
+          <Property Name="PostPorteiro" Type="int" Nullable="false" />
+          <Property Name="PostVigia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRegistro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Matricula" Type="varchar" MaxLength="255" />
+          <Property Name="Senha" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSisHidraSaniRep">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Banheiros" Type="bit" Nullable="false" />
+          <Property Name="Fossa" Type="bit" Nullable="false" />
+          <Property Name="Cisterna" Type="bit" Nullable="false" />
+          <Property Name="CaixaAgua" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSisIncendio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Certificacao" Type="bit" Nullable="false" />
+          <Property Name="Extintor" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTipoSeg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vigilante" Type="bit" Nullable="false" />
+          <Property Name="Porteiro" Type="bit" Nullable="false" />
+          <Property Name="VigiFeirista" Type="bit" Nullable="false" />
+          <Property Name="PortFeirista" Type="bit" Nullable="false" />
+          <Property Name="VigSemedPort" Type="bit" Nullable="false" />
+          <Property Name="VigSemed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTransito">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FaixaPedestre" Type="bit" Nullable="false" />
+          <Property Name="Semaforo" Type="bit" Nullable="false" />
+          <Property Name="Agente" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUeb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Nucleo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FKGestor" Type="int" Nullable="false" />
+          <Property Name="Contato" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Contato2" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DataHora" Type="datetime" Nullable="false" />
+          <Property Name="FkRegistro" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="Extintor--Incendio">
+          <End Role="tblExtintor" Type="Self.tblExtintor" Multiplicity="1" />
+          <End Role="Incendio-Extintor" Type="Self.Incendio-Extintor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblExtintor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Incendio-Extintor">
+              <PropertyRef Name="IdExtintor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FiscalizacaoRegistro">
+          <End Role="tblRegistro" Type="Self.tblRegistro" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRegistro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkRegistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FiscalizacaoUeb">
+          <End Role="tblUeb" Type="Self.tblUeb" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUeb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkUeb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_FiscCaEq_1">
+          <End Role="FiscCaEq" Type="Self.FiscCaEq" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FiscCaEq">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkRelCaEq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblAcessibilidade_1">
+          <End Role="tblAcessibilidade" Type="Self.tblAcessibilidade" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAcessibilidade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkAcessibilidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblArredoresUeb_1">
+          <End Role="tblArredoresUeb" Type="Self.tblArredoresUeb" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblArredoresUeb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkArredoresUeb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblEstFisica_1">
+          <End Role="tblEstFisica" Type="Self.tblEstFisica" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstFisica">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkEstruturaFisica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblEstReparo_1">
+          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkEstruturaReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblGasUeb_1">
+          <End Role="tblGasUeb" Type="Self.tblGasUeb" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGasUeb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkGasUeb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblIluReparo_1">
+          <End Role="tblIluReparo" Type="Self.tblIluReparo" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblIluReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkIluminacaoReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblListaTel_1">
+          <End Role="tblListaTel" Type="Self.tblListaTel" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblListaTel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkListaTelefone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblLivroRegistro_1">
+          <End Role="tblLivroRegistro" Type="Self.tblLivroRegistro" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLivroRegistro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkLivroRegistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblOcoInternas_1">
+          <End Role="tblOcoInternas" Type="Self.tblOcoInternas" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOcoInternas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkOcorrenciaInterna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblPanicoIncendio_1">
+          <End Role="tblPanicoIncendio" Type="Self.tblPanicoIncendio" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPanicoIncendio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkPanicoIncendio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblProjViolencia_1">
+          <End Role="tblProjViolencia" Type="Self.tblProjViolencia" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjViolencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkProjetoViolencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblQntPosto_1">
+          <End Role="tblQntPosto" Type="Self.tblQntPosto" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQntPosto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkQntPosto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblSisHidraSaniRep_1">
+          <End Role="tblSisHidraSaniRep" Type="Self.tblSisHidraSaniRep" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSisHidraSaniRep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkSisHidraSaniReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblSisIncendio_1">
+          <End Role="tblSisIncendio" Type="Self.tblSisIncendio" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSisIncendio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkSistemaIncendio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblTipoSeg_1">
+          <End Role="tblTipoSeg" Type="Self.tblTipoSeg" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoSeg">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkTipoSeg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblTransito_1">
+          <End Role="tblTransito" Type="Self.tblTransito" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTransito">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkTransito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkCaSe">
+          <End Role="tblEquipamentosSeg" Type="Self.tblEquipamentosSeg" Multiplicity="1" />
+          <End Role="FiscCaEq" Type="Self.FiscCaEq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEquipamentosSeg">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FiscCaEq">
+              <PropertyRef Name="FkCatSeg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Gas-OpGas">
+          <End Role="tblGasUeb" Type="Self.tblGasUeb" Multiplicity="1" />
+          <End Role="Gas-OpcaoGas" Type="Self.Gas-OpcaoGas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGasUeb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gas-OpcaoGas">
+              <PropertyRef Name="IdGas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Iluminacao_Reparo">
+          <End Role="tblIluminacao" Type="Self.tblIluminacao" Multiplicity="1" />
+          <End Role="Iluminacao-IluReparo" Type="Self.Iluminacao-IluReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblIluminacao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Iluminacao-IluReparo">
+              <PropertyRef Name="IdIluminacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Incendio--Extintor">
+          <End Role="tblSisIncendio" Type="Self.tblSisIncendio" Multiplicity="1" />
+          <End Role="Incendio-Extintor" Type="Self.Incendio-Extintor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSisIncendio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Incendio-Extintor">
+              <PropertyRef Name="IdIncendio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OpGas-Gas">
+          <End Role="tblOpGas" Type="Self.tblOpGas" Multiplicity="1" />
+          <End Role="Gas-OpcaoGas" Type="Self.Gas-OpcaoGas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOpGas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gas-OpcaoGas">
+              <PropertyRef Name="IdOpGas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reparo_Iluminacao">
+          <End Role="tblIluReparo" Type="Self.tblIluReparo" Multiplicity="1" />
+          <End Role="Iluminacao-IluReparo" Type="Self.Iluminacao-IluReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblIluReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Iluminacao-IluReparo">
+              <PropertyRef Name="IdIluReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REstF_EstR">
+          <End Role="tblEstFisica" Type="Self.tblEstFisica" Multiplicity="1" />
+          <End Role="EstFisica-EstReparo" Type="Self.EstFisica-EstReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstFisica">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstFisica-EstReparo">
+              <PropertyRef Name="IdEstFisica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REstR_EstF">
+          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
+          <End Role="EstFisica-EstReparo" Type="Self.EstFisica-EstReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstFisica-EstReparo">
+              <PropertyRef Name="IdEstReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UebGestor">
+          <End Role="tblGestor" Type="Self.tblGestor" Multiplicity="1" />
+          <End Role="tblUeb" Type="Self.tblUeb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGestor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUeb">
+              <PropertyRef Name="FKGestor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UebRegistro">
+          <End Role="tblRegistro" Type="Self.tblRegistro" Multiplicity="1" />
+          <End Role="tblUeb" Type="Self.tblUeb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRegistro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUeb">
+              <PropertyRef Name="FkRegistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SistemaSaseModelStoreContainer">
+          <EntitySet Name="EstFisica-EstReparo" EntityType="Self.EstFisica-EstReparo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FiscCaEq" EntityType="Self.FiscCaEq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gas-OpcaoGas" EntityType="Self.Gas-OpcaoGas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Iluminacao-IluReparo" EntityType="Self.Iluminacao-IluReparo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Incendio-Extintor" EntityType="Self.Incendio-Extintor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAcessibilidade" EntityType="Self.tblAcessibilidade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblArredoresUeb" EntityType="Self.tblArredoresUeb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEquipamentosSeg" EntityType="Self.tblEquipamentosSeg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEstFisica" EntityType="Self.tblEstFisica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEstReparo" EntityType="Self.tblEstReparo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblExtintor" EntityType="Self.tblExtintor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFiscalizacao" EntityType="Self.tblFiscalizacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGasUeb" EntityType="Self.tblGasUeb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGestor" EntityType="Self.tblGestor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblIluminacao" EntityType="Self.tblIluminacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblIluReparo" EntityType="Self.tblIluReparo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblListaTel" EntityType="Self.tblListaTel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLivroRegistro" EntityType="Self.tblLivroRegistro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOcoInternas" EntityType="Self.tblOcoInternas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOpGas" EntityType="Self.tblOpGas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPanicoIncendio" EntityType="Self.tblPanicoIncendio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjViolencia" EntityType="Self.tblProjViolencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblQntPosto" EntityType="Self.tblQntPosto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRegistro" EntityType="Self.tblRegistro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSisHidraSaniRep" EntityType="Self.tblSisHidraSaniRep" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSisIncendio" EntityType="Self.tblSisIncendio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTipoSeg" EntityType="Self.tblTipoSeg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTransito" EntityType="Self.tblTransito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUeb" EntityType="Self.tblUeb" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Extintor--Incendio" Association="Self.Extintor--Incendio">
+            <End Role="tblExtintor" EntitySet="tblExtintor" />
+            <End Role="Incendio-Extintor" EntitySet="Incendio-Extintor" />
+          </AssociationSet>
+          <AssociationSet Name="FiscalizacaoRegistro" Association="Self.FiscalizacaoRegistro">
+            <End Role="tblRegistro" EntitySet="tblRegistro" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FiscalizacaoUeb" Association="Self.FiscalizacaoUeb">
+            <End Role="tblUeb" EntitySet="tblUeb" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_FiscCaEq_1" Association="Self.fk_tblFiscalizacao_FiscCaEq_1">
+            <End Role="FiscCaEq" EntitySet="FiscCaEq" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblAcessibilidade_1" Association="Self.fk_tblFiscalizacao_tblAcessibilidade_1">
+            <End Role="tblAcessibilidade" EntitySet="tblAcessibilidade" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblArredoresUeb_1" Association="Self.fk_tblFiscalizacao_tblArredoresUeb_1">
+            <End Role="tblArredoresUeb" EntitySet="tblArredoresUeb" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblEstFisica_1" Association="Self.fk_tblFiscalizacao_tblEstFisica_1">
+            <End Role="tblEstFisica" EntitySet="tblEstFisica" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblEstReparo_1" Association="Self.fk_tblFiscalizacao_tblEstReparo_1">
+            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblGasUeb_1" Association="Self.fk_tblFiscalizacao_tblGasUeb_1">
+            <End Role="tblGasUeb" EntitySet="tblGasUeb" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblIluReparo_1" Association="Self.fk_tblFiscalizacao_tblIluReparo_1">
+            <End Role="tblIluReparo" EntitySet="tblIluReparo" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblListaTel_1" Association="Self.fk_tblFiscalizacao_tblListaTel_1">
+            <End Role="tblListaTel" EntitySet="tblListaTel" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblLivroRegistro_1" Association="Self.fk_tblFiscalizacao_tblLivroRegistro_1">
+            <End Role="tblLivroRegistro" EntitySet="tblLivroRegistro" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblOcoInternas_1" Association="Self.fk_tblFiscalizacao_tblOcoInternas_1">
+            <End Role="tblOcoInternas" EntitySet="tblOcoInternas" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblPanicoIncendio_1" Association="Self.fk_tblFiscalizacao_tblPanicoIncendio_1">
+            <End Role="tblPanicoIncendio" EntitySet="tblPanicoIncendio" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblProjViolencia_1" Association="Self.fk_tblFiscalizacao_tblProjViolencia_1">
+            <End Role="tblProjViolencia" EntitySet="tblProjViolencia" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblQntPosto_1" Association="Self.fk_tblFiscalizacao_tblQntPosto_1">
+            <End Role="tblQntPosto" EntitySet="tblQntPosto" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblSisHidraSaniRep_1" Association="Self.fk_tblFiscalizacao_tblSisHidraSaniRep_1">
+            <End Role="tblSisHidraSaniRep" EntitySet="tblSisHidraSaniRep" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblSisIncendio_1" Association="Self.fk_tblFiscalizacao_tblSisIncendio_1">
+            <End Role="tblSisIncendio" EntitySet="tblSisIncendio" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblTipoSeg_1" Association="Self.fk_tblFiscalizacao_tblTipoSeg_1">
+            <End Role="tblTipoSeg" EntitySet="tblTipoSeg" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblTransito_1" Association="Self.fk_tblFiscalizacao_tblTransito_1">
+            <End Role="tblTransito" EntitySet="tblTransito" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FkCaSe" Association="Self.FkCaSe">
+            <End Role="tblEquipamentosSeg" EntitySet="tblEquipamentosSeg" />
+            <End Role="FiscCaEq" EntitySet="FiscCaEq" />
+          </AssociationSet>
+          <AssociationSet Name="Gas-OpGas" Association="Self.Gas-OpGas">
+            <End Role="tblGasUeb" EntitySet="tblGasUeb" />
+            <End Role="Gas-OpcaoGas" EntitySet="Gas-OpcaoGas" />
+          </AssociationSet>
+          <AssociationSet Name="Iluminacao_Reparo" Association="Self.Iluminacao_Reparo">
+            <End Role="tblIluminacao" EntitySet="tblIluminacao" />
+            <End Role="Iluminacao-IluReparo" EntitySet="Iluminacao-IluReparo" />
+          </AssociationSet>
+          <AssociationSet Name="Incendio--Extintor" Association="Self.Incendio--Extintor">
+            <End Role="tblSisIncendio" EntitySet="tblSisIncendio" />
+            <End Role="Incendio-Extintor" EntitySet="Incendio-Extintor" />
+          </AssociationSet>
+          <AssociationSet Name="OpGas-Gas" Association="Self.OpGas-Gas">
+            <End Role="tblOpGas" EntitySet="tblOpGas" />
+            <End Role="Gas-OpcaoGas" EntitySet="Gas-OpcaoGas" />
+          </AssociationSet>
+          <AssociationSet Name="Reparo_Iluminacao" Association="Self.Reparo_Iluminacao">
+            <End Role="tblIluReparo" EntitySet="tblIluReparo" />
+            <End Role="Iluminacao-IluReparo" EntitySet="Iluminacao-IluReparo" />
+          </AssociationSet>
+          <AssociationSet Name="REstF_EstR" Association="Self.REstF_EstR">
+            <End Role="tblEstFisica" EntitySet="tblEstFisica" />
+            <End Role="EstFisica-EstReparo" EntitySet="EstFisica-EstReparo" />
+          </AssociationSet>
+          <AssociationSet Name="REstR_EstF" Association="Self.REstR_EstF">
+            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
+            <End Role="EstFisica-EstReparo" EntitySet="EstFisica-EstReparo" />
+          </AssociationSet>
+          <AssociationSet Name="UebGestor" Association="Self.UebGestor">
+            <End Role="tblGestor" EntitySet="tblGestor" />
+            <End Role="tblUeb" EntitySet="tblUeb" />
+          </AssociationSet>
+          <AssociationSet Name="UebRegistro" Association="Self.UebRegistro">
+            <End Role="tblRegistro" EntitySet="tblRegistro" />
+            <End Role="tblUeb" EntitySet="tblUeb" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SistemaSaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EstFisica_EstReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstFisica" Type="Int32" Nullable="false" />
+          <Property Name="IdEstReparo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblEstFisica" Relationship="Self.REstF_EstR" FromRole="EstFisica_EstReparo" ToRole="tblEstFisica" />
+          <NavigationProperty Name="tblEstReparo" Relationship="Self.REstR_EstF" FromRole="EstFisica_EstReparo" ToRole="tblEstReparo" />
+        </EntityType>
+        <EntityType Name="FiscCaEq">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FkFiscalizacao" Type="Int32" Nullable="false" />
+          <Property Name="FkCatSeg" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_FiscCaEq_1" FromRole="FiscCaEq" ToRole="tblFiscalizacao" />
+          <NavigationProperty Name="tblEquipamentosSeg" Relationship="Self.FkCaSe" FromRole="FiscCaEq" ToRole="tblEquipamentosSeg" />
+        </EntityType>
+        <EntityType Name="Gas_OpcaoGas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGas" Type="Int32" Nullable="false" />
+          <Property Name="IdOpGas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblGasUeb" Relationship="Self.Gas_OpGas" FromRole="Gas_OpcaoGas" ToRole="tblGasUeb" />
+          <NavigationProperty Name="tblOpGas" Relationship="Self.OpGas_Gas" FromRole="Gas_OpcaoGas" ToRole="tblOpGas" />
+        </EntityType>
+        <EntityType Name="Iluminacao_IluReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdIluminacao" Type="Int32" Nullable="false" />
+          <Property Name="IdIluReparo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblIluminacao" Relationship="Self.Iluminacao_Reparo" FromRole="Iluminacao_IluReparo" ToRole="tblIluminacao" />
+          <NavigationProperty Name="tblIluReparo" Relationship="Self.Reparo_Iluminacao" FromRole="Iluminacao_IluReparo" ToRole="tblIluReparo" />
+        </EntityType>
+        <EntityType Name="Incendio_Extintor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdIncendio" Type="Int32" Nullable="false" />
+          <Property Name="IdExtintor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblExtintor" Relationship="Self.Extintor__Incendio" FromRole="Incendio_Extintor" ToRole="tblExtintor" />
+          <NavigationProperty Name="tblSisIncendio" Relationship="Self.Incendio__Extintor" FromRole="Incendio_Extintor" ToRole="tblSisIncendio" />
+        </EntityType>
+        <EntityType Name="tblAcessibilidade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="RampaInterna" Type="Boolean" Nullable="false" />
+          <Property Name="RampaExterna" Type="Boolean" Nullable="false" />
+          <Property Name="BanheiroPdePnc" Type="Boolean" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblAcessibilidade_1" FromRole="tblAcessibilidade" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblArredoresUeb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bares" Type="Boolean" Nullable="false" />
+          <Property Name="CasaFesta" Type="Boolean" Nullable="false" />
+          <Property Name="Drogas" Type="Boolean" Nullable="false" />
+          <Property Name="Outros" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblArredoresUeb_1" FromRole="tblArredoresUeb" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblEquipamentosSeg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fardamento" Type="Boolean" Nullable="false" />
+          <Property Name="Apito" Type="Boolean" Nullable="false" />
+          <Property Name="CapaChuva" Type="Boolean" Nullable="false" />
+          <Property Name="Colete" Type="Boolean" Nullable="false" />
+          <Property Name="Tonfa" Type="Boolean" Nullable="false" />
+          <Property Name="Lanterna" Type="Boolean" Nullable="false" />
+          <Property Name="Cracha" Type="Boolean" Nullable="false" />
+          <Property Name="Quepe" Type="Boolean" Nullable="false" />
+          <Property Name="Revolver" Type="Boolean" Nullable="false" />
+          <Property Name="Radio" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FiscCaEq" Relationship="Self.FkCaSe" FromRole="tblEquipamentosSeg" ToRole="FiscCaEq" />
+        </EntityType>
+        <EntityType Name="tblEstFisica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estacionamento" Type="Boolean" Nullable="false" />
+          <Property Name="ControleVeiculos" Type="Boolean" Nullable="false" />
+          <Property Name="PortaoEletronico" Type="Boolean" Nullable="false" />
+          <Property Name="EstaRetrito" Type="Boolean" Nullable="false" />
+          <Property Name="ParaRaios" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EstFisica_EstReparo" Relationship="Self.REstF_EstR" FromRole="tblEstFisica" ToRole="EstFisica_EstReparo" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblEstFisica_1" FromRole="tblEstFisica" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblEstReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Parede" Type="Boolean" Nullable="false" />
+          <Property Name="Teto" Type="Boolean" Nullable="false" />
+          <Property Name="Calcada" Type="Boolean" Nullable="false" />
+          <Property Name="Quadra" Type="Boolean" Nullable="false" />
+          <Property Name="Capina" Type="Boolean" Nullable="false" />
+          <Property Name="Portas" Type="Boolean" Nullable="false" />
+          <Property Name="Piso" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EstFisica_EstReparo" Relationship="Self.REstR_EstF" FromRole="tblEstReparo" ToRole="EstFisica_EstReparo" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblEstReparo_1" FromRole="tblEstReparo" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblExtintor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Validade" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Incendio_Extintor" Relationship="Self.Extintor__Incendio" FromRole="tblExtintor" ToRole="Incendio_Extintor" />
+        </EntityType>
+        <EntityType Name="tblFiscalizacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FkUeb" Type="Int32" Nullable="false" />
+          <Property Name="FkRegistro" Type="Int32" Nullable="false" />
+          <Property Name="FkRelCaEq" Type="Int32" Nullable="false" />
+          <Property Name="FkSistemaIncendio" Type="Int32" Nullable="false" />
+          <Property Name="FkLivroRegistro" Type="Int32" Nullable="false" />
+          <Property Name="FkGasUeb" Type="Int32" Nullable="false" />
+          <Property Name="FkEstruturaFisica" Type="Int32" Nullable="false" />
+          <Property Name="FkEstruturaReparo" Type="Int32" Nullable="false" />
+          <Property Name="FkIluminacaoReparo" Type="Int32" Nullable="false" />
+          <Property Name="FkSisHidraSaniReparo" Type="Int32" Nullable="false" />
+          <Property Name="FkPanicoIncendio" Type="Int32" Nullable="false" />
+          <Property Name="FkTransito" Type="Int32" Nullable="false" />
+          <Property Name="FkAcessibilidade" Type="Int32" Nullable="false" />
+          <Property Name="FkArredoresUeb" Type="Int32" Nullable="false" />
+          <Property Name="FkProjetoViolencia" Type="Int32" Nullable="false" />
+          <Property Name="FkListaTelefone" Type="Int32" Nullable="false" />
+          <Property Name="FkOcorrenciaInterna" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FiscCaEq" Relationship="Self.fk_tblFiscalizacao_FiscCaEq_1" FromRole="tblFiscalizacao" ToRole="FiscCaEq" />
+          <NavigationProperty Name="tblAcessibilidade" Relationship="Self.fk_tblFiscalizacao_tblAcessibilidade_1" FromRole="tblFiscalizacao" ToRole="tblAcessibilidade" />
+          <NavigationProperty Name="tblArredoresUeb" Relationship="Self.fk_tblFiscalizacao_tblArredoresUeb_1" FromRole="tblFiscalizacao" ToRole="tblArredoresUeb" />
+          <NavigationProperty Name="tblEstFisica" Relationship="Self.fk_tblFiscalizacao_tblEstFisica_1" FromRole="tblFiscalizacao" ToRole="tblEstFisica" />
+          <NavigationProperty Name="tblEstReparo" Relationship="Self.fk_tblFiscalizacao_tblEstReparo_1" FromRole="tblFiscalizacao" ToRole="tblEstReparo" />
+          <NavigationProperty Name="tblRegistro" Relationship="Self.FiscalizacaoRegistro" FromRole="tblFiscalizacao" ToRole="tblRegistro" />
+          <NavigationProperty Name="tblUeb" Relationship="Self.FiscalizacaoUeb" FromRole="tblFiscalizacao" ToRole="tblUeb" />
+          <NavigationProperty Name="tblGasUeb" Relationship="Self.fk_tblFiscalizacao_tblGasUeb_1" FromRole="tblFiscalizacao" ToRole="tblGasUeb" />
+          <NavigationProperty Name="tblIluReparo" Relationship="Self.fk_tblFiscalizacao_tblIluReparo_1" FromRole="tblFiscalizacao" ToRole="tblIluReparo" />
+          <NavigationProperty Name="tblListaTel" Relationship="Self.fk_tblFiscalizacao_tblListaTel_1" FromRole="tblFiscalizacao" ToRole="tblListaTel" />
+          <NavigationProperty Name="tblLivroRegistro" Relationship="Self.fk_tblFiscalizacao_tblLivroRegistro_1" FromRole="tblFiscalizacao" ToRole="tblLivroRegistro" />
+          <NavigationProperty Name="tblOcoInternas" Relationship="Self.fk_tblFiscalizacao_tblOcoInternas_1" FromRole="tblFiscalizacao" ToRole="tblOcoInternas" />
+          <NavigationProperty Name="tblPanicoIncendio" Relationship="Self.fk_tblFiscalizacao_tblPanicoIncendio_1" FromRole="tblFiscalizacao" ToRole="tblPanicoIncendio" />
+          <NavigationProperty Name="tblProjViolencia" Relationship="Self.fk_tblFiscalizacao_tblProjViolencia_1" FromRole="tblFiscalizacao" ToRole="tblProjViolencia" />
+          <NavigationProperty Name="tblSisHidraSaniRep" Relationship="Self.fk_tblFiscalizacao_tblSisHidraSaniRep_1" FromRole="tblFiscalizacao" ToRole="tblSisHidraSaniRep" />
+          <NavigationProperty Name="tblSisIncendio" Relationship="Self.fk_tblFiscalizacao_tblSisIncendio_1" FromRole="tblFiscalizacao" ToRole="tblSisIncendio" />
+          <NavigationProperty Name="tblTransito" Relationship="Self.fk_tblFiscalizacao_tblTransito_1" FromRole="tblFiscalizacao" ToRole="tblTransito" />
+          <Property Name="FkQntPosto" Type="Int32" Nullable="false" />
+          <Property Name="FkTipoSeg" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblQntPosto" Relationship="SistemaSaseModel.fk_tblFiscalizacao_tblQntPosto_1" FromRole="tblFiscalizacao" ToRole="tblQntPosto" />
+          <NavigationProperty Name="tblTipoSeg" Relationship="SistemaSaseModel.fk_tblFiscalizacao_tblTipoSeg_1" FromRole="tblFiscalizacao" ToRole="tblTipoSeg" />
+        </EntityType>
+        <EntityType Name="tblGasUeb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Funcionando" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Gas_OpcaoGas" Relationship="Self.Gas_OpGas" FromRole="tblGasUeb" ToRole="Gas_OpcaoGas" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblGasUeb_1" FromRole="tblGasUeb" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblGestor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblUeb" Relationship="Self.UebGestor" FromRole="tblGestor" ToRole="tblUeb" />
+        </EntityType>
+        <EntityType Name="tblIluminacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Iluminacao_IluReparo" Relationship="Self.Iluminacao_Reparo" FromRole="tblIluminacao" ToRole="Iluminacao_IluReparo" />
+        </EntityType>
+        <EntityType Name="tblIluReparo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fiacao" Type="Boolean" Nullable="false" />
+          <Property Name="CaixaForca" Type="Boolean" Nullable="false" />
+          <Property Name="Interruptores" Type="Boolean" Nullable="false" />
+          <Property Name="Tomadas" Type="Boolean" Nullable="false" />
+          <Property Name="ArCon" Type="Boolean" Nullable="false" />
+          <Property Name="Ventilador" Type="Boolean" Nullable="false" />
+          <Property Name="Geladeira" Type="Boolean" Nullable="false" />
+          <Property Name="Frezzer" Type="Boolean" Nullable="false" />
+          <Property Name="Bebedouro" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Iluminacao_IluReparo" Relationship="Self.Reparo_Iluminacao" FromRole="tblIluReparo" ToRole="Iluminacao_IluReparo" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblIluReparo_1" FromRole="tblIluReparo" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblListaTel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Policia" Type="Boolean" Nullable="false" />
+          <Property Name="Ronda" Type="Boolean" Nullable="false" />
+          <Property Name="Guarda" Type="Boolean" Nullable="false" />
+          <Property Name="Bombeiro" Type="Boolean" Nullable="false" />
+          <Property Name="Conselho" Type="Boolean" Nullable="false" />
+          <Property Name="Samu" Type="Boolean" Nullable="false" />
+          <Property Name="SaseSemed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblListaTel_1" FromRole="tblListaTel" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblLivroRegistro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LivroOcorrecia" Type="Boolean" Nullable="false" />
+          <Property Name="RegistroDiarios" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblLivroRegistro_1" FromRole="tblLivroRegistro" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblOcoInternas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Professores" Type="Boolean" Nullable="false" />
+          <Property Name="Alunos" Type="Boolean" Nullable="false" />
+          <Property Name="Gestores" Type="Boolean" Nullable="false" />
+          <Property Name="Outros" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblOcoInternas_1" FromRole="tblOcoInternas" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblOpGas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="EstFunc" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Gas_OpcaoGas" Relationship="Self.OpGas_Gas" FromRole="tblOpGas" ToRole="Gas_OpcaoGas" />
+        </EntityType>
+        <EntityType Name="tblPanicoIncendio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Treinamento" Type="Boolean" Nullable="false" />
+          <Property Name="Sinalizacao" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblPanicoIncendio_1" FromRole="tblPanicoIncendio" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblProjViolencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Escola" Type="Boolean" Nullable="false" />
+          <Property Name="Parceria" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblProjViolencia_1" FromRole="tblProjViolencia" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblRegistro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FiscalizacaoRegistro" FromRole="tblRegistro" ToRole="tblFiscalizacao" />
+          <NavigationProperty Name="tblUeb" Relationship="Self.UebRegistro" FromRole="tblRegistro" ToRole="tblUeb" />
+        </EntityType>
+        <EntityType Name="tblSisHidraSaniRep">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Banheiros" Type="Boolean" Nullable="false" />
+          <Property Name="Fossa" Type="Boolean" Nullable="false" />
+          <Property Name="Cisterna" Type="Boolean" Nullable="false" />
+          <Property Name="CaixaAgua" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblSisHidraSaniRep_1" FromRole="tblSisHidraSaniRep" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblSisIncendio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Certificacao" Type="Boolean" Nullable="false" />
+          <Property Name="Extintor" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Incendio_Extintor" Relationship="Self.Incendio__Extintor" FromRole="tblSisIncendio" ToRole="Incendio_Extintor" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblSisIncendio_1" FromRole="tblSisIncendio" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblTransito">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FaixaPedestre" Type="Boolean" Nullable="false" />
+          <Property Name="Semaforo" Type="Boolean" Nullable="false" />
+          <Property Name="Agente" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.fk_tblFiscalizacao_tblTransito_1" FromRole="tblTransito" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblUeb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Endereco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nucleo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FKGestor" Type="Int32" Nullable="false" />
+          <Property Name="Contato" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contato2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataHora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FkRegistro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="Self.FiscalizacaoUeb" FromRole="tblUeb" ToRole="tblFiscalizacao" />
+          <NavigationProperty Name="tblGestor" Relationship="Self.UebGestor" FromRole="tblUeb" ToRole="tblGestor" />
+          <NavigationProperty Name="tblRegistro" Relationship="Self.UebRegistro" FromRole="tblUeb" ToRole="tblRegistro" />
+        </EntityType>
+        <Association Name="REstF_EstR">
+          <End Role="tblEstFisica" Type="Self.tblEstFisica" Multiplicity="1" />
+          <End Role="EstFisica_EstReparo" Type="Self.EstFisica_EstReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstFisica">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstFisica_EstReparo">
+              <PropertyRef Name="IdEstFisica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REstR_EstF">
+          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
+          <End Role="EstFisica_EstReparo" Type="Self.EstFisica_EstReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstFisica_EstReparo">
+              <PropertyRef Name="IdEstReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_FiscCaEq_1">
+          <End Role="FiscCaEq" Type="Self.FiscCaEq" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FiscCaEq">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkRelCaEq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkCaSe">
+          <End Role="tblEquipamentosSeg" Type="Self.tblEquipamentosSeg" Multiplicity="1" />
+          <End Role="FiscCaEq" Type="Self.FiscCaEq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEquipamentosSeg">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FiscCaEq">
+              <PropertyRef Name="FkCatSeg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Gas_OpGas">
+          <End Role="tblGasUeb" Type="Self.tblGasUeb" Multiplicity="1" />
+          <End Role="Gas_OpcaoGas" Type="Self.Gas_OpcaoGas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGasUeb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gas_OpcaoGas">
+              <PropertyRef Name="IdGas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OpGas_Gas">
+          <End Role="tblOpGas" Type="Self.tblOpGas" Multiplicity="1" />
+          <End Role="Gas_OpcaoGas" Type="Self.Gas_OpcaoGas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOpGas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gas_OpcaoGas">
+              <PropertyRef Name="IdOpGas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Iluminacao_Reparo">
+          <End Role="tblIluminacao" Type="Self.tblIluminacao" Multiplicity="1" />
+          <End Role="Iluminacao_IluReparo" Type="Self.Iluminacao_IluReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblIluminacao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Iluminacao_IluReparo">
+              <PropertyRef Name="IdIluminacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reparo_Iluminacao">
+          <End Role="tblIluReparo" Type="Self.tblIluReparo" Multiplicity="1" />
+          <End Role="Iluminacao_IluReparo" Type="Self.Iluminacao_IluReparo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblIluReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Iluminacao_IluReparo">
+              <PropertyRef Name="IdIluReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Extintor__Incendio">
+          <End Role="tblExtintor" Type="Self.tblExtintor" Multiplicity="1" />
+          <End Role="Incendio_Extintor" Type="Self.Incendio_Extintor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblExtintor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Incendio_Extintor">
+              <PropertyRef Name="IdExtintor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Incendio__Extintor">
+          <End Role="tblSisIncendio" Type="Self.tblSisIncendio" Multiplicity="1" />
+          <End Role="Incendio_Extintor" Type="Self.Incendio_Extintor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSisIncendio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Incendio_Extintor">
+              <PropertyRef Name="IdIncendio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblAcessibilidade_1">
+          <End Role="tblAcessibilidade" Type="Self.tblAcessibilidade" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAcessibilidade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkAcessibilidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblArredoresUeb_1">
+          <End Role="tblArredoresUeb" Type="Self.tblArredoresUeb" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblArredoresUeb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkArredoresUeb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblEstFisica_1">
+          <End Role="tblEstFisica" Type="Self.tblEstFisica" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstFisica">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkEstruturaFisica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblEstReparo_1">
+          <End Role="tblEstReparo" Type="Self.tblEstReparo" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEstReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkEstruturaReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FiscalizacaoRegistro">
+          <End Role="tblRegistro" Type="Self.tblRegistro" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRegistro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkRegistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FiscalizacaoUeb">
+          <End Role="tblUeb" Type="Self.tblUeb" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUeb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkUeb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblGasUeb_1">
+          <End Role="tblGasUeb" Type="Self.tblGasUeb" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGasUeb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkGasUeb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblIluReparo_1">
+          <End Role="tblIluReparo" Type="Self.tblIluReparo" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblIluReparo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkIluminacaoReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblListaTel_1">
+          <End Role="tblListaTel" Type="Self.tblListaTel" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblListaTel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkListaTelefone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblLivroRegistro_1">
+          <End Role="tblLivroRegistro" Type="Self.tblLivroRegistro" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLivroRegistro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkLivroRegistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblOcoInternas_1">
+          <End Role="tblOcoInternas" Type="Self.tblOcoInternas" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOcoInternas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkOcorrenciaInterna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblPanicoIncendio_1">
+          <End Role="tblPanicoIncendio" Type="Self.tblPanicoIncendio" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPanicoIncendio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkPanicoIncendio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblProjViolencia_1">
+          <End Role="tblProjViolencia" Type="Self.tblProjViolencia" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjViolencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkProjetoViolencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblSisHidraSaniRep_1">
+          <End Role="tblSisHidraSaniRep" Type="Self.tblSisHidraSaniRep" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSisHidraSaniRep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkSisHidraSaniReparo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblSisIncendio_1">
+          <End Role="tblSisIncendio" Type="Self.tblSisIncendio" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSisIncendio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkSistemaIncendio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblTransito_1">
+          <End Role="tblTransito" Type="Self.tblTransito" Multiplicity="1" />
+          <End Role="tblFiscalizacao" Type="Self.tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTransito">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkTransito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UebGestor">
+          <End Role="tblGestor" Type="Self.tblGestor" Multiplicity="1" />
+          <End Role="tblUeb" Type="Self.tblUeb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGestor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUeb">
+              <PropertyRef Name="FKGestor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UebRegistro">
+          <End Role="tblRegistro" Type="Self.tblRegistro" Multiplicity="1" />
+          <End Role="tblUeb" Type="Self.tblUeb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRegistro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUeb">
+              <PropertyRef Name="FkRegistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SistemaSaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EstFisica_EstReparo" EntityType="Self.EstFisica_EstReparo" />
+          <EntitySet Name="FiscCaEq" EntityType="Self.FiscCaEq" />
+          <EntitySet Name="Gas_OpcaoGas" EntityType="Self.Gas_OpcaoGas" />
+          <EntitySet Name="Iluminacao_IluReparo" EntityType="Self.Iluminacao_IluReparo" />
+          <EntitySet Name="Incendio_Extintor" EntityType="Self.Incendio_Extintor" />
+          <EntitySet Name="tblAcessibilidade" EntityType="Self.tblAcessibilidade" />
+          <EntitySet Name="tblArredoresUeb" EntityType="Self.tblArredoresUeb" />
+          <EntitySet Name="tblEquipamentosSeg" EntityType="Self.tblEquipamentosSeg" />
+          <EntitySet Name="tblEstFisica" EntityType="Self.tblEstFisica" />
+          <EntitySet Name="tblEstReparo" EntityType="Self.tblEstReparo" />
+          <EntitySet Name="tblExtintor" EntityType="Self.tblExtintor" />
+          <EntitySet Name="tblFiscalizacao" EntityType="Self.tblFiscalizacao" />
+          <EntitySet Name="tblGasUeb" EntityType="Self.tblGasUeb" />
+          <EntitySet Name="tblGestor" EntityType="Self.tblGestor" />
+          <EntitySet Name="tblIluminacao" EntityType="Self.tblIluminacao" />
+          <EntitySet Name="tblIluReparo" EntityType="Self.tblIluReparo" />
+          <EntitySet Name="tblListaTel" EntityType="Self.tblListaTel" />
+          <EntitySet Name="tblLivroRegistro" EntityType="Self.tblLivroRegistro" />
+          <EntitySet Name="tblOcoInternas" EntityType="Self.tblOcoInternas" />
+          <EntitySet Name="tblOpGas" EntityType="Self.tblOpGas" />
+          <EntitySet Name="tblPanicoIncendio" EntityType="Self.tblPanicoIncendio" />
+          <EntitySet Name="tblProjViolencia" EntityType="Self.tblProjViolencia" />
+          <EntitySet Name="tblRegistro" EntityType="Self.tblRegistro" />
+          <EntitySet Name="tblSisHidraSaniRep" EntityType="Self.tblSisHidraSaniRep" />
+          <EntitySet Name="tblSisIncendio" EntityType="Self.tblSisIncendio" />
+          <EntitySet Name="tblTransito" EntityType="Self.tblTransito" />
+          <EntitySet Name="tblUeb" EntityType="Self.tblUeb" />
+          <AssociationSet Name="REstF_EstR" Association="Self.REstF_EstR">
+            <End Role="tblEstFisica" EntitySet="tblEstFisica" />
+            <End Role="EstFisica_EstReparo" EntitySet="EstFisica_EstReparo" />
+          </AssociationSet>
+          <AssociationSet Name="REstR_EstF" Association="Self.REstR_EstF">
+            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
+            <End Role="EstFisica_EstReparo" EntitySet="EstFisica_EstReparo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_FiscCaEq_1" Association="Self.fk_tblFiscalizacao_FiscCaEq_1">
+            <End Role="FiscCaEq" EntitySet="FiscCaEq" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FkCaSe" Association="Self.FkCaSe">
+            <End Role="tblEquipamentosSeg" EntitySet="tblEquipamentosSeg" />
+            <End Role="FiscCaEq" EntitySet="FiscCaEq" />
+          </AssociationSet>
+          <AssociationSet Name="Gas_OpGas" Association="Self.Gas_OpGas">
+            <End Role="tblGasUeb" EntitySet="tblGasUeb" />
+            <End Role="Gas_OpcaoGas" EntitySet="Gas_OpcaoGas" />
+          </AssociationSet>
+          <AssociationSet Name="OpGas_Gas" Association="Self.OpGas_Gas">
+            <End Role="tblOpGas" EntitySet="tblOpGas" />
+            <End Role="Gas_OpcaoGas" EntitySet="Gas_OpcaoGas" />
+          </AssociationSet>
+          <AssociationSet Name="Iluminacao_Reparo" Association="Self.Iluminacao_Reparo">
+            <End Role="tblIluminacao" EntitySet="tblIluminacao" />
+            <End Role="Iluminacao_IluReparo" EntitySet="Iluminacao_IluReparo" />
+          </AssociationSet>
+          <AssociationSet Name="Reparo_Iluminacao" Association="Self.Reparo_Iluminacao">
+            <End Role="tblIluReparo" EntitySet="tblIluReparo" />
+            <End Role="Iluminacao_IluReparo" EntitySet="Iluminacao_IluReparo" />
+          </AssociationSet>
+          <AssociationSet Name="Extintor__Incendio" Association="Self.Extintor__Incendio">
+            <End Role="tblExtintor" EntitySet="tblExtintor" />
+            <End Role="Incendio_Extintor" EntitySet="Incendio_Extintor" />
+          </AssociationSet>
+          <AssociationSet Name="Incendio__Extintor" Association="Self.Incendio__Extintor">
+            <End Role="tblSisIncendio" EntitySet="tblSisIncendio" />
+            <End Role="Incendio_Extintor" EntitySet="Incendio_Extintor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblAcessibilidade_1" Association="Self.fk_tblFiscalizacao_tblAcessibilidade_1">
+            <End Role="tblAcessibilidade" EntitySet="tblAcessibilidade" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblArredoresUeb_1" Association="Self.fk_tblFiscalizacao_tblArredoresUeb_1">
+            <End Role="tblArredoresUeb" EntitySet="tblArredoresUeb" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblEstFisica_1" Association="Self.fk_tblFiscalizacao_tblEstFisica_1">
+            <End Role="tblEstFisica" EntitySet="tblEstFisica" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblEstReparo_1" Association="Self.fk_tblFiscalizacao_tblEstReparo_1">
+            <End Role="tblEstReparo" EntitySet="tblEstReparo" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FiscalizacaoRegistro" Association="Self.FiscalizacaoRegistro">
+            <End Role="tblRegistro" EntitySet="tblRegistro" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FiscalizacaoUeb" Association="Self.FiscalizacaoUeb">
+            <End Role="tblUeb" EntitySet="tblUeb" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblGasUeb_1" Association="Self.fk_tblFiscalizacao_tblGasUeb_1">
+            <End Role="tblGasUeb" EntitySet="tblGasUeb" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblIluReparo_1" Association="Self.fk_tblFiscalizacao_tblIluReparo_1">
+            <End Role="tblIluReparo" EntitySet="tblIluReparo" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblListaTel_1" Association="Self.fk_tblFiscalizacao_tblListaTel_1">
+            <End Role="tblListaTel" EntitySet="tblListaTel" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblLivroRegistro_1" Association="Self.fk_tblFiscalizacao_tblLivroRegistro_1">
+            <End Role="tblLivroRegistro" EntitySet="tblLivroRegistro" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblOcoInternas_1" Association="Self.fk_tblFiscalizacao_tblOcoInternas_1">
+            <End Role="tblOcoInternas" EntitySet="tblOcoInternas" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblPanicoIncendio_1" Association="Self.fk_tblFiscalizacao_tblPanicoIncendio_1">
+            <End Role="tblPanicoIncendio" EntitySet="tblPanicoIncendio" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblProjViolencia_1" Association="Self.fk_tblFiscalizacao_tblProjViolencia_1">
+            <End Role="tblProjViolencia" EntitySet="tblProjViolencia" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblSisHidraSaniRep_1" Association="Self.fk_tblFiscalizacao_tblSisHidraSaniRep_1">
+            <End Role="tblSisHidraSaniRep" EntitySet="tblSisHidraSaniRep" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblSisIncendio_1" Association="Self.fk_tblFiscalizacao_tblSisIncendio_1">
+            <End Role="tblSisIncendio" EntitySet="tblSisIncendio" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblTransito_1" Association="Self.fk_tblFiscalizacao_tblTransito_1">
+            <End Role="tblTransito" EntitySet="tblTransito" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="UebGestor" Association="Self.UebGestor">
+            <End Role="tblGestor" EntitySet="tblGestor" />
+            <End Role="tblUeb" EntitySet="tblUeb" />
+          </AssociationSet>
+          <AssociationSet Name="UebRegistro" Association="Self.UebRegistro">
+            <End Role="tblRegistro" EntitySet="tblRegistro" />
+            <End Role="tblUeb" EntitySet="tblUeb" />
+          </AssociationSet>
+          <EntitySet Name="tblQntPosto" EntityType="SistemaSaseModel.tblQntPosto" />
+          <EntitySet Name="tblTipoSeg" EntityType="SistemaSaseModel.tblTipoSeg" />
+          <AssociationSet Name="fk_tblFiscalizacao_tblQntPosto_1" Association="SistemaSaseModel.fk_tblFiscalizacao_tblQntPosto_1">
+            <End Role="tblQntPosto" EntitySet="tblQntPosto" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tblFiscalizacao_tblTipoSeg_1" Association="SistemaSaseModel.fk_tblFiscalizacao_tblTipoSeg_1">
+            <End Role="tblTipoSeg" EntitySet="tblTipoSeg" />
+            <End Role="tblFiscalizacao" EntitySet="tblFiscalizacao" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblQntPosto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostVigilante" Type="Int32" Nullable="false" />
+          <Property Name="PostPorteiro" Type="Int32" Nullable="false" />
+          <Property Name="PostVigia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="SistemaSaseModel.fk_tblFiscalizacao_tblQntPosto_1" FromRole="tblQntPosto" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <EntityType Name="tblTipoSeg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vigilante" Type="Boolean" Nullable="false" />
+          <Property Name="Porteiro" Type="Boolean" Nullable="false" />
+          <Property Name="VigiFeirista" Type="Boolean" Nullable="false" />
+          <Property Name="PortFeirista" Type="Boolean" Nullable="false" />
+          <Property Name="VigSemedPort" Type="Boolean" Nullable="false" />
+          <Property Name="VigSemed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFiscalizacao" Relationship="SistemaSaseModel.fk_tblFiscalizacao_tblTipoSeg_1" FromRole="tblTipoSeg" ToRole="tblFiscalizacao" />
+        </EntityType>
+        <Association Name="fk_tblFiscalizacao_tblQntPosto_1">
+          <End Type="SistemaSaseModel.tblQntPosto" Role="tblQntPosto" Multiplicity="1" />
+          <End Type="SistemaSaseModel.tblFiscalizacao" Role="tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQntPosto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkQntPosto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tblFiscalizacao_tblTipoSeg_1">
+          <End Type="SistemaSaseModel.tblTipoSeg" Role="tblTipoSeg" Multiplicity="1" />
+          <End Type="SistemaSaseModel.tblFiscalizacao" Role="tblFiscalizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoSeg">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFiscalizacao">
+              <PropertyRef Name="FkTipoSeg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SistemaSaseModelStoreContainer" CdmEntityContainer="SistemaSaseEntities">
+          <EntitySetMapping Name="EstFisica_EstReparo">
+            <EntityTypeMapping TypeName="SistemaSaseModel.EstFisica_EstReparo">
+              <MappingFragment StoreEntitySet="EstFisica-EstReparo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEstFisica" ColumnName="IdEstFisica" />
+                <ScalarProperty Name="IdEstReparo" ColumnName="IdEstReparo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FiscCaEq">
+            <EntityTypeMapping TypeName="SistemaSaseModel.FiscCaEq">
+              <MappingFragment StoreEntitySet="FiscCaEq">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FkFiscalizacao" ColumnName="FkFiscalizacao" />
+                <ScalarProperty Name="FkCatSeg" ColumnName="FkCatSeg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gas_OpcaoGas">
+            <EntityTypeMapping TypeName="SistemaSaseModel.Gas_OpcaoGas">
+              <MappingFragment StoreEntitySet="Gas-OpcaoGas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdGas" ColumnName="IdGas" />
+                <ScalarProperty Name="IdOpGas" ColumnName="IdOpGas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Iluminacao_IluReparo">
+            <EntityTypeMapping TypeName="SistemaSaseModel.Iluminacao_IluReparo">
+              <MappingFragment StoreEntitySet="Iluminacao-IluReparo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdIluminacao" ColumnName="IdIluminacao" />
+                <ScalarProperty Name="IdIluReparo" ColumnName="IdIluReparo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incendio_Extintor">
+            <EntityTypeMapping TypeName="SistemaSaseModel.Incendio_Extintor">
+              <MappingFragment StoreEntitySet="Incendio-Extintor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdIncendio" ColumnName="IdIncendio" />
+                <ScalarProperty Name="IdExtintor" ColumnName="IdExtintor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAcessibilidade">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblAcessibilidade">
+              <MappingFragment StoreEntitySet="tblAcessibilidade">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RampaInterna" ColumnName="RampaInterna" />
+                <ScalarProperty Name="RampaExterna" ColumnName="RampaExterna" />
+                <ScalarProperty Name="BanheiroPdePnc" ColumnName="BanheiroPdePnc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblArredoresUeb">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblArredoresUeb">
+              <MappingFragment StoreEntitySet="tblArredoresUeb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Bares" ColumnName="Bares" />
+                <ScalarProperty Name="CasaFesta" ColumnName="CasaFesta" />
+                <ScalarProperty Name="Drogas" ColumnName="Drogas" />
+                <ScalarProperty Name="Outros" ColumnName="Outros" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEquipamentosSeg">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblEquipamentosSeg">
+              <MappingFragment StoreEntitySet="tblEquipamentosSeg">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Fardamento" ColumnName="Fardamento" />
+                <ScalarProperty Name="Apito" ColumnName="Apito" />
+                <ScalarProperty Name="CapaChuva" ColumnName="CapaChuva" />
+                <ScalarProperty Name="Colete" ColumnName="Colete" />
+                <ScalarProperty Name="Tonfa" ColumnName="Tonfa" />
+                <ScalarProperty Name="Lanterna" ColumnName="Lanterna" />
+                <ScalarProperty Name="Cracha" ColumnName="Cracha" />
+                <ScalarProperty Name="Quepe" ColumnName="Quepe" />
+                <ScalarProperty Name="Revolver" ColumnName="Revolver" />
+                <ScalarProperty Name="Radio" ColumnName="Radio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEstFisica">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblEstFisica">
+              <MappingFragment StoreEntitySet="tblEstFisica">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Estacionamento" ColumnName="Estacionamento" />
+                <ScalarProperty Name="ControleVeiculos" ColumnName="ControleVeiculos" />
+                <ScalarProperty Name="PortaoEletronico" ColumnName="PortaoEletronico" />
+                <ScalarProperty Name="EstaRetrito" ColumnName="EstaRetrito" />
+                <ScalarProperty Name="ParaRaios" ColumnName="ParaRaios" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEstReparo">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblEstReparo">
+              <MappingFragment StoreEntitySet="tblEstReparo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Parede" ColumnName="Parede" />
+                <ScalarProperty Name="Teto" ColumnName="Teto" />
+                <ScalarProperty Name="Calcada" ColumnName="Calcada" />
+                <ScalarProperty Name="Quadra" ColumnName="Quadra" />
+                <ScalarProperty Name="Capina" ColumnName="Capina" />
+                <ScalarProperty Name="Portas" ColumnName="Portas" />
+                <ScalarProperty Name="Piso" ColumnName="Piso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblExtintor">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblExtintor">
+              <MappingFragment StoreEntitySet="tblExtintor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Validade" ColumnName="Validade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFiscalizacao">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblFiscalizacao">
+              <MappingFragment StoreEntitySet="tblFiscalizacao">
+                <ScalarProperty Name="FkTipoSeg" ColumnName="FkTipoSeg" />
+                <ScalarProperty Name="FkQntPosto" ColumnName="FkQntPosto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FkUeb" ColumnName="FkUeb" />
+                <ScalarProperty Name="FkRegistro" ColumnName="FkRegistro" />
+                <ScalarProperty Name="FkRelCaEq" ColumnName="FkRelCaEq" />
+                <ScalarProperty Name="FkSistemaIncendio" ColumnName="FkSistemaIncendio" />
+                <ScalarProperty Name="FkLivroRegistro" ColumnName="FkLivroRegistro" />
+                <ScalarProperty Name="FkGasUeb" ColumnName="FkGasUeb" />
+                <ScalarProperty Name="FkEstruturaFisica" ColumnName="FkEstruturaFisica" />
+                <ScalarProperty Name="FkEstruturaReparo" ColumnName="FkEstruturaReparo" />
+                <ScalarProperty Name="FkIluminacaoReparo" ColumnName="FkIluminacaoReparo" />
+                <ScalarProperty Name="FkSisHidraSaniReparo" ColumnName="FkSisHidraSaniReparo" />
+                <ScalarProperty Name="FkPanicoIncendio" ColumnName="FkPanicoIncendio" />
+                <ScalarProperty Name="FkTransito" ColumnName="FkTransito" />
+                <ScalarProperty Name="FkAcessibilidade" ColumnName="FkAcessibilidade" />
+                <ScalarProperty Name="FkArredoresUeb" ColumnName="FkArredoresUeb" />
+                <ScalarProperty Name="FkProjetoViolencia" ColumnName="FkProjetoViolencia" />
+                <ScalarProperty Name="FkListaTelefone" ColumnName="FkListaTelefone" />
+                <ScalarProperty Name="FkOcorrenciaInterna" ColumnName="FkOcorrenciaInterna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGasUeb">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblGasUeb">
+              <MappingFragment StoreEntitySet="tblGasUeb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Funcionando" ColumnName="Funcionando" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGestor">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblGestor">
+              <MappingFragment StoreEntitySet="tblGestor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblIluminacao">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblIluminacao">
+              <MappingFragment StoreEntitySet="tblIluminacao">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblIluReparo">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblIluReparo">
+              <MappingFragment StoreEntitySet="tblIluReparo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Fiacao" ColumnName="Fiacao" />
+                <ScalarProperty Name="CaixaForca" ColumnName="CaixaForca" />
+                <ScalarProperty Name="Interruptores" ColumnName="Interruptores" />
+                <ScalarProperty Name="Tomadas" ColumnName="Tomadas" />
+                <ScalarProperty Name="ArCon" ColumnName="ArCon" />
+                <ScalarProperty Name="Ventilador" ColumnName="Ventilador" />
+                <ScalarProperty Name="Geladeira" ColumnName="Geladeira" />
+                <ScalarProperty Name="Frezzer" ColumnName="Frezzer" />
+                <ScalarProperty Name="Bebedouro" ColumnName="Bebedouro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblListaTel">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblListaTel">
+              <MappingFragment StoreEntitySet="tblListaTel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Policia" ColumnName="Policia" />
+                <ScalarProperty Name="Ronda" ColumnName="Ronda" />
+                <ScalarProperty Name="Guarda" ColumnName="Guarda" />
+                <ScalarProperty Name="Bombeiro" ColumnName="Bombeiro" />
+                <ScalarProperty Name="Conselho" ColumnName="Conselho" />
+                <ScalarProperty Name="Samu" ColumnName="Samu" />
+                <ScalarProperty Name="SaseSemed" ColumnName="SaseSemed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLivroRegistro">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblLivroRegistro">
+              <MappingFragment StoreEntitySet="tblLivroRegistro">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LivroOcorrecia" ColumnName="LivroOcorrecia" />
+                <ScalarProperty Name="RegistroDiarios" ColumnName="RegistroDiarios" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOcoInternas">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblOcoInternas">
+              <MappingFragment StoreEntitySet="tblOcoInternas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Professores" ColumnName="Professores" />
+                <ScalarProperty Name="Alunos" ColumnName="Alunos" />
+                <ScalarProperty Name="Gestores" ColumnName="Gestores" />
+                <ScalarProperty Name="Outros" ColumnName="Outros" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOpGas">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblOpGas">
+              <MappingFragment StoreEntitySet="tblOpGas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EstFunc" ColumnName="EstFunc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPanicoIncendio">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblPanicoIncendio">
+              <MappingFragment StoreEntitySet="tblPanicoIncendio">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Treinamento" ColumnName="Treinamento" />
+                <ScalarProperty Name="Sinalizacao" ColumnName="Sinalizacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjViolencia">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblProjViolencia">
+              <MappingFragment StoreEntitySet="tblProjViolencia">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Escola" ColumnName="Escola" />
+                <ScalarProperty Name="Parceria" ColumnName="Parceria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRegistro">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblRegistro">
+              <MappingFragment StoreEntitySet="tblRegistro">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSisHidraSaniRep">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblSisHidraSaniRep">
+              <MappingFragment StoreEntitySet="tblSisHidraSaniRep">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Banheiros" ColumnName="Banheiros" />
+                <ScalarProperty Name="Fossa" ColumnName="Fossa" />
+                <ScalarProperty Name="Cisterna" ColumnName="Cisterna" />
+                <ScalarProperty Name="CaixaAgua" ColumnName="CaixaAgua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSisIncendio">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblSisIncendio">
+              <MappingFragment StoreEntitySet="tblSisIncendio">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Certificacao" ColumnName="Certificacao" />
+                <ScalarProperty Name="Extintor" ColumnName="Extintor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTransito">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblTransito">
+              <MappingFragment StoreEntitySet="tblTransito">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FaixaPedestre" ColumnName="FaixaPedestre" />
+                <ScalarProperty Name="Semaforo" ColumnName="Semaforo" />
+                <ScalarProperty Name="Agente" ColumnName="Agente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUeb">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblUeb">
+              <MappingFragment StoreEntitySet="tblUeb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Nucleo" ColumnName="Nucleo" />
+                <ScalarProperty Name="FKGestor" ColumnName="FKGestor" />
+                <ScalarProperty Name="Contato" ColumnName="Contato" />
+                <ScalarProperty Name="Contato2" ColumnName="Contato2" />
+                <ScalarProperty Name="DataHora" ColumnName="DataHora" />
+                <ScalarProperty Name="FkRegistro" ColumnName="FkRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblQntPosto">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblQntPosto">
+              <MappingFragment StoreEntitySet="tblQntPosto">
+                <ScalarProperty Name="PostVigia" ColumnName="PostVigia" />
+                <ScalarProperty Name="PostPorteiro" ColumnName="PostPorteiro" />
+                <ScalarProperty Name="PostVigilante" ColumnName="PostVigilante" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTipoSeg">
+            <EntityTypeMapping TypeName="SistemaSaseModel.tblTipoSeg">
+              <MappingFragment StoreEntitySet="tblTipoSeg">
+                <ScalarProperty Name="VigSemed" ColumnName="VigSemed" />
+                <ScalarProperty Name="VigSemedPort" ColumnName="VigSemedPort" />
+                <ScalarProperty Name="PortFeirista" ColumnName="PortFeirista" />
+                <ScalarProperty Name="VigiFeirista" ColumnName="VigiFeirista" />
+                <ScalarProperty Name="Porteiro" ColumnName="Porteiro" />
+                <ScalarProperty Name="Vigilante" ColumnName="Vigilante" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

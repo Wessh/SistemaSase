@@ -17,42 +17,42 @@ namespace SistemaSase.Models
         public int Id { get; set; }
         public int FkUeb { get; set; }
         public int FkRegistro { get; set; }
+        public int FkRelCaEq { get; set; }
+        public int FkSistemaIncendio { get; set; }
         public int FkLivroRegistro { get; set; }
-        public int FkCatSeg { get; set; }
-        public int FkEstFisica { get; set; }
-        public int FkIluminacao { get; set; }
-        public int FkSisHidraSaniRep { get; set; }
-        public int FkSisIncendio { get; set; }
-        public int FkGasCozinha { get; set; }
+        public int FkGasUeb { get; set; }
+        public int FkEstruturaFisica { get; set; }
+        public int FkEstruturaReparo { get; set; }
+        public int FkIluminacaoReparo { get; set; }
+        public int FkSisHidraSaniReparo { get; set; }
         public int FkPanicoIncendio { get; set; }
         public int FkTransito { get; set; }
         public int FkAcessibilidade { get; set; }
         public int FkArredoresUeb { get; set; }
-        public int FkProjViolencia { get; set; }
-        public int FkListaTel { get; set; }
-        public int FkOcoInternas { get; set; }
-        public int FkEstReparo { get; set; }
-        public int FkTipoSeg { get; set; }
+        public int FkProjetoViolencia { get; set; }
+        public int FkListaTelefone { get; set; }
+        public int FkOcorrenciaInterna { get; set; }
         public int FkQntPosto { get; set; }
+        public int FkTipoSeg { get; set; }
     
+        public virtual FiscCaEq FiscCaEq { get; set; }
         public virtual tblAcessibilidade tblAcessibilidade { get; set; }
         public virtual tblArredoresUeb tblArredoresUeb { get; set; }
-        public virtual tblCatSeg tblCatSeg { get; set; }
         public virtual tblEstFisica tblEstFisica { get; set; }
         public virtual tblEstReparo tblEstReparo { get; set; }
         public virtual tblRegistro tblRegistro { get; set; }
         public virtual tblUeb tblUeb { get; set; }
-        public virtual tblGasCozinha tblGasCozinha { get; set; }
-        public virtual tblIluminacao tblIluminacao { get; set; }
+        public virtual tblGasUeb tblGasUeb { get; set; }
+        public virtual tblIluReparo tblIluReparo { get; set; }
         public virtual tblListaTel tblListaTel { get; set; }
         public virtual tblLivroRegistro tblLivroRegistro { get; set; }
         public virtual tblOcoInternas tblOcoInternas { get; set; }
         public virtual tblPanicoIncendio tblPanicoIncendio { get; set; }
         public virtual tblProjViolencia tblProjViolencia { get; set; }
-        public virtual tblQntPosto tblQntPosto { get; set; }
         public virtual tblSisHidraSaniRep tblSisHidraSaniRep { get; set; }
         public virtual tblSisIncendio tblSisIncendio { get; set; }
-        public virtual tblTipoSeg tblTipoSeg { get; set; }
         public virtual tblTransito tblTransito { get; set; }
+        public virtual tblQntPosto tblQntPosto { get; set; }
+        public virtual tblTipoSeg tblTipoSeg { get; set; }
     }
 }

@@ -12,28 +12,22 @@ namespace SistemaSase.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblEquipamentosSeg
+    public partial class tblGasUeb
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblEquipamentosSeg()
+        public tblGasUeb()
         {
-            this.FiscCaEq = new HashSet<FiscCaEq>();
+            this.Gas_OpcaoGas = new HashSet<Gas_OpcaoGas>();
+            this.tblFiscalizacao = new HashSet<tblFiscalizacao>();
         }
     
         public int Id { get; set; }
         public string Nome { get; set; }
-        public bool Fardamento { get; set; }
-        public bool Apito { get; set; }
-        public bool CapaChuva { get; set; }
-        public bool Colete { get; set; }
-        public bool Tonfa { get; set; }
-        public bool Lanterna { get; set; }
-        public bool Cracha { get; set; }
-        public bool Quepe { get; set; }
-        public bool Revolver { get; set; }
-        public bool Radio { get; set; }
+        public bool Funcionando { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FiscCaEq> FiscCaEq { get; set; }
+        public virtual ICollection<Gas_OpcaoGas> Gas_OpcaoGas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
     }
 }

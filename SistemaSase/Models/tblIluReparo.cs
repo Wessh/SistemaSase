@@ -18,9 +18,11 @@ namespace SistemaSase.Models
         public tblIluReparo()
         {
             this.Iluminacao_IluReparo = new HashSet<Iluminacao_IluReparo>();
+            this.tblFiscalizacao = new HashSet<tblFiscalizacao>();
         }
     
         public int Id { get; set; }
+        public string Nome { get; set; }
         public bool Fiacao { get; set; }
         public bool CaixaForca { get; set; }
         public bool Interruptores { get; set; }
@@ -33,5 +35,7 @@ namespace SistemaSase.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Iluminacao_IluReparo> Iluminacao_IluReparo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
     }
 }

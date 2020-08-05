@@ -12,18 +12,13 @@ namespace SistemaSase.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblIluminacao
+    public partial class EstFisica_EstReparo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblIluminacao()
-        {
-            this.Iluminacao_IluReparo = new HashSet<Iluminacao_IluReparo>();
-        }
-    
         public int Id { get; set; }
-        public string Nome { get; set; }
+        public int IdEstFisica { get; set; }
+        public int IdEstReparo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Iluminacao_IluReparo> Iluminacao_IluReparo { get; set; }
+        public virtual tblEstFisica tblEstFisica { get; set; }
+        public virtual tblEstReparo tblEstReparo { get; set; }
     }
 }

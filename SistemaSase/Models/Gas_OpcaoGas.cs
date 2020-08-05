@@ -18,7 +18,7 @@ namespace SistemaSase.Models
         public int IdGas { get; set; }
         public int IdOpGas { get; set; }
     
-        public virtual tblGasCozinha tblGasCozinha { get; set; }
+        public virtual tblGasUeb tblGasUeb { get; set; }
         public virtual tblOpGas tblOpGas { get; set; }
     }
 }

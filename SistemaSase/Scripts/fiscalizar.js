@@ -1,4 +1,19 @@
-﻿
+﻿//Hide
+var checkP = document.getElementById("PQS");
+var checkC = document.getElementById("CO2");
+var checkA = document.getElementById("CheckAgua");
+if (checkP.checked == false) {
+    var dataVal = document.getElementById("DatePQS");
+    dataVal.value = "2000-01-01";
+}
+if (checkC.checked == false) {
+    var dataVal = document.getElementById("DateCO2");
+    dataVal.value = "2000-01-01";
+}
+if (checkA.checked == false) {
+    var dataVal = document.getElementById("DateAgua");
+    dataVal.value = "2000-01-01";
+}
 //Categoria Vigilante
 function fCatVig() {
     var checkBox = document.getElementById("CatVig");
@@ -68,43 +83,46 @@ function Ext() {
 //Tipo PQS
 function fPQS() {
     var checkBox = document.getElementById("PQS");
+    var dataVal = document.getElementById("DatePQS");
     if (checkBox.checked == true) {
         $("#DatePQS").slideDown().fadeTo(100, 100).removeClass('hidden');
-        document.getElementById("ValPqs").value = "";
+        dataVal.value = "";
     } else {
         $("#DatePQS").slideUp().fadeTo(100, 100,
             function () {
                 $("#DatePQS").addClass('hidden');
-                document.getElementById("ValPqs").value = "2000-01-01";
+                dataVal.value = "2000-01-01";
             });
     }
 };
 //Tipo CO2
 function fCO2() {
     var checkBox = document.getElementById("CO2");
+    var dataVal = document.getElementById("DateCO2");
     if (checkBox.checked == true) {
         $("#DateCO2").slideDown().fadeTo(100, 100).removeClass('hidden');
-        $("#ValCo2").value = "";
+        dataVal.value = "";
     } else {
         $("#DateCO2").slideUp().fadeTo(100, 100,
             function () {
                 $("#DateCO2").addClass('hidden');
-                $("#ValCo2").value = "2000-01-01";
+                dataVal.value = "2000-01-01";
             });
     }
 };
 //Tipo AGUA
 function fAgF() {
     var checkBox = document.getElementById("CheckAgua");
+    var dataVal = document.getElementById("DateAgua");
     if (checkBox.checked == true) {
         $("#DateAgua").slideDown().fadeTo(100, 100).removeClass('hidden');
-        $("#ValAgua").val("2000-01-01");
+        dataVal.value = "";
         
     } else {
         $("#DateAgua").slideUp().fadeTo(100, 100,
             function () {
                 $("#DateAgua").addClass('hidden');
-                $("#ValAgua").value = "2000-01-01";
+                dataVal.value = "2000-01-01";
             });
     }
 };
