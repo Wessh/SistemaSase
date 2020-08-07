@@ -14,18 +14,11 @@ namespace SistemaSase.Models
     
     public partial class FiscCaEq
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FiscCaEq()
-        {
-            this.tblFiscalizacao = new HashSet<tblFiscalizacao>();
-        }
-    
         public int Id { get; set; }
         public int FkFiscalizacao { get; set; }
         public int FkCatSeg { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblFiscalizacao> tblFiscalizacao { get; set; }
         public virtual tblEquipamentosSeg tblEquipamentosSeg { get; set; }
+        public virtual tblFiscalizacao tblFiscalizacao { get; set; }
     }
 }

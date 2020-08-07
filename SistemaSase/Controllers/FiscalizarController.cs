@@ -26,45 +26,39 @@ namespace SistemaSase.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult fiscalizar(
-            //bool RampaInterna, bool RampaExterna, bool BanheiroPdePnc,  //Tabela acessibilidade
-            //bool Bares, bool CasaFesta, bool Drogas, string Outros,     //Tabela Arredores da Ueb
+            bool RampaInterna, bool RampaExterna, bool BanheiroPdePnc,  //Tabela acessibilidade
+            bool Bares, bool CasaFesta, bool Drogas, string Outros,     //Tabela Arredores da Ueb
             bool CatVig, bool CatPor,        //Tabela CatSeg
             bool Fardamento, bool Apito, bool CapaChuva, bool Colete, bool Tonfa, bool Lanterna, bool Cracha, bool Quepe, bool Revolver, bool Radio,  //EquipamentosSeg
             bool FardamentoP, bool ApitoP, bool CapaChuvaP, bool ColeteP, bool TonfaP, bool LanternaP, bool CrachaP, bool QuepeP, bool RevolverP, bool RadioP,  //EquipamentosSeg
             bool Estacionamento, bool ControleVeiculos, bool PortaoEletronico, bool EstaRetrito, bool ParaRaios,     //EstFisica
             bool Parede, bool Teto, bool Calcada, bool Quadra, bool Capina, bool Portas, bool Piso,      //EstReparo
             bool Certificacao, bool Extintor, bool PQS, bool CO2, bool Agua, DateTime ValPqs, DateTime ValCo2, DateTime ValAgua,      //SisIncendio
-            bool cozinha, bool industrial, bool FuncionandoI, bool FuncionandoD,       //GasCozinha
+            bool domestico, bool industrial, bool FuncionandoI, bool FuncionandoD,       //GasCozinha
             string NomeGestor, string Documento,     //Gestor
             bool IntLu, bool ExtLu,        //Iluminacao
             bool Fiacao, bool CaixaForca, bool Interruptores, bool Tomadas, bool ArCon, bool Ventilador, bool Geladeira, bool Frezzer, bool Bebedouro,        //IluReparo
             bool FiacaoE, bool CaixaForcaE, bool InterruptoresE, bool TomadasE, bool ArConE, bool VentiladorE, bool GeladeiraE, bool FrezzerE, bool BebedouroE,        //IluReparoExterna
-                                                                                                                                                                       //bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,     //ListaTel
             bool LivroOcorrecia, bool RegistroDiarios,      //LivroRegistro
-                                                            //bool Professores, bool Alunos, bool Gestores, string OutrosCoInternas,       //OcoInternas
-                                                            //bool EstFunc,       //OpGas
-                                                            //bool Treinamento, bool Sinalizacao,        //PanicoIncendio
-                                                            //bool Escola, bool Parceria,        //ProjViolencia
+            bool Professores, bool Alunos, bool Gestores, string OutrosCoInternas,       //OcoInternas
+            bool Treinamento, bool Sinalizacao,        //PanicoIncendio
+            bool Escola, bool Parceria,        //ProjViolencia
             bool Banheiros, bool Fossa, bool Cisterna, bool CaixaAgua,       //SisHidraSaniRep
-                                                                             //bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
+            bool FaixaPedestre, bool Semaforo, bool Agente,     //Transito
             string NomeUeb, string EnderecoUeb, string NucleoUeb, string ContatoUebF, string ContatoUebS,       //UEB
             bool Vigilante, bool Porteiro, bool VigiFerista, bool PortFerista, bool VigSemedPort, bool VigSemed,        //TipoSeg
+            bool Policia, bool Ronda, bool Guarda, bool Bombeiro, bool Conselho, bool Samu, bool SaseSemed,         //ListaTele
             int PostVigilante, int PostPorteiro, int PostVigia     //QntPosto
             )
         {
             //Id do usuario logado
-            //var identity = User.Identity as ClaimsIdentity;
-            //var matUser = identity.Claims.FirstOrDefault(c => c.Type == "Matricula").Value;
-            //var idUser = db.tblRegistro.FirstOrDefault(u => u.Matricula == matUser).Id;
-            int portid = 0;
-            int vigid = 0;
-            int iluextid = 0;
-            int iluintid = 0;
+            var identity = User.Identity as ClaimsIdentity;
+            var matUser = identity.Claims.FirstOrDefault(c => c.Type == "Matricula").Value;
+            var idUser = db.tblRegistro.FirstOrDefault(u => u.Matricula == matUser).Id;
 
             //Importar as tabelas
             tblAcessibilidade tblacessibilidade = new tblAcessibilidade();
             tblArredoresUeb tblarredoresUeb = new tblArredoresUeb();
-            tblCatSeg tblcatSeg = new tblCatSeg();
             tblEquipamentosSeg tblequipamentosSeg = new tblEquipamentosSeg();
             tblEstFisica tblestFisica = new tblEstFisica();
             tblEstReparo tblestReparo = new tblEstReparo();
@@ -86,14 +80,18 @@ namespace SistemaSase.Controllers
             tblTipoSeg tblTipoSeg = new tblTipoSeg();
             tblTransito tblTransito = new tblTransito();
             tblUeb tblUeb = new tblUeb();
-            /* - Relacionamentos - 
+            tblFiscalizacao tblfiscalizacao = new tblFiscalizacao();
+            FiscCaEq relfiscCaEq = new FiscCaEq();
+            Iluminacao_IluReparo relIluRep = new Iluminacao_IluReparo();
+
+            /* - Relacionamentos - */
             Iluminacao_IluReparo Reiluminacao_IluReparo = new Iluminacao_IluReparo();
             Gas_OpcaoGas Regas_OpcaoGas = new Gas_OpcaoGas();
-            Incendio_Extintor Reincendio_Extintor = new Incendio_Extintor();*/
+            Incendio_Extintor Reincendio_Extintor = new Incendio_Extintor();
 
             /* - - */
 
-            /**UEB*
+            /**UEB**/
             tblUeb.Nome = NomeUeb;
             tblUeb.Endereco = EnderecoUeb;
             tblUeb.Nucleo = NucleoUeb;
@@ -102,13 +100,13 @@ namespace SistemaSase.Controllers
             tblUeb.Contato2 = ContatoUebS;
             tblUeb.DataHora = DateTime.Now;
             tblUeb.FKGestor = tblGestor.Id;
-            tblUeb.FkRegistro = idUser;*/
-            /*- Registro -
+            tblUeb.FkRegistro = idUser;
+            /*- Registro -*/
             db.tblGestor.Add(tblGestor);
             db.tblUeb.Add(tblUeb);
-            db.SaveChanges();*/
+            db.SaveChanges();
 
-            /**Segurança*
+            /**Segurança**/
             tblTipoSeg.Vigilante = Vigilante;
             tblTipoSeg.Porteiro = Porteiro;
             tblTipoSeg.VigiFeirista = VigiFerista;
@@ -117,74 +115,32 @@ namespace SistemaSase.Controllers
             tblTipoSeg.VigSemed = VigSemed;
             //Salvar
             db.tblTipoSeg.Add(tblTipoSeg);
-            db.SaveChanges();*/
+            db.SaveChanges();
 
-            /** QNT Postos na UEB *
+            /** QNT Postos na UEB **/
             tblQntPosto.PostVigilante = PostVigilante;
             tblQntPosto.PostPorteiro = PostPorteiro;
             tblQntPosto.PostVigia = PostVigia;
             db.tblQntPosto.Add(tblQntPosto);
-            db.SaveChanges();*/
+            db.SaveChanges();
 
-            /** Livro de registro *
+            /** Livro de registro **/
             tblLivroRegistro.LivroOcorrecia = LivroOcorrecia;
             tblLivroRegistro.RegistroDiarios = RegistroDiarios;
             db.tblLivroRegistro.Add(tblLivroRegistro);
-            db.SaveChanges();*/
+            db.SaveChanges();
 
-            /*
-             * Categoria Equipamentos *
-             * Colocar o id da fiscalização na tabela CatSeg... Ou seja... adicionar o ele após salvar a tblFiscalização
-             
-            if (CatVig)
-            {
-                tblequipamentosSeg.Fardamento = Fardamento;
-                tblequipamentosSeg.Apito = Apito;
-                tblequipamentosSeg.CapaChuva = CapaChuva;
-                tblequipamentosSeg.Colete = Colete;
-                tblequipamentosSeg.Tonfa = Tonfa;
-                tblequipamentosSeg.Lanterna = Lanterna;
-                tblequipamentosSeg.Cracha = Cracha;
-                tblequipamentosSeg.Quepe = Quepe;
-                tblequipamentosSeg.Revolver = Revolver;
-                tblequipamentosSeg.Radio = Radio;
-                tblcatSeg.Nome = "Vigilante";
-                tblcatSeg.FkEquipamentos = tblequipamentosSeg.Id;
-                db.tblEquipamentosSeg.Add(tblequipamentosSeg);
-                db.tblCatSeg.Add(tblcatSeg);
-                db.SaveChanges();
-                vigid = tblcatSeg.Id;
-            }
-            if (CatPor)
-            {
-                tblequipamentosSeg.Fardamento = FardamentoP;
-                tblequipamentosSeg.Apito = ApitoP;
-                tblequipamentosSeg.CapaChuva = CapaChuvaP;
-                tblequipamentosSeg.Colete = ColeteP;
-                tblequipamentosSeg.Tonfa = TonfaP;
-                tblequipamentosSeg.Lanterna = LanternaP;
-                tblequipamentosSeg.Cracha = CrachaP;
-                tblequipamentosSeg.Quepe = QuepeP;
-                tblequipamentosSeg.Revolver = RevolverP;
-                tblequipamentosSeg.Radio = RadioP;
-                tblcatSeg.Nome = "Porteiro";
-                tblcatSeg.FkEquipamentos = tblequipamentosSeg.Id;
-                db.tblEquipamentosSeg.Add(tblequipamentosSeg);
-                db.tblCatSeg.Add(tblcatSeg);
-                db.SaveChanges();
-                portid = tblcatSeg.Id;
-            }*/
 
-            /** Cadastro tabela Estrutura fisica *
+            /** Cadastro tabela Estrutura fisica **/
             tblestFisica.Estacionamento = Estacionamento;
             tblestFisica.ControleVeiculos = ControleVeiculos;
             tblestFisica.PortaoEletronico = PortaoEletronico;
             tblestFisica.EstaRetrito = EstaRetrito;
             tblestFisica.ParaRaios = ParaRaios;
             db.tblEstFisica.Add(tblestFisica);
-            db.SaveChanges();*/
+            db.SaveChanges();
 
-            /** Cadastro Reparo Estrutura fisica *
+            /** Cadastro Reparo Estrutura fisica **/
             tblestReparo.Parede = Parede;
             tblestReparo.Teto = Teto;
             tblestReparo.Calcada = Calcada;
@@ -193,9 +149,9 @@ namespace SistemaSase.Controllers
             tblestReparo.Portas = Portas;
             tblestReparo.Piso = Piso;
             db.tblEstReparo.Add(tblestReparo);
-            db.SaveChanges();*/
+            db.SaveChanges();
 
-            /** Iluminação *
+            /** Iluminação **/
             if (IntLu)
             {
                 tblIluReparo.Fiacao = Fiacao;
@@ -207,11 +163,9 @@ namespace SistemaSase.Controllers
                 tblIluReparo.Geladeira = Geladeira;
                 tblIluReparo.Frezzer = Frezzer;
                 tblIluReparo.Bebedouro = Bebedouro;
-                tblIluminacao.Nome = "interna";
-                db.tblIluminacao.Add(tblIluminacao);
+                tblIluReparo.Nome = "interna";
                 db.tblIluReparo.Add(tblIluReparo);
                 db.SaveChanges();
-                iluintid = tblIluReparo.Id;
             }
             if (ExtLu)
             {
@@ -224,22 +178,20 @@ namespace SistemaSase.Controllers
                 tblIluReparo.Geladeira = GeladeiraE;
                 tblIluReparo.Frezzer = FrezzerE;
                 tblIluReparo.Bebedouro = BebedouroE;
-                tblIluminacao.Nome = "externa";
-                db.tblIluminacao.Add(tblIluminacao);
+                tblIluReparo.Nome = "externa";
                 db.tblIluReparo.Add(tblIluReparo);
                 db.SaveChanges();
-                iluextid = tblIluReparo.Id;
             }
-            */
-            /** Sistema hidraulico sanitario *
+
+            /** Sistema hidraulico sanitario **/
             tblSisHidraSaniRep.Banheiros = Banheiros;
             tblSisHidraSaniRep.Fossa = Fossa;
             tblSisHidraSaniRep.Cisterna = Cisterna;
             tblSisHidraSaniRep.CaixaAgua = CaixaAgua;
             db.tblSisHidraSaniRep.Add(tblSisHidraSaniRep);
-            db.SaveChanges();*/
+            db.SaveChanges();
 
-            /** Sistema de combate a incendio *
+            /** Sistema de combate a incendio **/
             tblSisIncendio.Certificacao = Certificacao;
             tblSisIncendio.Extintor = Extintor;
             db.tblSisIncendio.Add(tblSisIncendio);
@@ -268,19 +220,143 @@ namespace SistemaSase.Controllers
                     db.tblExtintor.Add(tblextintor);
                     db.SaveChanges();
                 }
-            }*/
+            }
+
 
             /** Tipo Gás **/
-            if (cozinha)
+            if (domestico)
             {
-                tblGasCozinha.Nome = "Doméstico";
-                tblGasCozinha.Funcionando = FuncionandoD;
+                tblGasUeb.Nome = "Doméstico";
+                tblGasUeb.Funcionando = FuncionandoD;
+                db.tblGasUeb.Add(tblGasUeb);
+                db.SaveChanges();
             }
             if (industrial)
             {
-                tblGasCozinha.Nome = "Industrial";
-                tblGasCozinha.Funcionando = FuncionandoI;
+                tblGasUeb.Nome = "Industrial";
+                tblGasUeb.Funcionando = FuncionandoI;
+                db.tblGasUeb.Add(tblGasUeb);
+                db.SaveChanges();
             }
+
+
+            /** PrevencaoIncendio **/
+            tblPanicoIncendio.Treinamento = Treinamento;
+            tblPanicoIncendio.Sinalizacao = Sinalizacao;
+            db.tblPanicoIncendio.Add(tblPanicoIncendio);
+            db.SaveChanges();
+
+
+            /** Transito **/
+            tblTransito.FaixaPedestre = FaixaPedestre;
+            tblTransito.Semaforo = Semaforo;
+            tblTransito.Agente = Agente;
+            db.tblTransito.Add(tblTransito);
+            db.SaveChanges();
+
+            /** Acessibilidade **/
+            tblacessibilidade.RampaInterna = RampaInterna;
+            tblacessibilidade.RampaExterna = RampaExterna;
+            tblacessibilidade.BanheiroPdePnc = BanheiroPdePnc;
+            db.tblAcessibilidade.Add(tblacessibilidade);
+            db.SaveChanges();
+
+
+            /** ArredoresUEB **/
+            tblarredoresUeb.Bares = Bares;
+            tblarredoresUeb.CasaFesta = CasaFesta;
+            tblarredoresUeb.Drogas = Drogas;
+            db.tblArredoresUeb.Add(tblarredoresUeb);
+            db.SaveChanges();
+
+            /** Projeto contra violencia **/
+            tblProjViolencia.Escola = Escola;
+            tblProjViolencia.Parceria = Parceria;
+            db.tblProjViolencia.Add(tblProjViolencia);
+            db.SaveChanges();
+
+            /** Ocorrencias Internas **/
+            tblOcoInternas.Professores = Professores;
+            tblOcoInternas.Alunos = Alunos;
+            tblOcoInternas.Gestores = Gestores;
+            db.tblOcoInternas.Add(tblOcoInternas);
+            db.SaveChanges();
+
+            /** Lista telefonica **/
+            tblListaTel.Policia = Policia;
+            tblListaTel.Ronda = Ronda;
+            tblListaTel.Guarda = Guarda;
+            tblListaTel.Bombeiro = Bombeiro;
+            tblListaTel.Conselho = Conselho;
+            tblListaTel.Samu = Samu;
+            tblListaTel.SaseSemed = SaseSemed;
+            db.tblListaTel.Add(tblListaTel);
+            db.SaveChanges();
+
+            /** Fiscalização **/
+            tblfiscalizacao.FkAcessibilidade = tblacessibilidade.Id;
+            tblfiscalizacao.FkArredoresUeb = tblarredoresUeb.Id;
+            tblfiscalizacao.FkEstruturaFisica = tblestFisica.Id;
+            tblfiscalizacao.FkEstruturaReparo = tblestReparo.Id;
+            tblfiscalizacao.FkGasUeb = tblGasUeb.Id;
+            tblfiscalizacao.FkIluminacaoReparo = tblIluReparo.Id;
+            tblfiscalizacao.FkListaTelefone = tblListaTel.Id;
+            tblfiscalizacao.FkLivroRegistro = tblLivroRegistro.Id;
+            tblfiscalizacao.FkOcorrenciaInterna = tblOcoInternas.id;
+            tblfiscalizacao.FkPanicoIncendio = tblPanicoIncendio.Id;
+            tblfiscalizacao.FkProjetoViolencia = tblProjViolencia.Id;
+            tblfiscalizacao.FkQntPosto = tblQntPosto.Id;
+            tblfiscalizacao.FkRegistro = idUser;
+            tblfiscalizacao.FkSisHidraSaniReparo = tblSisHidraSaniRep.Id;
+            tblfiscalizacao.FkSistemaIncendio = tblSisIncendio.Id;
+            tblfiscalizacao.FkTipoSeg = tblTipoSeg.Id;
+            tblfiscalizacao.FkTransito = tblTransito.Id;
+            tblfiscalizacao.FkUeb = tblUeb.Id;
+            db.tblFiscalizacao.Add(tblfiscalizacao);
+            db.SaveChanges();
+
+            /*
+             * Categoria Equipamentos *
+             * Colocar o id da fiscalização na tabela CatSeg... Ou seja... adicionar o ele após salvar a tblFiscalização
+             * */
+            if (CatVig)
+            {
+                tblequipamentosSeg.Nome = "Vigilante";
+                tblequipamentosSeg.Fardamento = Fardamento;
+                tblequipamentosSeg.Apito = Apito;
+                tblequipamentosSeg.CapaChuva = CapaChuva;
+                tblequipamentosSeg.Colete = Colete;
+                tblequipamentosSeg.Tonfa = Tonfa;
+                tblequipamentosSeg.Lanterna = Lanterna;
+                tblequipamentosSeg.Cracha = Cracha;
+                tblequipamentosSeg.Quepe = Quepe;
+                tblequipamentosSeg.Revolver = Revolver;
+                tblequipamentosSeg.Radio = Radio;
+                db.tblEquipamentosSeg.Add(tblequipamentosSeg);
+                relfiscCaEq.FkCatSeg = tblequipamentosSeg.Id;
+                relfiscCaEq.FkFiscalizacao = tblfiscalizacao.Id;
+                db.SaveChanges();
+
+            }
+            if (CatPor)
+            {
+                tblequipamentosSeg.Nome = "Porteiro";
+                tblequipamentosSeg.Fardamento = FardamentoP;
+                tblequipamentosSeg.Apito = ApitoP;
+                tblequipamentosSeg.CapaChuva = CapaChuvaP;
+                tblequipamentosSeg.Colete = ColeteP;
+                tblequipamentosSeg.Tonfa = TonfaP;
+                tblequipamentosSeg.Lanterna = LanternaP;
+                tblequipamentosSeg.Cracha = CrachaP;
+                tblequipamentosSeg.Quepe = QuepeP;
+                tblequipamentosSeg.Revolver = RevolverP;
+                tblequipamentosSeg.Radio = RadioP;
+                db.tblEquipamentosSeg.Add(tblequipamentosSeg);
+                relfiscCaEq.FkCatSeg = tblequipamentosSeg.Id;
+                relfiscCaEq.FkFiscalizacao = tblfiscalizacao.Id;
+                db.SaveChanges();
+            }
+
 
             return View();
         }

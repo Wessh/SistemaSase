@@ -47,12 +47,12 @@ namespace SistemaSase.Models
         public virtual DbSet<tblOpGas> tblOpGas { get; set; }
         public virtual DbSet<tblPanicoIncendio> tblPanicoIncendio { get; set; }
         public virtual DbSet<tblProjViolencia> tblProjViolencia { get; set; }
+        public virtual DbSet<tblQntPosto> tblQntPosto { get; set; }
         public virtual DbSet<tblRegistro> tblRegistro { get; set; }
         public virtual DbSet<tblSisHidraSaniRep> tblSisHidraSaniRep { get; set; }
         public virtual DbSet<tblSisIncendio> tblSisIncendio { get; set; }
+        public virtual DbSet<tblTipoSeg> tblTipoSeg { get; set; }
         public virtual DbSet<tblTransito> tblTransito { get; set; }
         public virtual DbSet<tblUeb> tblUeb { get; set; }
-        public virtual DbSet<tblQntPosto> tblQntPosto { get; set; }
-        public virtual DbSet<tblTipoSeg> tblTipoSeg { get; set; }
     }
 }

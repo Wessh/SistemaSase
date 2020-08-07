@@ -568,7 +568,7 @@
                                         @Html.CheckBox("industrial", new { id = "GInd", onclick = "fGInd()" })
                                         Industrial
                                         <div class="hidden" id="IndFun">
-                                            <ul />@Html.CheckBox("funcionalI")
+                                            <ul />@Html.CheckBox("FuncionandoI")
                                             Funcional
                                         </div>
                                     </label>
@@ -576,7 +576,7 @@
                                         @Html.CheckBox("domestico", new { id = "GDom", onclick = "fGDom()" })
                                         Doméstico
                                         <div class="hidden" id="DomFun">
-                                            <ul />@Html.CheckBox("funcionalD")
+                                            <ul />@Html.CheckBox("FuncionandoD")
                                             Funcional
                                         </div>
                                     </label>
@@ -596,11 +596,11 @@
                                 <div class="controls">
 
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Treinamento")
                                         Foi feito treinamento
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Sinalizacao")
                                         Existe sinalizações de fuga
                                     </label>
                                 </div>
@@ -618,15 +618,15 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("FaixaPedestre")
                                         Possui faixa de pedestre
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Semaforo")
                                         Possui semáforo
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Agente")
                                         Possui agente de trânsito
                                     </label>
                                 </div>
@@ -646,15 +646,15 @@
                                 <div class="controls">
 
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("RampaInterna")
                                         Rampa de acesso interna
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("RampaExterna")
                                         Rampa de acesso externa
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("BanheiroPdePnc")
                                         Banheiros PNE/PDC
                                     </label>
                                 </div>
@@ -674,15 +674,15 @@
                                 <div class="controls">
 
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Bares")
                                         Bares
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("CasaFesta")
                                         Casa de festa
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Drogas")
                                         Consumo e venda de drogas
                                     </label>
                                 </div>
@@ -700,11 +700,11 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Escola")
                                         Própria escola
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Parceria")
                                         Parceria
                                     </label>
                                 </div>
@@ -722,16 +722,16 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Professores")
                                         Professores
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Alunos")
                                         Alunos
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
-                                        Alunos
+                                        @Html.CheckBox("Gestores")
+                                        Gestores
                                     </label>
                                 </div>
                             </div>
@@ -749,35 +749,31 @@
                                 <div class="controls">
 
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Policia")
                                         Delegacia de polícia local
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Ronda")
                                         Ronda escolar
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Guarda")
                                         Guarda municipal
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
-                                        Guarda municipal
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Bombeiro")
                                         Corpo de Bombeiro Militar
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Conselho")
                                         Conselho tutelar
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("Samu")
                                         Samu
                                     </label>
                                     <label>
-                                        <input type="checkbox" name="#" />
+                                        @Html.CheckBox("SaseSemed")
                                         Sase/Semed
                                     </label>
                                 </div>

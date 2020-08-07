@@ -14,10 +14,15 @@ namespace SistemaSase.Models
     
     public partial class tblFiscalizacao
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblFiscalizacao()
+        {
+            this.FiscCaEq = new HashSet<FiscCaEq>();
+        }
+    
         public int Id { get; set; }
         public int FkUeb { get; set; }
         public int FkRegistro { get; set; }
-        public int FkRelCaEq { get; set; }
         public int FkSistemaIncendio { get; set; }
         public int FkLivroRegistro { get; set; }
         public int FkGasUeb { get; set; }
@@ -35,7 +40,8 @@ namespace SistemaSase.Models
         public int FkQntPosto { get; set; }
         public int FkTipoSeg { get; set; }
     
-        public virtual FiscCaEq FiscCaEq { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FiscCaEq> FiscCaEq { get; set; }
         public virtual tblAcessibilidade tblAcessibilidade { get; set; }
         public virtual tblArredoresUeb tblArredoresUeb { get; set; }
         public virtual tblEstFisica tblEstFisica { get; set; }
@@ -49,10 +55,10 @@ namespace SistemaSase.Models
         public virtual tblOcoInternas tblOcoInternas { get; set; }
         public virtual tblPanicoIncendio tblPanicoIncendio { get; set; }
         public virtual tblProjViolencia tblProjViolencia { get; set; }
+        public virtual tblQntPosto tblQntPosto { get; set; }
         public virtual tblSisHidraSaniRep tblSisHidraSaniRep { get; set; }
         public virtual tblSisIncendio tblSisIncendio { get; set; }
-        public virtual tblTransito tblTransito { get; set; }
-        public virtual tblQntPosto tblQntPosto { get; set; }
         public virtual tblTipoSeg tblTipoSeg { get; set; }
+        public virtual tblTransito tblTransito { get; set; }
     }
 }
